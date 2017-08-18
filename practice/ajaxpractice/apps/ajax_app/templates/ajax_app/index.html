@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('form').submit(function(e){
+          e.preventDefault()
+          $.ajax({
+            url: 'http://localhost:8000/addpost',
+            method: 'post',
+            data: $(this).serialize(),
+            success: function(serverResponse){
+              $('.posts').html(serverResponse)
+            }
+          })
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <h1>My Posts</h1>
+      <div class="posts">
+        {% for post in allposts %}
+          <div class="" style="height:150px; width:200px;border:2px solid black;display:inline-block">
+            {{post.post}}
+          </div>
+        {% endfor %}
+      </div>
+    <form action="" method="post">
+      {% csrf_token %}
+      Add a note:
+      <input type="text" name="note" value="">
+      <input type="submit" name="" value="Submit">
+    </form>
+  </body>
+</html>
