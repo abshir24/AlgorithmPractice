@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+    <style media="screen">
+      .location{
+        display: inline-block;
+        height: 200px;
+        width:400px;
+        border: 1px solid black;
+        display: inline-block;
+      }
+
+      h3{
+        text-align: center;
+      }
+
+      p{
+        text-align:center;
+      }
+
+      input[type="submit"]{
+        display:block;
+        position:relative;
+        left:150px;
+        height:100px;
+        width:100px;
+      }
+
+      .activities{
+        height:200px;
+        max-width:75%;
+        position:relative;
+        left:5%;
+        margin-top:20px;
+        border:1px solid black;
+        overflow:auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin-bottom:30px;">
+      Your Gold: <input type="text" name="" value="{{session['gold']}}">
+    </div>
+    <div class="location">
+      <h3>Farm</h3>
+      <form class="" action="/findgold" method="post">
+        <input type="hidden" name="building" value="farm">
+        <p>(earns 10-20 golds)</p>
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+    <div class="location">
+      <h3>Cave</h3>
+      <form class="" action="/findgold" method="post">
+        <input type="hidden" name="building" value="cave">
+        <p>(earns 5-10 golds)</p>
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+
+    <div class="location">
+      <h3>House</h3>
+      <form class="" action="/findgold" method="post">
+        <input type="hidden" name="building" value="house">
+        <p>(earns 2-5 golds)</p>
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+
+    <div class="location">
+      <h3>Casino</h3>
+      <form class="" action="/findgold" method="post">
+        <input type="hidden" name="building" value="casino">
+        <p>(earns/loses 0-50 golds)</p>
+        <input type="submit" name="" value="Find Gold">
+      </form>
+    </div>
+
+    <p style="text-align:left;padding-left:5%">Activities:</p>
+    <div class="activities">
+      {% for x in range(0,length): %}
+        {% if array[x][0] == "L"%}
+            <p style="color:red; text-align:left">{{array[x]}}</p>
+        {% endif %}
+        {% if array[x][0] == "E"%}
+            <p style="color:green; text-align:left">{{array[x]}}</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+
+
+  </body>
+</html>
