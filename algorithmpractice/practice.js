@@ -411,8 +411,6 @@
 
 // ispanagram("How quilckly daft jumping zebras vex!")
 
-// fun
-
 // function allpermutations(string){
 //     var arr = []
 //     var string2;
@@ -470,15 +468,13 @@
 //             string2=midstring[0]
 //             count--;
 //         }
-
 //         temp = split[0]
 //         split[0] = split[i]
 //         split[i] = temp
 //         tempstring = split.join("")
 //         console.log("tempstring",tempstring)
 //     }
-//     console.log(arr.length)
-//     return
+//     return arr
 // }
 
 // allpermutations("team")
@@ -601,6 +597,10 @@ function SinglyList(){
     this.head = null;
 }
 
+ListNode.prototype.speak = function(){
+    console.log("speak")
+}
+
 SinglyList.prototype.pop = function(){
     if(this.head.next == null){
         this.head = null
@@ -630,30 +630,30 @@ SinglyList.prototype.addnode = function(value){
     return node;
 };
 
-// SinglyList.prototype.shift = function(int){
-//     var runner = this.head;
-//     var prev;
-//     while(int > 0){
-//         prev = runner;
-//         runner = runner.next
-//         int--;
-//     }
-//     var temp = runner;
-//     prev.next = null;
-//     head = this.head
-//     this.head = runner
-//     while(temp.next){
-//         temp = temp.next
-//     }
-//     temp.next = head
-// }
+SinglyList.prototype.shift = function(int){
+    var runner = this.head;
+    var prev;
+    while(int > 0){
+        prev = runner;
+        runner = runner.next
+        int--;
+    }
+    var temp = runner;
+    prev.next = null;
+    head = this.head
+    this.head = runner
+    while(temp.next){
+        temp = temp.next
+    }
+    temp.next = head
+}
 
-// var newlist = new SinglyList()
-// newlist.addnode(1)
-// newlist.addnode(2)
-// newlist.addnode(3)
-// newlist.addnode(4)
-// newlist.addnode(5)
+var newlist = new SinglyList()
+newlist.addnode(1)
+newlist.addnode(2)
+newlist.addnode(3)
+newlist.addnode(4)
+newlist.addnode(5)
 // newlist.shift(1)
 
 // function listlength(node,count){
@@ -798,30 +798,30 @@ function BinarySearchTree(){
 // }
 
 
-BinarySearchTree.prototype.add = function(val){
-    var newNode = new Node(val)
-    if(!this.root){
-        this.root = newNode
-        return
-    }
-    var runner = this.root
-    while(runner){
-        if(val < runner.val){
-            if(!runner.left){
-                runner.left = newNode
-                return
-            }
-            runner = runner.left
-        }
-        if(val > runner.val){
-            if(!runner.right){
-                runner.right = newNode
-                return
-            }
-            runner = runner.right
-        }
-    }
-}
+// BinarySearchTree.prototype.add = function(val){
+//     var newNode = new Node(val)
+//     if(!this.root){
+//         this.root = newNode
+//         return
+//     }
+//     var runner = this.root
+//     while(runner){
+//         if(val < runner.val){
+//             if(!runner.left){
+//                 runner.left = newNode
+//                 return
+//             }
+//             runner = runner.left
+//         }
+//         if(val > runner.val){
+//             if(!runner.right){
+//                 runner.right = newNode
+//                 return
+//             }
+//             runner = runner.right
+//         }
+//     }
+// }
 
 
 // BinarySearchTree.prototype.contains = function(val){
@@ -1510,51 +1510,51 @@ BinarySearchTree.prototype.add = function(val){
 // console.log(insertionsort([6,5,3,1,8,7,2,4]))
 
 
-SinglyList.prototype.prependval = function(ListNode,before){
-    if(this.head == before){
-        var temp = this.head
-        this.head = ListNode
-        this.head.next = temp
-    }else{
-        var runner = this.head
-        var parent = runner
-        var count = 0
-        while(runner !== before){
-            parent = runner
-            runner = runner.next
-        }
-        var temp = runner
-        parent.next = ListNode
-        parent.next.next = temp
-        return ListNode
-    }
-}
+// SinglyList.prototype.prependval = function(ListNode,before){
+//     if(this.head == before){
+//         var temp = this.head
+//         this.head = ListNode
+//         this.head.next = temp
+//     }else{
+//         var runner = this.head
+//         var parent = runner
+//         var count = 0
+//         while(runner !== before){
+//             parent = runner
+//             runner = runner.next
+//         }
+//         var temp = runner
+//         parent.next = ListNode
+//         parent.next.next = temp
+//         return ListNode
+//     }
+// }
 
 
-SinglyList.prototype.remove = function(val){
-    var current = this.head;
-    //case-1
-    if(current.value == val){
-       this.head = current.next;     
-    }
-    else{
-      var previous = current;
+// SinglyList.prototype.remove = function(val){
+//     var current = this.head;
+//     //case-1
+//     if(current.value == val){
+//        this.head = current.next;     
+//     }
+//     else{
+//       var previous = current;
       
-      while(current.next){
-        //case-3
-        if(current.value == val){
-          previous.next = current.next;          
-          break;
-        }
-        previous = current;
-        current = current.next;
-      }
-      //case -2
-      if(current.value == val){
-        previous.next == null;
-      }
-    }
-  }  
+//       while(current.next){
+//         //case-3
+//         if(current.value == val){
+//           previous.next = current.next;          
+//           break;
+//         }
+//         previous = current;
+//         current = current.next;
+//       }
+//       //case -2
+//       if(current.value == val){
+//         previous.next == null;
+//       }
+//     }
+//   }  
 
 
 
@@ -2100,18 +2100,18 @@ SinglyList.prototype.remove = function(val){
 // }
 // console.log(arraymintofront([4,2,1,3,5]))
 
-function isPalindrome(string){
-    var i = 0; var j= string.length-1;
-    while(i <= j){
-        if(string[i] === string[j]){
-            i++;
-            j--;
-        }else{
-            return false
-        }
-    }
-    return true
-}
+// function isPalindrome(string){
+//     var i = 0; var j= string.length-1;
+//     while(i <= j){
+//         if(string[i] === string[j]){
+//             i++;
+//             j--;
+//         }else{
+//             return false
+//         }
+//     }
+//     return true
+// }
 
 // console.log(isPalindrome("racecar"))
 
@@ -2136,12 +2136,12 @@ function isPalindrome(string){
 // }
 // list.reverse()
 
-function swap(arr,idx1,idx2){
-    var temp = arr[idx1];
-    arr[idx1] = arr[idx2]
-    arr[idx2] = temp;
-    return
-}
+// function swap(arr,idx1,idx2){
+//     var temp = arr[idx1];
+//     arr[idx1] = arr[idx2]
+//     arr[idx2] = temp;
+//     return
+// }
 
 // function selectionsort(arr){
 //     for(var i=0;i<arr.length;i++){
@@ -2383,12 +2383,12 @@ function swap(arr,idx1,idx2){
 
 // console.log(map.table)
 
-var btree = new BinarySearchTree()
+// var btree = new BinarySearchTree()
 
-btree.add(100)
-btree.add(150)
-btree.add(50)
-btree.add(42)
+// btree.add(100)
+// btree.add(150)
+// btree.add(50)
+// btree.add(42)
 // btree.add(55)
 // btree.add(140)
 // btree.add(151)
@@ -2583,3 +2583,125 @@ btree.add(42)
 // }
 
 // console.log(bPoint([1,2,3,4,10]))
+
+// function bIndex(arr){
+//     if(arr.length <=2){
+//         return -1
+//     }
+//     for(var i = 1;i < arr.length; i++){
+//         sum = 0;sum2=0;j=0; k=arr.length-1
+//         while(j < i || k > i){
+//             if(j == i){
+//                 sum2+= arr[k]; 
+//                 k--;
+//             }else if(k == i){
+//                 sum+= arr[j];
+//                 j++;
+//             }else{
+//                 sum+= arr[j];
+//                 sum2+= arr[k]; 
+//                 j++;
+//                 k--;
+//             }
+//         }
+//         if(sum == sum2){
+//             return i;
+//         }
+//     }
+//     return -1
+// }
+
+// console.log(bIndex([2,6,2,7,2,2,2,2,2]))
+
+// var list1 = new SinglyList()
+// var list2 = new SinglyList()
+// for(var i=1;i<2;i++){
+//     list1.addnode(i)
+// }
+// for(var i=4;i<7;i++){
+//     list2.addnode(i)
+// }
+
+// function zip(list1,list2){
+//     var newlist = new SinglyList()
+//     var runner1 = list1.head
+//     var runner2 = list2.head
+//     while(runner1 || runner2){
+//         if(runner1){
+//             newlist.addnode(runner1.val)
+//             runner1 = runner1.next
+//         }
+//         if(runner2){
+//             newlist.addnode(runner2.val)
+//             runner2 = runner2.next
+//         }
+        
+//     }
+//     return newlist
+// }
+
+// console.log(zip(list1,list2).head)
+
+function remove(index,string){
+    var string2 = ""
+    for(var i = 0;i<string.length;i++){
+        if(i == index){
+            continue;
+        }
+        string2+=string[i]
+    }
+    return string2
+}
+
+function allperm(str,arr,i=0){
+    if(i==str.length){
+        console.log(arr,arr.length)
+        return 
+    }
+    count =1 ; tempstr = str
+    while(count < str.length){
+        temp = str[1];
+        str = remove(1,str);
+        str+= temp
+        arr.push(str)
+        count++;
+    }
+    count = 0
+    while(count < str.length){
+        str = remove(2,str)    
+    }
+    console.log(str)
+    temp = str[0]
+    str = remove(0,str)
+    str+= temp
+    allperm(str,arr,i+=1)
+}
+
+console.log(allperm("team",[]))
+
+
+// function checkevens(arr){
+//     var evens = 0;var odds=0;
+//     for(var i = 0; i<arr.length;i++){
+//         if(arr[i] % 2 == 0){
+//             evens++;
+//         }else{
+//             evens = 0
+//         }
+//         if(evens === 3){
+//             console.log('Cool beans')
+//         }
+
+//         if(arr[i] % 2 == 1){
+//             odds++;
+//         }else{
+//             odds = 0
+//         }
+//         if(odds === 3){
+//             console.log('Nice')
+//         }
+//     }
+//     return 
+// }
+
+// checkevens([1,1,2,1,4,5])
