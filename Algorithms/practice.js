@@ -3581,19 +3581,19 @@ SLL.prototype.remove = function(val){
 // }
 // console.log(sllRmNeg(newlist))
 
-let sllConcat = (list1,list2)=>{
-    if(list1.head){
-        runner = list1.head
-        while(runner.next){
-            runner = runner.next
-        }
-        if(list2.head){
-            runner.next = list2.head
-        }
-        return list1
-    }
-    return null
-}
+// let sllConcat = (list1,list2)=>{
+//     if(list1.head){
+//         runner = list1.head
+//         while(runner.next){
+//             runner = runner.next
+//         }
+//         if(list2.head){
+//             runner.next = list2.head
+//         }
+//         return list1
+//     }
+//     return null
+// }
 
 // console.log(sllConcat(newlist,list2))
 
@@ -3696,19 +3696,54 @@ for(let i =0;i<arr.length;i++){
 
 // console.log(deDupe(newlist))
 
-let zipLists = (list1,list2)=>{
-    let newlist = new SLL(),runner1 = list1.head, runner2 = list2.head
-    while(runner1 || runner2){
-        if(runner1){
-            newlist.addnode(runner1.val)
-            runner1 = runner1.next
-        }
-        if(runner2){
-            newlist.addnode(runner2.val)
-            runner2 = runner2.next
-        }
+// let zipLists = (list1,list2)=>{
+//     let newlist = new SLL(),runner1 = list1.head, runner2 = list2.head
+//     while(runner1 || runner2){
+//         if(runner1){
+//             newlist.addnode(runner1.val)
+//             runner1 = runner1.next
+//         }
+//         if(runner2){
+//             newlist.addnode(runner2.val)
+//             runner2 = runner2.next
+//         }
+//     }
+//     return newlist
+// }
+
+// console.log(zipLists(newlist,newlist2))
+
+function SLQueue(){
+    this.head = null;
+    this.tail = null
+}
+SLQueue.prototype.enqueue = function(val){
+    var node = new Node(val),
+    currentNode = this.head;
+    if (!currentNode){
+        this.head = node;
+        this.tail = node;
+        return 
     }
-    return newlist
+    while (currentNode.next){
+        currentNode = currentNode.next;
+    }
+    currentNode.next = node;
+    this.tail = currentNode.next
+    return node;
 }
 
-console.log(zipLists(newlist,newlist2))
+SLQueue.prototype.dequeue = function(){
+    if(this.head){
+        let temp = this.head
+        this.head = this.head.next
+        return temp.val
+    }
+}
+
+let queue = new SLQueue()
+for(let i=1;i<11;i++){
+    queue.enqueue(i)
+}
+console.log(queue.dequeue())
+console.log(queue)
