@@ -3426,26 +3426,26 @@ let min = (node)=>{
 
 // console.log(rmLastNode(newlist))
 
-// let minToFront = (list)=>{
-//     if(list.head){
-//         let minimum = min(list.head)
-//         let runner = list.head,prev;
-//         if(runner.val == minimum){
-//             return list
-//         }
-//         while(runner.val !== minimum){
-//             prev = runner;
-//             runner = runner.next
-//         }
-//         let temp = runner;
-//         let temp2 = list.head
-//         prev.next = runner.next;
-//         list.head = temp
-//         list.head.next = temp2
-//         return list
-//     }
-//     return null
-// }
+let minToFront = (list)=>{
+    if(list.head){
+        let minimum = min(list.head)
+        let runner = list.head,prev;
+        if(runner.val == minimum){
+            return list
+        }
+        while(runner.val !== minimum){
+            prev = runner;
+            runner = runner.next
+        }
+        let temp = runner;
+        let temp2 = list.head
+        prev.next = runner.next;
+        list.head = temp
+        list.head.next = temp2
+        return 
+    }
+    return null
+}
 
 // console.log(minToFront(newlist))
 
@@ -3680,19 +3680,19 @@ for(let i =0;i<arr.length;i++){
 
 // console.log(secondLargestVal(newlist))
 
-// let deDupe = (list)=>{
-//     if(list.head){
-//         let newlist = new SLL(),runner=list.head
-//         while(runner){
-//             if(!newlist.contains(runner.val)){
-//                 console.log(runner.val)
-//                 newlist.addnode(runner.val)
-//             }
-//             runner=runner.next
-//         }
-//         return newlist
-//     }
-// }
+let deDupe = (list)=>{
+    if(list.head){
+        let newlist = new SLL(),runner=list.head
+        while(runner){
+            if(!newlist.contains(runner.val)){
+                console.log(runner.val)
+                newlist.addnode(runner.val)
+            }
+            runner=runner.next
+        }
+        return newlist
+    }
+}
 
 // console.log(deDupe(newlist))
 
@@ -3739,11 +3739,66 @@ SLQueue.prototype.dequeue = function(){
         this.head = this.head.next
         return temp.val
     }
+    return null
+}
+SLQueue.prototype.front = function(){
+    return this.head.val
+}
+SLQueue.prototype.contains = function(val){
+    if(!this.head){return false}
+    if(this.head.val == val){return true}
+    runner = this.head
+    while(runner){
+        if(runner.val == val){
+            return true
+        }
+        runner = runner.next
+    }
+    return false
+}
+
+SLQueue.prototype.isEmpty = function(){
+    if(!this.head){return true}
+    return false
+}
+
+SLQueue.prototype.size = function(){
+    return length(this.head)
 }
 
 let queue = new SLQueue()
-for(let i=1;i<11;i++){
-    queue.enqueue(i)
+arr = [2,1,1,1,1]
+for(let i=0;i<arr.length;i++){
+    queue.enqueue(arr[i])
 }
-console.log(queue.dequeue())
-console.log(queue)
+
+let compareQueues = function(q1,q2){
+    if(q1.head.val !== q2.head.val){return false}
+    let run = q1.head, run2 = q2.head,count = q1.size()
+    while(count>0){
+        if(run2 == null || run.val!==run2.val){return false}
+        run = run.next
+        run2 = run2.next
+        count--;
+    }
+    return true
+}
+
+let removeMin = function(q){
+    if(q.head){
+        let minimum = min(q.head)
+        while(q.contains(minimum)){
+            console.log(count++)
+            minToFront(q)
+            queue.dequeue()
+        }
+        return q
+    }
+    return null
+}
+
+console.log(removeMin(queue))
+
+
+
+
