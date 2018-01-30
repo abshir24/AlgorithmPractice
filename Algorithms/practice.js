@@ -630,6 +630,7 @@
 //     return node;
 // };
 
+
 // SinglyList.prototype.shift = function(int){
 //     var runner = this.head;
 //     var prev;
@@ -654,7 +655,7 @@
 // newlist.addnode(3)
 // newlist.addnode(4)
 // newlist.addnode(5)
-// newlist.shift(1)
+
 
 // function listlength(node,count){
 //     if(node == null){
@@ -663,7 +664,7 @@
 //     return listlength(node.next,count+1)
 // }
 
-// console.log(listlength(cool.head,0))
+// console.log(listlength(newlist.head,0))
 
 
 // function evens(int){
@@ -687,9 +688,42 @@
 
 // evens(risingsquares(5))
 
-// function getRandomInt(min, max) {
+// function findquestion(string){
+//     count = 0
+//     for(let i = 0; i<=string.length;i++){
+//         if(string[i]=="?"){
+//             count++
+//         }
+//     }
+//     return Math.pow(count,2)
+// }
+// console.log(findquestion("???"))
+
+// function getRandomInt(min, max){
 //     return Math.floor(Math.random() * (max - min + 1)) + min;
 // }
+
+
+
+// function binarystringex(string,arr){
+//     string2 = ""
+//     if(arr.length == findquestion(string)){
+//         return arr.length
+//     }
+//     for(let i = 0; i<string.length;i++){
+//         if(string[i] == "?"){
+//             string2 += getRandomInt(0,1)
+//         }else{
+//             string2+=string[i]
+//         }
+//     }
+//     if(!contains(string2,arr)){
+//         arr.push(string2)
+//     }
+//     return binarystringex(string,arr)
+// }
+
+// console.log(binarystringex("?????",[]))
 
 
 // function binStrExpand(string,arr){
@@ -728,7 +762,7 @@
 //         return binStrExpand(string,arr)
 //     }
 // }
-// console.log(binStrExpand("?????",[]))
+// console.log(binStrExpand("???",[]))
 
 // function generatecoinchange(cents){
 //     var Q = Math.floor(cents/25)
@@ -2693,8 +2727,19 @@
 //     str+= temp
 //     allperm(str,arr,i+=1)
 // }
+// console.log(allperm("2580369",[]))
 
-// console.log(allperm("team",[]))
+
+// codeBreak = (str,obj,arr)=>{
+//     bool = true
+//     for(key in obj){
+//         if(obj[key] == 0){
+
+//         }
+//     }
+// }
+
+
 // function insertionsort(arr){
 //     for(let i = 0;i<arr.length;i++){
 //         let key = arr[i],
@@ -2826,3 +2871,844 @@
 // }
 
 // rotate([1,2,3,4,5],2)
+
+// concat = (arr1,arr2)=>{
+//     len1 = 0
+//     len2 = 0
+//     arr = []
+//     while(len1 <= arr1.length-1 || len2 <= arr2.length-1){
+//         if(len1 <= arr1.length-1){
+//             arr.push(arr1[len1++])
+//         }else{
+//             arr.push(arr2[len2++])
+//         }
+//     }
+//     return arr
+// }
+
+// console.log(concat([1,2],[3,4]))
+
+// rmArr = (arr,idx)=>{
+//     console.log(arr[idx])
+//     for(var i = idx;i<arr.length-1;i++){
+//         swap(arr,i,i+1)
+//     }
+//     arr.pop()
+//     return
+// }
+
+// rmr=(arr,s,e)=>{
+//     len = arr.length
+//     for(let i=0;i<len;i++){
+//         if(i>=s && i<=e){
+            
+//             rm(arr,i)
+//         }
+//     }
+//     console.log(arr)
+//     return
+// }
+
+// rmr([1,2,3,4,5],1,3)
+
+// function contains(str,arr){
+//     for(var i=0; i<arr.length;i++){
+//         if(arr[i] === str){
+//             return true
+//         }
+//     }
+//     return false
+// }
+
+// var insertAt = (arr,idx,val)=>{
+//     arr.push(val)
+//     for(let k=arr.length-1;k>idx;k--){
+//         swap(arr,k,k-1)
+//     }
+//     return
+// }
+
+// function intermediateSums(arr){
+//     let count = 0,sum = 0
+//     for(let i=0;i<arr.length-1;i++){
+//         sum+=arr[i]
+//         count++;
+//         if(count == 10){
+//             insertAt(arr,i+1,sum)
+//             sum=0;count=0
+//         }
+//     }
+//     if(sum){
+//         arr.push(sum)
+//     }
+//     return arr
+// }
+
+// console.log(intermediateSums([1,2,1,2,1,2,1,2,1,2,1,2,1,2]))
+
+// var dT = (arr)=>{
+//     for(let i=0;i<arr.length;i+=2){
+//         insertAt(arr,i+1,arr[i])
+//     }
+//     return arr
+// }
+
+// console.log(dT([4,"Ulysses",42,false]))
+
+// var zipIt = (arr1,arr2)=>{
+//     let count = 0
+//     for(let i = 0;i<arr1.length-1;i+=2){
+//         count++
+//         insertAt(arr1,i+1,arr2[i])
+//         console.log(count)
+//     }
+//     while(count<arr2.length){
+//         arr1.push(arr2[count++])
+//     }
+//     return arr1
+// }
+
+// console.log(zipIt([1,2],[10,20,30,40]))
+
+// var rmBlanks = (string)=>{
+//     let string2=""
+//     for(let i=0;i<string.length;i++){
+//         if(string[i]!=" "){
+//             string2+=string[i]
+//         }
+//     }
+//     return string2
+// }
+
+// console.log(rmBlanks("PL  AYTHA  TF  U"))
+
+// var getDigit = (string)=>{
+//     let string2 = ""
+//     let obj = {0:"0",1:"1",2:"2",3:"3",4:"4",5:"5",6:"6",7:"7",8:"8",9:"9"}
+//     for(let i = 0;i<string.length;i++){
+//         if(obj[string[i]]){
+//             string2+=string[i]
+//         }
+//     }
+//     return string2
+// }
+
+// console.log(getDigit("0s1a3y5w7h9a"))
+
+// var acronyms = (string)=>{
+//     let string2=""
+//     for(let i=0;i<string.length;i++){
+//         if(string[i-1] == " "){
+//             string2+=string[i]
+//         }
+//     }
+//     return string2
+// }
+
+// console.log(acronyms(" there's no free lunch - gotta pay yer way. "))
+
+// var nonspace = (string)=>{
+//     let count = 0;
+//     for(let i=0;i<string.lengthc;i++){
+//         if(string[i]!= " "){
+//             count++
+//         }
+//     }
+//     return count
+// }
+
+// console.log(nonspace("Honey pie, you are driving me crazy"))
+
+// var rmShortStrings = (arr)=>{
+//     let len = arr.length
+//     for(let i = 0;i<arr.length;i++){
+//         if(arr[i].length < len){
+//             rmArr(arr,i)
+//         }
+//     }
+//     return arr
+// }
+
+// console.log(rmShortStrings(["yo","cool","ay","n"]))
+
+// var rmEvenLenStrings = (arr)=>{
+//     for(let i = arr.length-1;i>=0;i--){
+//         if(arr[i].length %2 ==0){
+//             rmArr(arr,i)
+//         }
+//     }
+//     return arr  
+// }
+
+// console.log(rmEvenLenStrings(["yo","cool","ay","n"]))
+
+// function romanize(num){
+//     let lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1}, roman = ""
+//     for(i in lookup){
+//         while(num >= lookup[i]){
+//             roman+=i
+//             num -= lookup[i]
+//         }
+//     }
+//     return roman
+// }
+
+
+// function deromanize(string){
+//     let lookup = {"M":1000,"CM":900,"D":500,"CD":400,"C":100,"XC":90,"L":50,"XL":40,"X":10,"IX":9,"V":5,"IV":4,"I":1}, count=0;i=0
+//     while(i<string.length){
+//         let combo = string[i] + string[i+1]
+//         if(lookup[combo]){
+//             count+=lookup[combo]
+//             i+=2;continue
+//         }
+//         if(lookup[string[i]]){
+//             count+=lookup[string[i]]
+//             i++;
+//         }
+//     }
+//     return count
+// }
+
+// console.log(deromanize("CCCXLIX"))
+
+// let parensvalid = (string)=>{
+//     var arr = [], j = 0;
+//     while(j<string.length){
+//         if(string[j] == "("){
+//             arr.push(string[j])
+//         }else if(string[j] == ")"){
+//             if(arr.length){
+//                 arr.pop()
+//             }else{
+//                 return false
+//             }
+//         }
+//         j++
+//     }
+//     return true
+// }
+
+// console.log(parensvalid(")NE0(P)3"))
+
+
+// var isPalindrome = (string)=>{
+//     let s=0,e=string.length-1
+//     while(string[s] == string[e]){
+//        s++,e--;
+//        if(s>e){
+//            return true
+//        }
+//     }
+//     return false
+// }
+
+// console.log(palindrome("r"))
+
+// var longestPalindrome = (string)=>{
+//     let longestpal=""
+//     for(let i=0;i<string.length;i++){
+//         for(let j= string.length-1;j>=0;j--){
+//             if(isPalindrome(string.substring(i,j))){
+//                 if(string.substring(i,j).length > longestpal.length){
+//                     longestpal = string.substring(i,j)
+//                 }
+//             }
+//         }
+//     }
+//     return longestpal
+// }
+
+
+// console.log(longestPalindrome("my favorite racecar erupted!"))
+
+
+// var createAlphabet = ()=>{
+//     return 'abcdefghijklmnopqrstuvwxyz'.split('')
+// }
+
+// function findIdx(arr,str){
+//     for(var i=0; i<arr.length;i++){
+//         if(arr[i] === str){
+//             return i
+//         }
+//     }
+// }
+
+// let isAlphabetical = (string)=>{
+//     let alphabet = createAlphabet()
+//     for(let i=0;i<string.length;i++){
+//         let idx = findIdx(alphabet,string[i])
+//         if(string[i+1] !== alphabet[idx+1]){
+//             return false
+//         }
+//     }
+//     return true
+// }
+
+// console.log(isAlphabetical("xyz"))
+
+// function jsUcfirst(string) 
+// {
+//     return string.charAt(0).toUpperCase() + string.slice(1);
+// }
+
+// let getJiggy = (string)=>{
+//     let greeting = "", letter = string[0]
+//     for(let i = 1;i<string.length;i++){
+//         greeting += string[i]
+//     }
+//     greeting += " to the " + letter
+//     greeting = jsUcfirst(greeting)
+//     return greeting
+// }
+
+// console.log(getJiggy("Abshir"))
+
+// String.prototype.reverse = function(){
+//     string2 = ""
+//     for(let i = this.length-1;i>=0;i--){
+//         string2+= this[i]
+//     }
+//     return string2
+// }
+
+// let findSuffix = (string1,string2)=>{
+//     let suffix = "",e1 = string1.length-1,e2=string2.length-1
+//     while(string1[e1] == string2[e2]){
+//         suffix += string1[e1--]
+//         e2--;
+//     }
+//     return suffix.reverse()
+// }
+
+// let findCommonSuffix = (arr)=>{
+//     let commonsuffix = findSuffix(arr[0],arr[1])
+//     for(let i=2;i<arr.length;i++){
+//         if(!arr[i].includes(commonsuffix)){
+//             return " "
+//         }
+//     }
+//     return commonsuffix
+// }
+// console.log(findCommonSuffix(["aytion","blation","yotion"]))
+
+// let inRange = (arr,idx)=>{
+//     if(arr[idx+1] && arr[idx+1] == arr[idx]+1){
+//         return true
+//     }
+//     return false
+// }
+
+// let bookIndex = (arr)=>{
+//     let string= " ",range=[],i=0
+//     while(i<arr.length){
+//         let j=i,s=i,e=i
+//         while(inRange(arr,j)){
+//             e=j+1
+//             j++;
+//         }
+//         if(s!==e){
+//             string+=arr[s]+"-"+arr[e] + ", "
+//             e+=1
+//             i+= e-s
+            
+//         }else{
+//             string+=arr[i]+", "
+//             i++;
+//         }
+//     }
+//     return string
+// }
+
+// console.log(bookIndex([1,13,14,15,37,38,70,71,72,73,74,75]))
+
+
+//  let coinChange = (change)=>{
+//     let q = Math.floor(change / 25)
+//     change = change%25
+//     let d = Math.floor(change / 10)
+//     change = change%10
+//     let n = Math.floor(change/5)
+//     change = change%5
+//     p = change
+//     return {quarters:q,dimes:d,nickels:n,pennies:p}
+//  }
+
+//  console.log(coinChange(119))
+
+
+// let invertHash = (obj)=>{
+//     for(key in obj){
+//         obj[obj[key]] = key
+//         delete obj[key]
+//     }
+//     return obj
+// }
+
+// console.log(invertHash({"yo":"wassup"}))
+
+function SLL(){
+    this.head = null
+}
+
+function Node(val){
+    this.val = val;
+    this.next = null;
+}
+
+SLL.prototype.addnode = function(value){
+    var node = new Node(value),
+    currentNode = this.head;
+    if (!currentNode){
+        this.head = node;
+        return ;
+    }
+    while (currentNode.next){
+        currentNode = currentNode.next;
+    }
+    currentNode.next = node;
+    return node;
+};
+
+// SLL.prototype.addFront = function(val){
+//     let node = new Node(val)
+//     if(this.head == null){
+//         this.head = node;
+//         return
+//     }
+//     let temp = this.head;this.head = node;this.head.next = temp
+//     return;
+// }
+
+let newlist = new SLL()
+// newlist.addFront(1)
+// console.log(newlist)
+
+// newlist.addnode(1)
+
+SLL.prototype.contains = function(val){
+    if(!this.head){return false}
+    if(this.head.val == val){return true}
+    runner = this.head
+    while(runner){
+        if(runner.val == val){
+            return true
+        }
+        runner = runner.next
+    }
+    return false
+}
+
+// console.log(newlist.contains(1))
+
+SLL.prototype.removeFront = function(){
+    this.head = this.head.next
+    return 
+}
+
+// newlist.removeFront()
+// console.log(newlist)
+
+// SLL.prototype.returnFront = function(){
+//     if(!this.head){
+//         return null
+//     }
+
+//     return this.head.val
+// }
+
+// console.log(newlist.returnFront())
+
+
+let length = (node)=>{
+    count  = 0
+    if(node){
+        runner = node
+        while(runner){
+            count++;
+            runner = runner.next
+        }
+    }
+    return count
+}
+
+// console.log(length(newlist.head))
+
+// let display = (node)=>{
+//     let string=""
+//     if(node){
+//         runner=node
+//         while(runner){
+//             string+=runner.val
+//             runner=runner.next
+//         }
+//     }
+//     return string
+// }
+
+// console.log(display(newlist.head))
+
+let max = (node)=>{
+    if(node){
+        let max = node.val
+        let runner = node
+        while(runner){
+            if(runner.val>max){
+                max = runner.val
+            }
+            runner = runner.next
+        }
+        return max
+    }
+    return null
+}
+
+// console.log(max(newlist.head))
+
+
+let min = (node)=>{
+    if(node){
+        let min = node.val
+        let runner = node
+        while(runner){
+            if(runner.val<min){
+                min = runner.val
+            }
+            runner = runner.next
+        }
+        return min
+    }
+    return null
+}
+
+// console.log(min(newlist.head))
+
+// let average = (node)=>{
+//     if(node){
+//         let sum = 0,count=length(node),runner=node;
+//         while(runner){
+//             sum+=runner.val
+//             runner = runner.next
+//         }
+//         return Math.floor(sum/count)
+//     }
+//     return null
+// }
+
+// console.log(average(newlist.head))
+
+// let slBack = (node)=>{
+//     if(node){
+//         runner = node
+//         while(runner.next){
+//             runner = runner.next
+//         }
+//         return runner.val
+//     }
+//     return null
+// }
+
+// console.log(slBack(newlist.head))
+
+// let rmLastNode = (list)=>{
+//     if(list.head){
+//         let runner = list.head,prev;
+//         while(runner.next){
+//             prev = runner
+//             runner = runner.next
+//         }
+//         prev.next = runner.next
+//         return list
+//     }
+//     return null
+// }
+
+// console.log(rmLastNode(newlist))
+
+// let minToFront = (list)=>{
+//     if(list.head){
+//         let minimum = min(list.head)
+//         let runner = list.head,prev;
+//         if(runner.val == minimum){
+//             return list
+//         }
+//         while(runner.val !== minimum){
+//             prev = runner;
+//             runner = runner.next
+//         }
+//         let temp = runner;
+//         let temp2 = list.head
+//         prev.next = runner.next;
+//         list.head = temp
+//         list.head.next = temp2
+//         return list
+//     }
+//     return null
+// }
+
+// console.log(minToFront(newlist))
+
+// let maxToBack = (list)=>{
+//     if(list.head){
+//         let maximum = max(list.head)
+//         let runner = list.head,prev;
+//         if(runner.val == maximum){
+//             let temp = runner
+//             list.removeFront()
+//             list.addnode(runner.val)
+//             return list.head.next
+//         }
+//         while(runner.val !== maximum){
+//             prev = runner
+//             runner = runner.next
+//         }
+//         let temp = runner.val
+//         prev.next = runner.next;
+//         list.addnode(runner.val)
+//         return list.head.next
+//     }
+// }
+
+// console.log(maxToBack(newlist))
+
+// SLL.prototype.prependVal = function(val,before){
+//     if(!this.contains(before)){
+//         this.addnode(val)
+//         return 
+//     }
+//     let node  = new Node(val)
+//     if(this.head){
+//         let runner = this.head,prev;
+//         if(runner.val == before){
+//             let temp = this.head
+//             this.head = node
+//             this.head.next = temp
+//             return 
+//         }
+//         while(runner.val !== before){
+//             prev = runner
+//             runner = runner.next
+//         }
+//         let temp = runner
+//         node.next = temp
+//         prev.next = node
+//         return 
+//     }
+// }
+
+// console.log(prependVal(newlist,2,3))
+
+// SLL.prototype.appendVal = function(val,after){
+//     if(!this.contains(after)){
+//         this.addnode(val)
+//         return 
+//     }
+//     let node = new Node(val)
+//     if(this.head){
+//         if(this.head.val == after){
+//            node.next = this.head.next
+//            this.head.next = node
+//            return 
+//         }
+//         let runner = this.head
+//         while(runner.val!==after){
+//             runner = runner.next
+//         }
+//         node.next = runner.next
+//         runner.next = node
+//         return 
+//     }
+// }
+
+// console.log(appendVal(newlist,2,6))
+
+SLL.prototype.remove = function(val){
+    if(!this.contains(val)){
+        return false
+    }
+    if(this.head){
+        if(this.head.val == val){
+            this.head = this.head.next
+            return 
+        }
+        let runner = this.head,prev
+        while(runner.val !== val){
+            prev = runner
+            runner = runner.next
+        }
+        prev.next = runner.next
+        return 
+    }
+}
+
+// console.log(sllRemove(newlist,6))
+
+// let splitOnVal = (list,num)=>{
+//     if(!list.contains(num)){
+//         return list
+//     }
+//     if(list.head){
+//         if(list.head.val == num){
+//             return list
+//         }
+//         let runner = list.head,prev
+//         while(runner.val !== num){
+//             prev = runner
+//             runner = runner.next
+//         }
+//         let newlist = new SLL()
+//         newlist.head = runner
+//         prev.next = null
+//         console.log(list)
+//         return 
+//     }
+// }
+
+
+// let sllRmNeg = (list)=>{
+//     if(list.head){
+//         let runner = list.head
+//         while(runner){
+//             if(runner.val<0){
+//                 list.remove(runner.val) 
+//             }
+//             runner = runner.next
+//         }
+//         return list
+//     }
+//     return null
+// }
+// console.log(sllRmNeg(newlist))
+
+let sllConcat = (list1,list2)=>{
+    if(list1.head){
+        runner = list1.head
+        while(runner.next){
+            runner = runner.next
+        }
+        if(list2.head){
+            runner.next = list2.head
+        }
+        return list1
+    }
+    return null
+}
+
+// console.log(sllConcat(newlist,list2))
+
+arr = [1,2,3]
+newlist2 = new SLL()
+for(let i =0;i<arr.length;i++){
+    newlist.addnode(arr[i])
+    newlist2.addnode(arr[i])
+}
+
+// let sllPartition = (list,val)=>{
+//     if(!list.contains(val)){
+//         return false
+//     }
+//     if(list.head){
+//         let left = new SLL(),right = new SLL(),runner=list.head
+//         list.remove(val)
+//         while(runner){
+//             if(runner.val < val){left.addnode(runner.val)}
+//             else{right.addnode(runner.val)}
+//             runner = runner.next
+//         }
+//         left.addnode(val)
+//         return sllConcat(left,right)
+//     }
+// }
+// console.log(sllPartition(newlist,1))
+
+// let secondToLastVal = (list)=>{
+//     if(length(list.head)>1){
+//        let runner = list.head,prev
+//        while(runner.next){
+//            prev = runner
+//            runner = runner.next
+//        }
+//        return prev.val
+//     }
+//     return "not enough nodes"
+// }
+
+// console.log(secondToLastVal(newlist))
+
+// let slistCopy = (list)=>{
+//     if(list.head){
+//         let list2 = new SLL(), runner = list.head
+//         while(runner){
+//             list2.addnode(runner.val)
+//             runner = runner.next
+//         }
+//         return list2
+//     }
+// }
+
+// let checkStatus = (val,low,high)=>{
+//     if(val > high || val < low){
+//         return false
+//     }
+//     return true
+// }
+
+// let slistFilter = (list,lowVal,highVal)=>{
+//     if(list.head){
+//        let newlist = new SLL(), runner = list.head
+//        while(runner){
+//            if(checkStatus(runner.val,lowVal,highVal)){
+//              newlist.addnode(runner.val)
+//            }
+//            runner=runner.next
+//        }
+//         return newlist
+//     }
+//     return null
+// }
+
+// console.log(slistFilter(newlist,2,3))
+
+// let secondLargestVal=(list)=>{
+//     if(list.head){
+//         list.remove(max(list.head))
+//         return max(list.head)
+//     }
+//     return null
+// }
+
+// console.log(secondLargestVal(newlist))
+
+// let deDupe = (list)=>{
+//     if(list.head){
+//         let newlist = new SLL(),runner=list.head
+//         while(runner){
+//             if(!newlist.contains(runner.val)){
+//                 console.log(runner.val)
+//                 newlist.addnode(runner.val)
+//             }
+//             runner=runner.next
+//         }
+//         return newlist
+//     }
+// }
+
+// console.log(deDupe(newlist))
+
+let zipLists = (list1,list2)=>{
+    let newlist = new SLL(),runner1 = list1.head, runner2 = list2.head
+    while(runner1 || runner2){
+        if(runner1){
+            newlist.addnode(runner1.val)
+            runner1 = runner1.next
+        }
+        if(runner2){
+            newlist.addnode(runner2.val)
+            runner2 = runner2.next
+        }
+    }
+    return newlist
+}
+
+console.log(zipLists(newlist,newlist2))
