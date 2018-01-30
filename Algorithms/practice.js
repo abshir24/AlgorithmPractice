@@ -3544,26 +3544,26 @@ SLL.prototype.remove = function(val){
 
 // console.log(sllRemove(newlist,6))
 
-// let splitOnVal = (list,num)=>{
-//     if(!list.contains(num)){
-//         return list
-//     }
-//     if(list.head){
-//         if(list.head.val == num){
-//             return list
-//         }
-//         let runner = list.head,prev
-//         while(runner.val !== num){
-//             prev = runner
-//             runner = runner.next
-//         }
-//         let newlist = new SLL()
-//         newlist.head = runner
-//         prev.next = null
-//         console.log(list)
-//         return 
-//     }
-// }
+let splitOnVal = (list,num)=>{
+    if(!list.contains(num)){
+        return list
+    }
+    if(list.head){
+        if(list.head.val == num){
+            return list
+        }
+        let runner = list.head,prev
+        while(num>0){
+            prev = runner
+            runner = runner.next
+            num--;
+        }
+        let newlist = new SLL()
+        newlist.head = runner
+        prev.next = null
+        return newlist
+    }
+}
 
 
 // let sllRmNeg = (list)=>{
@@ -3680,36 +3680,36 @@ for(let i =0;i<arr.length;i++){
 
 // console.log(secondLargestVal(newlist))
 
-let deDupe = (list)=>{
-    if(list.head){
-        let newlist = new SLL(),runner=list.head
-        while(runner){
-            if(!newlist.contains(runner.val)){
-                console.log(runner.val)
-                newlist.addnode(runner.val)
-            }
-            runner=runner.next
-        }
-        return newlist
-    }
-}
+// let deDupe = (list)=>{
+//     if(list.head){
+//         let newlist = new SLL(),runner=list.head
+//         while(runner){
+//             if(!newlist.contains(runner.val)){
+//                 console.log(runner.val)
+//                 newlist.addnode(runner.val)
+//             }
+//             runner=runner.next
+//         }
+//         return newlist
+//     }
+// }
 
 // console.log(deDupe(newlist))
 
-// let zipLists = (list1,list2)=>{
-//     let newlist = new SLL(),runner1 = list1.head, runner2 = list2.head
-//     while(runner1 || runner2){
-//         if(runner1){
-//             newlist.addnode(runner1.val)
-//             runner1 = runner1.next
-//         }
-//         if(runner2){
-//             newlist.addnode(runner2.val)
-//             runner2 = runner2.next
-//         }
-//     }
-//     return newlist
-// }
+let zipLists = (list1,list2)=>{
+    let newlist = new SLL(),runner1 = list1.head, runner2 = list2.head
+    while(runner1 || runner2){
+        if(runner1){
+            newlist.addnode(runner1.val)
+            runner1 = runner1.next
+        }
+        if(runner2){
+            newlist.addnode(runner2.val)
+            runner2 = runner2.next
+        }
+    }
+    return newlist
+}
 
 // console.log(zipLists(newlist,newlist2))
 
@@ -3737,8 +3737,10 @@ SLQueue.prototype.dequeue = function(){
     if(this.head){
         let temp = this.head
         this.head = this.head.next
+        this.tail = this.getTail()
         return temp.val
     }
+
     return null
 }
 SLQueue.prototype.front = function(){
@@ -3766,8 +3768,19 @@ SLQueue.prototype.size = function(){
     return length(this.head)
 }
 
+SLQueue.prototype.getTail = function(){
+    if(this.head){
+        let run = this.head
+        while(run.next){
+            run=run.next
+        }
+        return run
+    }
+}
+
+
 let queue = new SLQueue()
-arr = [2,1,1,1,1]
+arr = [1,2,3,4,5,6]
 for(let i=0;i<arr.length;i++){
     queue.enqueue(arr[i])
 }
@@ -3786,9 +3799,8 @@ let compareQueues = function(q1,q2){
 
 let removeMin = function(q){
     if(q.head){
-        let minimum = min(q.head)
+        let minimum = min(q.head);
         while(q.contains(minimum)){
-            console.log(count++)
             minToFront(q)
             queue.dequeue()
         }
@@ -3797,8 +3809,22 @@ let removeMin = function(q){
     return null
 }
 
-console.log(removeMin(queue))
+let interLeaveQ = function(q){
+    if(q.head){
+        let len = length(q.head)
+        if(len < 3){return q}
+        let run = q.head,
+            left = new SLQueue,
+                half = Math.floor(len/2)
+        while(len > half){
+            left.enqueue(q.dequeue())
+            len--;
+        }
+        return zipLists(left,q)
+    }
+}
 
+console.log(interLeaveQ(queue))
 
 
 
