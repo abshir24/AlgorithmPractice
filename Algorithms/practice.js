@@ -3828,7 +3828,7 @@ function ArrStack(){
     this.stack = []
 }
 
-ArrStack.prototype.push = function(val){
+ArrStack.prototype.Push = function(val){
     return this.stack.push(val)
 }
 
@@ -3837,17 +3837,129 @@ ArrStack.prototype.pop = function(){
 }
 
 ArrStack.prototype.top = function(){
-    let len = stack.length-1
-    return this.stack[len]
+    let len = this.stack.length
+    if(len){
+        return this.stack[len-1]
+    }
+    return "Not enough elements in your stack"
 }
 
-let stack = new ArrStack()
-
-for(let i=1;i<11;i++){
-    stack.push(i)
+ArrStack.prototype.contains = function(val){
+    let len = this.stack.length
+    if(len){
+        for(let i=0;i<len;i++){
+            if(this.stack[i]==val){
+                return true
+            }
+        }
+        return false
+    }
+    return "Stack is empty"
 }
 
-console.log(stack.top())
+ArrStack.prototype.isEmpty = function(){
+    let len = this.stack.length
+    if(len){return true}
+    return false
+}
+
+ArrStack.prototype.size = function(){
+    return this.stack.length
+}
+
+function SlStack(){
+    this.head = null;
+    this.tail = null;
+}
+
+SlStack.prototype.Push = function(val){
+    var node = new Node(val),
+    currentNode = this.head;
+    if (!currentNode){
+        this.head = node;
+        this.tail = node;
+        return 
+    }
+    while (currentNode.next){
+        currentNode = currentNode.next;
+    }
+    currentNode.next = node;
+    this.tail = currentNode.next
+    return node;
+}
+
+SlStack.prototype.Pop = function(){
+    let currentNode = this.head, prev;
+    if (!currentNode){
+        return "Not enough nodes in your stacks"
+    }
+    while (currentNode.next){
+        prev = currentNode
+        currentNode = currentNode.next;
+    }
+    prev.next = null
+    this.tail = this.getTail()
+    return 
+}
+
+SlStack.prototype.getTail = function(){
+    if(this.head){
+        let run = this.head
+        while(run.next){
+            run=run.next
+        }
+        return run
+    }
+}
+SlStack.prototype.top = function(){
+    return this.tail
+}
+
+SlStack.prototype.contains = function(val){
+    if(!this.head){return false}
+    if(this.head.val == val){return true}
+    runner = this.head
+    while(runner){
+        if(runner.val == val){
+            return true
+        }
+        runner = runner.next
+    }
+    return false
+}
+
+SlStack.prototype.isEmpty = function(){
+    if(!this.head){return true}
+    return false
+}
+
+SlStack.prototype.size = function(){
+    return length(this.head)
+}
+
+let compareStacks = function(s1,s2){
+    if(s1.head.val !== s2.head.val){return false}
+    let run = s1.head, run2 = s2.head,count = s1.size()
+    while(count>0){
+        if(run2 == null || run.val!==run2.val){return false}
+        run = run.next
+        run2 = run2.next
+        count--;
+    }
+    return true
+}
+
+
+let stack = new SlStack()
+
+
+
+
+
+
+
+
+
 
 
 
