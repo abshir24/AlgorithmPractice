@@ -3824,7 +3824,31 @@ let interLeaveQ = function(q){
     }
 }
 
-console.log(interLeaveQ(queue))
+function ArrStack(){
+    this.stack = []
+}
+
+ArrStack.prototype.push = function(val){
+    return this.stack.push(val)
+}
+
+ArrStack.prototype.pop = function(){
+    return this.stack.pop()
+}
+
+ArrStack.prototype.top = function(){
+    let len = stack.length-1
+    return this.stack[len]
+}
+
+let stack = new ArrStack()
+
+for(let i=1;i<11;i++){
+    stack.push(i)
+}
+
+console.log(stack.top())
+
 
 
 
