@@ -1,672 +1,3 @@
-// function isRotation(string1,string2){
-//     var count2 = 0
-//     var count = 0
-//     while(string1[0] !== string2[count2] ){
-//         count2++
-//     }
-
-//     while(count < string1.length){
-//         if(count2 == string2.length){
-//             count2 = 0
-//         }
-//         if(string1[count] === string2[count2]){
-//             count++;
-//             count2++
-//         }else{
-//             console.log("false")
-//             return false
-//         }
-//     }
-//     console.log("true")
-//     return true
-// }
-
-// isRotation("Is Rotation", "onIs Rotat")
-
-
-
-// function floodfill(grid,start,val){
-//     var prev = grid[start[0]][start[1]]
-//     grid[start[0]][start[1]] = val
-//     var y = start[0]
-//     var x = start[1]
-//     if(x-1 !== grid.length ){
-//         if(grid[y][x-1] == prev){
-//             floodfill(grid,[y,x-1],val)
-//         }
-//     }
-//     if(x+1 !== grid.length ){
-//         if(grid[y][x+1] == prev){
-//             floodfill(grid,[y,x+1],val)
-//         }
-//     }
-//     if(y-1 >=0){
-//         if(grid[y-1][x] == prev){
-//             floodfill(grid,[y-1,x],val)
-//          }
-//     }
-//     if(y+1 !== grid[0].length){
-//         if(grid[y+1][x] == prev){
-//             floodfill(grid,[y+1,x],val)
-//         }
-//     }
-//     return grid
-// }
-
-// console.log(floodfill([[3,2,3,4,3],[2,3,3,4,0],[7,3,3,5,3],[6,5,3,4,1],[1,2,3,3,3]], [2,2], 1))
-
-// function stringtoword(string){
-//     var arr = []
-//     var str2 = " "
-//     for(var i = 0;i<string.length; i++){
-//         if(string[i]===" "){
-//             arr.push(str2)
-//             str2=""
-//         }
-//         str2 += string[i]
-//     }
-//     arr.push(str2)
-
-//     // console.log(arr)
-//     return arr
-// }
-// // stringtoword("Life is not a joke!")
-
-// function longestword(string){
-//     var arr = stringtoword(string)
-//     var max = arr[0]
-//     for(var i = 0; i<arr.length; i++){
-//         if(arr[i].length > max){
-//             max = arr[i]
-//         }
-//     }
-//     console.log(max)
-//     return
-// }
-
-// longestword("wassup man!")
-
-// function stringreverse(string){
-//     var arr = stringtoword(string)
-//     console.log(arr)
-//     string2 = ""
-//     for(var i = arr.length; i>=0; i--){
-//         string2+=arr[i]
-//     }
-//     console.log(string2)
-//     return string2
-// }
-
-// stringreverse("this is not a test")
-
-// function uniquewords(string){
-//     var arr = stringtoword(string)
-//     // console.log(arr)
-//     var obj = {}
-//     var string2 = ""
-//     for(var i = 0; i<arr.length; i++){
-//         if(!obj[arr[i]]){
-//             obj[arr[i]] = 1
-//         }else{
-//             obj[arr[i]] += 1
-//             continue
-//         }
-//     }
-//     for(var key in obj){
-//         if(obj[key] == 1){
-//             string2+= key
-//         }
-//     }
-//     console.log(string2)
-//     return
-// }
-
-// uniquewords("Sing! Sing a song; sing out loud; sing out strong.")
-
-// function stringrotate(string,int){
-//     var string2 = ""
-//     var len = string.length
-//     var count = int
-//     while(count>0){
-//         string2+=string[len-count]
-//         count--;
-//     }
-//     // console.log(string2)
-//     // console.log(int)
-//     for(var i=0; i<len-int;i++){
-//         string2+=string[i]
-//     }
-//     // console.log(string2)
-//     return string2
-// }
-
-// stringrotate("team",4)
-
-// function isRotation(string1,string2){
-//     while()
-// }
-// isRotation("Is Rotation","ionIs Rotat")
-
-// function removeAt(arr,indx){
-//     for(var i = indx; i <arr.length -1; i++){
-//         var temp = arr[i+1];
-//         arr[i+1]= arr[i]
-//         arr[i] = temp
-//     }
-    
-//     return arr.pop()
-// }
-
-// var array = [1,2,3,4,5]
-
-// removeAt(array,0)
-// console.log(array)
-
-// function history(current,history){
-//     for(var i =0; i<current.length;i++){
-//         for(var j=0; j<history.length;j++){
-//             for(var k = 0; k < history[j].length;k++){
-//                 if(current[i] === history[j][k]){
-//                     removeAt(current,i)
-//                     break
-//                 }
-//             }
-//         }
-//     }
-//     history.push(current)
-//     console.log("current", current)
-//     console.log("history", history)
-// }
-
-// history([ "xxx", "aaa", "yyy", "hij" ], [[ "aaa", "bbb" ], [ "ccc", "ddd", "eee", "fff" ], [ "ggg", "hij", "abc" ]])
-//pre made function from coding dojo algorithm challenges
-// function removeAt(arr,indx){
-//     for(var i = indx; i <arr.length -1; i++){
-//         var temp = arr[i+1];
-//         arr[i+1]= arr[i]
-//         arr[i] = temp
-//     }
-//     arr.pop()
-//     return arr
-// }
-
-// function history(current,history){
-//     var merged= [].concat.apply([], history);
-//     var newstrings =[]
-//     var condition = true
-//     for(var i =0; i < current.length; i++){
-//         for(var j=0; j<merged.length; j++){
-//             if(current[i]=== merged[j]){
-//                 condition = true
-//                 break
-//             }
-//             condition = false
-//         }
-//        if(!condition){
-//         newstrings.push(current[i])
-//        }
-//     }
-//     history.push(newstrings)
-//     var newhistory = removeAt(history,0)
-
-//     return newhistory, newstrings
-// }
-
-// history([ "xxx", "aaa", "yyy", "hij" ], [[ "aaa", "bbb" ], [ "ccc", "ddd", "eee", "fff" ], [ "ggg", "hij", "abc" ]])
-
-// function censor(string,arr){
-//    var str = [];
-//    var m=0; 
-//    var index=0; 
-//    count=0
-//    for(var i=0; i<string.length;i++){
-//         str.push(string[i])
-//    }
-//    for(var i=0; i<arr.length;i++){
-//        for(var j=0;j<str.length;j++){
-//            if(str[j] === arr[i][m]){
-//                m++;
-//            }else{
-//                m=0
-//            }
-//            if(m==arr[i].length){
-//                console.log("inside",j)
-//                index = j
-//                count = arr[i].length
-//                while(count > 0){
-//                    str[index] = "x"
-//                    index--;
-//                    count--;
-//                }
-//                count =0
-//                m=0
-//                 index=0
-//            }
-//        }
-       
-//    }
-// //    console.log(str)
-//    var newstr=""
-//    for(var i=0; i<str.length;i++){
-//        newstr+=str[i]
-//    }
-// console.log(newstr)
-//    return
-// }
-// censor("snap crackle pop nincompoop", ["crack", "poop"])
-
-// function uniqueChar(string){
-//     var obj = {}
-//     for(var i = 0; i<string.length; i++){
-//         if(!obj[string[i]]){
-//             obj[string[i]] = [0,i]
-//         }else{
-//             obj[string[i]][0] +=1
-//         }
-//     }
-//     console.log(obj)
-//     for(key in obj){
-//         if(obj[key][0]==0){
-//             console.log(obj[key][1])
-//             return obj[key][1]
-//         }
-//     }
-// }
-
-// uniqueChar("empathetic monarch meets primo stinker")
-
-// function unique(string){
-//     var obj = {}
-//     var string2 = ""
-//     for(var i=0; i<string.length;i++){
-//         if(obj[string[i]] == undefined){
-//             obj[string[i]] = 0
-//         }else{
-//             console.log("else")
-//             obj[string[i]] += 1
-//         }
-//     }
-//     console.log(obj)
-//     for(key in obj){
-//         if(obj[key] == 0){
-//             string2+=key
-//         }
-//     }
-//     console.log(string2)
-//     return
-// }
-
-// unique("Snap! Crackle! Poop!")
-
-// function convertnumbertoenglish(num){
-//   if(num.toString().length>13){
-//     return "too big"
-//   }
-//   if(num===0){
-//     return "zero"
-//   }
-//   var tenmap=['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
-//   var tensmap=['','','twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety']
-//   var thousandmap=['','thousand', 'million', 'billion', 'trillion']
-//   var digit=0
-//   var result=""
-//   while(true){
-//     var threepart=num%1000
-//     var tenpart=threepart%100
-//     var hundredpart=Math.floor(threepart/100)
-//     var onepart=""
-//     var tempresult=""
-//     if(tenpart<20){
-//       tempresult+=tenmap[tenpart]
-//     } else {
-//       tempresult=tensmap[Math.floor(tenpart/10)]+" "+ tenmap[tenpart%10]
-//     }
-//     if(hundredpart!==0){
-//       tempresult=tenmap[hundredpart]+"hundred "+ tempresult
-//     }
-//     result=tempresult+thousandmap[digit]+" "+ result
-//     num=Math.floor(num/1000)
-//     if(num===0){
-//       break
-//     }
-//     digit++
-//   }
-//   return result
-// }
-// var num1=17
-// var num=7840262146  //7,840,262,146
-// console.log(convertnumbertoenglish(num1));
-// console.log(convertnumbertoenglish(num));
-
-
-// function ispermutation(string1,string2){
-//     var arr =[]
-//     if(string1.length !== string2.length){
-//         return false
-//     }
-//     for(var i=0;i<string1.length-1;i++){
-//         arr.push(string1[i])
-//         arr.push(string2[i])
-//     }
-//     arr.sort()
-//     console.log(arr)
-//     for(var i=0;i<arr.length; i+=2){
-//         if(arr[i] !== arr[i+1]){
-//             console.log("false")
-//             return false
-//         }
-//     }
-//     console.log("true")
-//     return true
-// }
-
-// ispermutation("mister", "ster")
-
-// function ispanagram(string){
-//     string = string.toLowerCase()
-//     var obj = {"a":0,
-//                "b":0,
-//                "c":0,
-//                "d":0,
-//                "e":0,
-//                "f":0,
-//                "g":0,
-//                "h":0,
-//                "i":0,
-//                "j":0,
-//                "k":0,
-//                "l":0,
-//                "m":0,
-//                "n":0,
-//                "o":0,
-//                "p":0,
-//                "q":0,
-//                "r":0,
-//                "s":0,
-//                "t":0,
-//                "u":0,
-//                "v":0,
-//                "w":0,
-//                "x":0,
-//                "y":0,
-//                "z":0
-//             }
-//     for(var i=0; i<string.length; i++){
-//         if(obj[string[i]] !== undefined){
-//             obj[string[i]]+=1; 
-//         }
-//     }
-//     console.log(obj)
-//     for(key in obj){
-//         if(obj[key] >= 1){
-//             continue;
-//         }else{
-//             console.log("false")
-//             return false
-//         }
-//     }
-//     console.log("true")
-//     return true
-// }
-
-// ispanagram("How quilckly daft jumping zebras vex!")
-
-// function allpermutations(string){
-//     var arr = []
-//     var string2;
-//     var tempstring =string
-//     var split = []
-//     var midarr = []
-//     var obj = {}
-//     for(var i=0; i<tempstring.length; i++){
-//         split.push(tempstring[i])
-//     }
-//     for(var i=0; i<tempstring.length+1;i++){
-//         if(obj[tempstring] === undefined){
-//             obj[tempstring] = ""
-//             arr.push(tempstring)
-//         }
-//         var count = tempstring.length-1
-//         string2=tempstring[0]
-//         var piece = tempstring.slice(1, tempstring.length)
-//         while(count > 0){
-//             string2+= stringrotate(piece, 1)
-//             piece = string2.slice(1,string2.length)
-//             if(obj[string2] === undefined){
-//                 obj[string2] = ""
-//                 arr.push(string2)
-//             }
-//             string2=tempstring[0]
-//             count--;
-//         }
-//         for(var j=0; j<tempstring.length;j++){
-//             console.log(j)
-//             midarr.push(tempstring[j])
-//         }
-//         var mid = Math.floor(midarr.length/2)
-//         temp = midarr[mid]
-//         if(mid%2==0){
-//             midarr[mid] = midarr[mid-1]
-//             midarr[mid-1] = temp
-//         }else{
-//             midarr[mid] = midarr[mid+1]
-//             midarr[mid+1] = temp
-//         }
-
-//         midstring=midarr.join("")
-//         midarr = []
-//         console.log("midstring",midstring)
-//         var count = midstring.length-1
-//         var piece = midstring.slice(1, midstring.length)
-//         while(count > 0){
-//             string2+= stringrotate(piece, 1)
-//             piece = string2.slice(1,string2.length)
-//             if(obj[string2] === undefined){
-//                 obj[string2] = ""
-//                 arr.push(string2)
-//             }
-//             string2=midstring[0]
-//             count--;
-//         }
-//         temp = split[0]
-//         split[0] = split[i]
-//         split[i] = temp
-//         tempstring = split.join("")
-//         console.log("tempstring",tempstring)
-//     }
-//     return arr
-// }
-
-// allpermutations("team")
-
-// function rfactorial(num){
-//     if(num == 0){
-//         return 1
-//     }
-//     return num * rfactorial(num-1)
-// }
-
-// console.log(rfactorial(5))
-
-// function rsigma(num){
-//     if(num == 0){return 0;}
-//     return num + rsigma(num-1)
-// }
-
-// console.log(rsigma(10))
-
-// function fibonacci(num){
-//     var a = 0;
-//     var b = 1;
-//     var temp;
-//     while(num > 0){
-//         temp = a;
-//         a+=b
-//         b=a
-//         num--;
-//     }
-//     return a;
-// }
-
-// function rfib(temp,a,b,num){
-//     if(num == 0){
-//         return a
-//     }
-//     return rfib(a,a+=b,temp,num-1)
-// }
-
-// console.log(rfib(0,0,1,6))
-
-// function fib(a, b, n) { 
-//     if(n) return fib(b, a + b, n-1); 
-//     return a;
-// }
-// console.log(fib(0, 1, 35))
-
-
-// function trib(num){
-//     var a=0, b=0, c = 1, temp;
-//     while(num > 0){
-//         temp = c 
-//         c = a+b+c
-//         a=b
-//         b=temp
-//         num--;
-//     }
-//     return a
-// }
-
-// console.log(trib(5))
-
-// function trib(a, b, c, n){ 
-//     if(n) return trib(c, a,a+b+c, n-1); 
-//     return a;
-// }
-// console.log(trib(0,0,1,7))
-
-// function rtrib(num,a,b,c,temp){
-//     if(num >= 1){
-//         return rtrib(num-1,b,temp,a+b+c,c)
-//     }
-//     return b
-// }
-
-// console.log(rtrib(7,0,1,1,0))
-
-
-
-// function countdown(num){
-//     if(num === 0){
-//         return 0
-//     }
-//     console.log(num)
-//     return countdown(num-1)
-// }
-
-// console.log(countdown(10))
-
-// var arr = [6,7,8,9]
-// var mid = Math.floor(arr.length/2)
-// console.log(arr[mid])
-
-// function rbinarysearch(arr,num){
-//     var mid = Math.floor(arr.length/2)
-//     console.log(arr)
-//     if(arr[mid] == num){
-//         return true
-//     }
-//     if(arr.length==1 && arr[0] !== num){
-//         return false
-//     }
-//     if(num > arr[mid]){
-//        return rbinarysearch(arr.slice(mid,arr.length), num)
-//     }else{
-//         return rbinarysearch(arr.slice(0,mid), num)
-//     }
-// }
-
-// console.log(rbinarysearch([1,2,3,4,5,6,7,8,9,10],100))
-
-
-// function ListNode(val){
-//     this.val = val;
-//     this.next = null;
-// }
-
-// function SinglyList(){
-//     this.head = null;
-// }
-
-// ListNode.prototype.speak = function(){
-//     console.log("speak")
-// }
-
-// SinglyList.prototype.pop = function(){
-//     if(this.head.next == null){
-//         this.head = null
-//         return 
-//     }
-//     var currentNode = this.head
-//     var prevNode;
-//     while(currentNode.next){
-//         prevNode = currentNode
-//         currentNode = currentNode.next
-//     }
-//     prevNode.next = null
-//     return
-// }
-
-// SinglyList.prototype.addnode = function(value){
-//     var node = new ListNode(value),
-//         currentNode = this.head;
-//     if (!currentNode){
-//         this.head = node;
-//         return node;
-//     }
-//     while (currentNode.next){
-//         currentNode = currentNode.next;
-//     }
-//     currentNode.next = node;
-//     return node;
-// };
-
-
-// SinglyList.prototype.shift = function(int){
-//     var runner = this.head;
-//     var prev;
-//     while(int > 0){
-//         prev = runner;
-//         runner = runner.next
-//         int--;
-//     }
-//     var temp = runner;
-//     prev.next = null;
-//     head = this.head
-//     this.head = runner
-//     while(temp.next){
-//         temp = temp.next
-//     }
-//     temp.next = head
-// }
-
-// var newlist = new SinglyList()
-// newlist.addnode(1)
-// newlist.addnode(2)
-// newlist.addnode(3)
-// newlist.addnode(4)
-// newlist.addnode(5)
-
-
-// function listlength(node,count){
-//     if(node == null){
-//         return count
-//     }
-//     return listlength(node.next,count+1)
-// }
-
-// console.log(listlength(newlist.head,0))
-
-
 // function evens(int){
 //     // console.log("int",int)
 //     if(int % 2 == 1){
@@ -3544,26 +2875,26 @@ SLL.prototype.remove = function(val){
 
 // console.log(sllRemove(newlist,6))
 
-let splitOnVal = (list,num)=>{
-    if(!list.contains(num)){
-        return list
-    }
-    if(list.head){
-        if(list.head.val == num){
-            return list
-        }
-        let runner = list.head,prev
-        while(num>0){
-            prev = runner
-            runner = runner.next
-            num--;
-        }
-        let newlist = new SLL()
-        newlist.head = runner
-        prev.next = null
-        return newlist
-    }
-}
+// let splitOnVal = (list,num)=>{
+//     if(!list.contains(num)){
+//         return list
+//     }
+//     if(list.head){
+//         if(list.head.val == num){
+//             return list
+//         }
+//         let runner = list.head,prev
+//         while(num>0){
+//             prev = runner
+//             runner = runner.next
+//             num--;
+//         }
+//         let newlist = new SLL()
+//         newlist.head = runner
+//         prev.next = null
+//         return newlist
+//     }
+// }
 
 
 // let sllRmNeg = (list)=>{
@@ -3597,12 +2928,12 @@ let splitOnVal = (list,num)=>{
 
 // console.log(sllConcat(newlist,list2))
 
-arr = [1,2,3]
-newlist2 = new SLL()
-for(let i =0;i<arr.length;i++){
-    newlist.addnode(arr[i])
-    newlist2.addnode(arr[i])
-}
+// arr = [1,2,3]
+// newlist2 = new SLL()
+// for(let i =0;i<arr.length;i++){
+//     newlist.addnode(arr[i])
+//     newlist2.addnode(arr[i])
+// }
 
 // let sllPartition = (list,val)=>{
 //     if(!list.contains(val)){
@@ -3696,262 +3027,277 @@ for(let i =0;i<arr.length;i++){
 
 // console.log(deDupe(newlist))
 
-let zipLists = (list1,list2)=>{
-    let newlist = new SLL(),runner1 = list1.head, runner2 = list2.head
-    while(runner1 || runner2){
-        if(runner1){
-            newlist.addnode(runner1.val)
-            runner1 = runner1.next
-        }
-        if(runner2){
-            newlist.addnode(runner2.val)
-            runner2 = runner2.next
-        }
-    }
-    return newlist
-}
+// let zipLists = (list1,list2)=>{
+//     let newlist = new SLL(),runner1 = list1.head, runner2 = list2.head
+//     while(runner1 || runner2){
+//         if(runner1){
+//             newlist.addnode(runner1.val)
+//             runner1 = runner1.next
+//         }
+//         if(runner2){
+//             newlist.addnode(runner2.val)
+//             runner2 = runner2.next
+//         }
+//     }
+//     return newlist
+// }
 
 // console.log(zipLists(newlist,newlist2))
 
-function SLQueue(){
-    this.head = null;
-    this.tail = null
-}
-SLQueue.prototype.enqueue = function(val){
-    var node = new Node(val),
-    currentNode = this.head;
-    if (!currentNode){
-        this.head = node;
-        this.tail = node;
-        return 
-    }
-    while (currentNode.next){
-        currentNode = currentNode.next;
-    }
-    currentNode.next = node;
-    this.tail = currentNode.next
-    return node;
-}
+// function SLQueue(){
+//     this.head = null;
+//     this.tail = null
+// }
+// SLQueue.prototype.enqueue = function(val){
+//     var node = new Node(val),
+//     currentNode = this.head;
+//     if (!currentNode){
+//         this.head = node;
+//         this.tail = node;
+//         return 
+//     }
+//     while (currentNode.next){
+//         currentNode = currentNode.next;
+//     }
+//     currentNode.next = node;
+//     this.tail = currentNode.next
+//     return node;
+// }
 
-SLQueue.prototype.dequeue = function(){
-    if(this.head){
-        let temp = this.head
-        this.head = this.head.next
-        this.tail = this.getTail()
-        return temp.val
-    }
+// SLQueue.prototype.dequeue = function(){
+//     if(this.head){
+//         let temp = this.head
+//         this.head = this.head.next
+//         this.tail = this.getTail()
+//         return temp.val
+//     }
 
-    return null
-}
-SLQueue.prototype.front = function(){
-    return this.head.val
-}
-SLQueue.prototype.contains = function(val){
-    if(!this.head){return false}
-    if(this.head.val == val){return true}
-    runner = this.head
-    while(runner){
-        if(runner.val == val){
-            return true
-        }
-        runner = runner.next
+//     return null
+// }
+// SLQueue.prototype.front = function(){
+//     return this.head.val
+// }
+// SLQueue.prototype.contains = function(val){
+//     if(!this.head){return false}
+//     if(this.head.val == val){return true}
+//     runner = this.head
+//     while(runner){
+//         if(runner.val == val){
+//             return true
+//         }
+//         runner = runner.next
+//     }
+//     return false
+// }
+
+// SLQueue.prototype.isEmpty = function(){
+//     if(!this.head){return true}
+//     return false
+// }
+
+// SLQueue.prototype.size = function(){
+//     return length(this.head)
+// }
+
+// SLQueue.prototype.getTail = function(){
+//     if(this.head){
+//         let run = this.head
+//         while(run.next){
+//             run=run.next
+//         }
+//         return run
+//     }
+// }
+
+
+// let queue = new SLQueue()
+// arr = [1,2,3,4,5,6]
+// for(let i=0;i<arr.length;i++){
+//     queue.enqueue(arr[i])
+// }
+
+// let compareQueues = function(q1,q2){
+//     if(q1.head.val !== q2.head.val){return false}
+//     let run = q1.head, run2 = q2.head,count = q1.size()
+//     while(count>0){
+//         if(run2 == null || run.val!==run2.val){return false}
+//         run = run.next
+//         run2 = run2.next
+//         count--;
+//     }
+//     return true
+// }
+
+// let removeMin = function(q){
+//     if(q.head){
+//         let minimum = min(q.head);
+//         while(q.contains(minimum)){
+//             minToFront(q)
+//             queue.dequeue()
+//         }
+//         return q
+//     }
+//     return null
+// }
+
+// let interLeaveQ = function(q){
+//     if(q.head){
+//         let len = length(q.head)
+//         if(len < 3){return q}
+//         let run = q.head,
+//             left = new SLQueue,
+//                 half = Math.floor(len/2)
+//         while(len > half){
+//             left.enqueue(q.dequeue())
+//             len--;
+//         }
+//         return zipLists(left,q)
+//     }
+// }
+
+// function ArrStack(){
+//     this.stack = []
+// }
+
+// ArrStack.prototype.Push = function(val){
+//     return this.stack.push(val)
+// }
+
+// ArrStack.prototype.pop = function(){
+//     return this.stack.pop()
+// }
+
+// ArrStack.prototype.top = function(){
+//     let len = this.stack.length
+//     if(len){
+//         return this.stack[len-1]
+//     }
+//     return "Not enough elements in your stack"
+// }
+
+// ArrStack.prototype.contains = function(val){
+//     let len = this.stack.length
+//     if(len){
+//         for(let i=0;i<len;i++){
+//             if(this.stack[i]==val){
+//                 return true
+//             }
+//         }
+//         return false
+//     }
+//     return "Stack is empty"
+// }
+
+// ArrStack.prototype.isEmpty = function(){
+//     let len = this.stack.length
+//     if(len){return true}
+//     return false
+// }
+
+// ArrStack.prototype.size = function(){
+//     return this.stack.length
+// }
+
+// function SlStack(){
+//     this.head = null;
+//     this.tail = null;
+// }
+
+// SlStack.prototype.Push = function(val){
+//     var node = new Node(val),
+//     currentNode = this.head;
+//     if (!currentNode){
+//         this.head = node;
+//         this.tail = node;
+//         return 
+//     }
+//     while (currentNode.next){
+//         currentNode = currentNode.next;
+//     }
+//     currentNode.next = node;
+//     this.tail = currentNode.next
+//     return node;
+// }
+
+// SlStack.prototype.Pop = function(){
+//     let currentNode = this.head, prev;
+//     if (!currentNode){
+//         return "Not enough nodes in your stacks"
+//     }
+//     while (currentNode.next){
+//         prev = currentNode
+//         currentNode = currentNode.next;
+//     }
+//     prev.next = null
+//     this.tail = this.getTail()
+//     return 
+// }
+
+// SlStack.prototype.getTail = function(){
+//     if(this.head){
+//         let run = this.head
+//         while(run.next){
+//             run=run.next
+//         }
+//         return run
+//     }
+// }
+// SlStack.prototype.top = function(){
+//     return this.tail
+// }
+
+// SlStack.prototype.contains = function(val){
+//     if(!this.head){return false}
+//     if(this.head.val == val){return true}
+//     runner = this.head
+//     while(runner){
+//         if(runner.val == val){
+//             return true
+//         }
+//         runner = runner.next
+//     }
+//     return false
+// }
+
+// SlStack.prototype.isEmpty = function(){
+//     if(!this.head){return true}
+//     return false
+// }
+
+// SlStack.prototype.size = function(){
+//     return length(this.head)
+// }
+
+// let compareStacks = function(s1,s2){
+//     if(s1.head.val !== s2.head.val){return false}
+//     let run = s1.head, run2 = s2.head,count = s1.size()
+//     while(count>0){
+//         if(run2 == null || run.val!==run2.val){return false}
+//         run = run.next
+//         run2 = run2.next
+//         count--;
+//     }
+//     return true
+// }
+// let stack = new SlStack()
+
+let bPoint = (arr)=>{
+    if(arr.length < 2){return true}
+    let e=arr.length-1, s=0,ss=0,es=0
+    while(s<arr.length-1 && e>0){
+        ss+=arr[s++];es+=arr[e--]
+    }
+    if(ss == arr[arr.length-1] || es == arr[0]){
+        return true
     }
     return false
 }
 
-SLQueue.prototype.isEmpty = function(){
-    if(!this.head){return true}
-    return false
+let bIndex = (arr)=>{
+    if(arr.length < 3){return -1}
 }
 
-SLQueue.prototype.size = function(){
-    return length(this.head)
-}
-
-SLQueue.prototype.getTail = function(){
-    if(this.head){
-        let run = this.head
-        while(run.next){
-            run=run.next
-        }
-        return run
-    }
-}
-
-
-let queue = new SLQueue()
-arr = [1,2,3,4,5,6]
-for(let i=0;i<arr.length;i++){
-    queue.enqueue(arr[i])
-}
-
-let compareQueues = function(q1,q2){
-    if(q1.head.val !== q2.head.val){return false}
-    let run = q1.head, run2 = q2.head,count = q1.size()
-    while(count>0){
-        if(run2 == null || run.val!==run2.val){return false}
-        run = run.next
-        run2 = run2.next
-        count--;
-    }
-    return true
-}
-
-let removeMin = function(q){
-    if(q.head){
-        let minimum = min(q.head);
-        while(q.contains(minimum)){
-            minToFront(q)
-            queue.dequeue()
-        }
-        return q
-    }
-    return null
-}
-
-let interLeaveQ = function(q){
-    if(q.head){
-        let len = length(q.head)
-        if(len < 3){return q}
-        let run = q.head,
-            left = new SLQueue,
-                half = Math.floor(len/2)
-        while(len > half){
-            left.enqueue(q.dequeue())
-            len--;
-        }
-        return zipLists(left,q)
-    }
-}
-
-function ArrStack(){
-    this.stack = []
-}
-
-ArrStack.prototype.Push = function(val){
-    return this.stack.push(val)
-}
-
-ArrStack.prototype.pop = function(){
-    return this.stack.pop()
-}
-
-ArrStack.prototype.top = function(){
-    let len = this.stack.length
-    if(len){
-        return this.stack[len-1]
-    }
-    return "Not enough elements in your stack"
-}
-
-ArrStack.prototype.contains = function(val){
-    let len = this.stack.length
-    if(len){
-        for(let i=0;i<len;i++){
-            if(this.stack[i]==val){
-                return true
-            }
-        }
-        return false
-    }
-    return "Stack is empty"
-}
-
-ArrStack.prototype.isEmpty = function(){
-    let len = this.stack.length
-    if(len){return true}
-    return false
-}
-
-ArrStack.prototype.size = function(){
-    return this.stack.length
-}
-
-function SlStack(){
-    this.head = null;
-    this.tail = null;
-}
-
-SlStack.prototype.Push = function(val){
-    var node = new Node(val),
-    currentNode = this.head;
-    if (!currentNode){
-        this.head = node;
-        this.tail = node;
-        return 
-    }
-    while (currentNode.next){
-        currentNode = currentNode.next;
-    }
-    currentNode.next = node;
-    this.tail = currentNode.next
-    return node;
-}
-
-SlStack.prototype.Pop = function(){
-    let currentNode = this.head, prev;
-    if (!currentNode){
-        return "Not enough nodes in your stacks"
-    }
-    while (currentNode.next){
-        prev = currentNode
-        currentNode = currentNode.next;
-    }
-    prev.next = null
-    this.tail = this.getTail()
-    return 
-}
-
-SlStack.prototype.getTail = function(){
-    if(this.head){
-        let run = this.head
-        while(run.next){
-            run=run.next
-        }
-        return run
-    }
-}
-SlStack.prototype.top = function(){
-    return this.tail
-}
-
-SlStack.prototype.contains = function(val){
-    if(!this.head){return false}
-    if(this.head.val == val){return true}
-    runner = this.head
-    while(runner){
-        if(runner.val == val){
-            return true
-        }
-        runner = runner.next
-    }
-    return false
-}
-
-SlStack.prototype.isEmpty = function(){
-    if(!this.head){return true}
-    return false
-}
-
-SlStack.prototype.size = function(){
-    return length(this.head)
-}
-
-let compareStacks = function(s1,s2){
-    if(s1.head.val !== s2.head.val){return false}
-    let run = s1.head, run2 = s2.head,count = s1.size()
-    while(count>0){
-        if(run2 == null || run.val!==run2.val){return false}
-        run = run.next
-        run2 = run2.next
-        count--;
-    }
-    return true
-}
-
-
-let stack = new SlStack()
-
+[-2,5,7,0,3]
 
 
 
