@@ -3281,25 +3281,51 @@ SLL.prototype.remove = function(val){
 // }
 // let stack = new SlStack()
 
-let bPoint = (arr)=>{
-    if(arr.length < 2){return true}
-    let e=arr.length-1, s=0,ss=0,es=0
-    while(s<arr.length-1 && e>0){
-        ss+=arr[s++];es+=arr[e--]
-    }
-    if(ss == arr[arr.length-1] || es == arr[0]){
-        return true
+// let bPoint = (arr)=>{
+//     if(arr.length < 2){return true}
+//     let e=arr.length-1, s=0,ss=0,es=0
+//     while(s<arr.length-1 && e>0){
+//         ss+=arr[s++];es+=arr[e--]
+//     }
+//     if(ss == arr[arr.length-1] || es == arr[0]){
+//         return true
+//     }
+//     return false
+// }
+
+// let bSum = (arr,idx)=>{
+//     if(arr.length < 2){return true}
+//     let e=arr.length-1, s=0,ss=0,es=0,flag=true 
+//     while(s<idx || e>idx){
+//         if(s == idx){es += arr[e--]}
+//         else if(e == idx){ss+= arr[j++]}
+//         else{
+//             ss+=arr[s++]
+//             es+=arr[e--]
+//         }
+//     }
+//     return {start:ss,end:es}
+// }
+
+
+let bIndex = (arr)=>{
+    if(arr.length < 3){return -1}
+    for(let i=0;i<arr.length;i++){
+        let sums = bSum(arr,i)
+        if(sums.start == sums.end){return i}
     }
     return false
 }
 
-let bIndex = (arr)=>{
-    if(arr.length < 3){return -1}
-}
-
 [-2,5,7,0,3]
 
+let arrBinarySearch = (arr, val)=>{
+    let mid = Math.floor(arr.length/2)
+    
+}
 
+
+[4,1,5,6,12,8]
 
 
 
