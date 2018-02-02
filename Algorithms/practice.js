@@ -3307,27 +3307,20 @@ SLL.prototype.remove = function(val){
 //     return {start:ss,end:es}
 // }
 
-
-let bIndex = (arr)=>{
-    if(arr.length < 3){return -1}
-    for(let i=0;i<arr.length;i++){
-        let sums = bSum(arr,i)
-        if(sums.start == sums.end){return i}
+let arrBinarySearch = (arr, val)=>{
+    let mid = Math.floor(arr.length/2), 
+    e = arr.length-1, s = 0
+    if(arr[mid] == val || arr[e] == val || arr[s]){return true}
+    while(e>mid || s<mid){
+        let eMid = Math.floor((e+mid)/2),
+            sMid = Math.floor((s+mid)/2)
+        if(arr[eMid] == val || arr[sMid] == val){return true}
+        e--;s++
     }
     return false
 }
 
-[-2,5,7,0,3]
-
-let arrBinarySearch = (arr, val)=>{
-    let mid = Math.floor(arr.length/2)
-    
-}
-
-
-[4,1,5,6,12,8]
-
-
+console.log(arrBinarySearch([4,1,5,12,3,6]))
 
 
 
