@@ -3307,23 +3307,34 @@ SLL.prototype.remove = function(val){
 //     return {start:ss,end:es}
 // }
 
-let arrBinarySearch = (arr, val)=>{
-    let mid = Math.floor(arr.length/2), 
-    e = arr.length-1, s = 0
-    if(arr[mid] == val || arr[e] == val || arr[s]){return true}
-    while(e>mid || s<mid){
-        let eMid = Math.floor((e+mid)/2),
-            sMid = Math.floor((s+mid)/2)
-        if(arr[eMid] == val || arr[sMid] == val){return true}
-        e--;s++
-    }
-    return false
-}
+// let arrBinarySearch = (arr, val)=>{
+//     let mid = Math.floor(arr.length/2), 
+//     e = arr.length-1, s = 0
+//     if(arr[mid] == val || arr[e] == val || arr[s] == val){return true}
+//     while(e>mid || s<mid){
+//         if(arr[e] == val || arr[s] == val){return true}
+//         let eMid = Math.floor((e+mid)/2),
+//                 sMid = Math.floor((s+mid)/2)
+//         if(arr[eMid] == val || arr[sMid] == val){return true}
+//         e--;s++
+//     }
+//     return false
+// }
+// console.log(arrBinarySearch(["&","-","0","3","7","9","D","E","F","X","Z","[","a","b","c","z","|"],"c"))
 
-console.log(arrBinarySearch([4,1,5,12,3,6]))
-
-
-
+// let minSortedRotated=(arr)=>{
+//     let mid = Math.floor(arr.length/2), 
+//     e = arr.length-1, s = 0, min = arr[0]
+//     while(e>mid || s<mid){
+//         let eMid = Math.floor((e+mid)/2),
+//                 sMid = Math.floor((s+mid)/2)
+//         if(arr[eMid] < min){min=arr[eMid]}
+//         if(arr[sMid] < min){min=arr[sMid]}
+//         e--;s++
+//     }
+//     return min
+// }
+// console.log(minSortedRotated(["Gigli","Jay is cool", "Mavis", "Phoebe","Thurber","Anna","Celeste","Elon"]))
 
 
 
