@@ -1498,12 +1498,12 @@
 // }
 // list.reverse()
 
-// function swap(arr,idx1,idx2){
-//     var temp = arr[idx1];
-//     arr[idx1] = arr[idx2]
-//     arr[idx2] = temp;
-//     return
-// }
+function swap(arr,idx1,idx2){
+    var temp = arr[idx1];
+    arr[idx1] = arr[idx2]
+    arr[idx2] = temp;
+    return
+}
 
 // function selectionsort(arr){
 //     for(var i=0;i<arr.length;i++){
@@ -1605,11 +1605,12 @@
 //     return(input % div + div) % div
 // }
 
-// function arrayremove(arr,idx){
+// function arrRemove(arr,idx){
+//     console.log(arr[idx])
 //     for(var i= idx; i<arr.length;i++){
 //         swap(arr,idx,idx+1)
 //     }
-//     return arr.pop
+//     return arr.pop()
 // }
 
 // HashMap.prototype.add = function(key,val){
@@ -2216,6 +2217,13 @@
 //     }
 //     return arr
 // }
+
+Array.prototype.concat = function(arr){
+    for(let i=0;i<arr.length;i++){
+        this.push(arr[i])
+    }
+    return
+}
 
 // console.log(concat([1,2],[3,4]))
 
@@ -3295,7 +3303,7 @@ SLL.prototype.remove = function(val){
 
 // let bSum = (arr,idx)=>{
 //     if(arr.length < 2){return true}
-//     let e=arr.length-1, s=0,ss=0,es=0,flag=true 
+//     let e=arr.length-1, s=0,ss=0,es=0 
 //     while(s<idx || e>idx){
 //         if(s == idx){es += arr[e--]}
 //         else if(e == idx){ss+= arr[j++]}
@@ -3307,6 +3315,13 @@ SLL.prototype.remove = function(val){
 //     return {start:ss,end:es}
 // }
 
+// let bIndex = (arr)=>{
+//     for(let i=0;i<arr.length;i++){
+//         let obj = bSum(arr,i)
+//         if(obj.start == obj.end){return i}
+//     }
+//     return -1
+// }
 // let arrBinarySearch = (arr, val)=>{
 //     let mid = Math.floor(arr.length/2), 
 //     e = arr.length-1, s = 0
@@ -3320,7 +3335,7 @@ SLL.prototype.remove = function(val){
 //     }
 //     return false
 // }
-// console.log(arrBinarySearch(["&","-","0","3","7","9","D","E","F","X","Z","[","a","b","c","z","|"],"c"))
+
 
 // let minSortedRotated=(arr)=>{
 //     let mid = Math.floor(arr.length/2), 
@@ -3335,8 +3350,57 @@ SLL.prototype.remove = function(val){
 //     return min
 // }
 // console.log(minSortedRotated(["Gigli","Jay is cool", "Mavis", "Phoebe","Thurber","Anna","Celeste","Elon"]))
+// String.prototype.toArray = function(){
+//     let arr = []
+//     for(let i = 0;i<this.length;i++){
+//         arr.push(this[i])
+//     }
+//     return arr
+// }
 
+// let stringBinarySearch = (string,val)=>{
+//     string = string.toArray()
+//     console.log(string)
+//     return arrBinarySearch(string,val)
+// }
 
+// console.log(stringBinarySearch(" &-0379DEFXZ[abcz|", 'c'))
 
+// let arrFlatten = (arr)=>{
+//    for(let i=0;i<arr.length;i++){
+//        if(Array.isArray(arr[i])){
+//            let subArray = arr.splice(i,1).pop()
+//            arr.concat(subArray)
+//        }
+//    } 
+//    return arr
+// }
 
+// let arrRemoveDupes = (arr)=>{
+//     let obj={}
+//     for(let i=0;i<arr.length;i++){
+//         if(!obj[arr[i]]){obj[arr[i]]=1}
+//         else{arr.splice(i,1)}
+//     }
+//     return arr
+// }
 
+// console.log(arrRemoveDupes([1,2,1,3,4,2,3,4]))
+
+// let maxObj = (obj)=>{
+//     let max = obj[Object.keys(obj)[0]]
+//     for(key in obj){
+//         if(obj[key]>max){max = key}
+//     }
+//     return max
+// }
+
+// let arrMode = (arr)=>{
+//     let obj={}
+//     for(let i=0;i<arr.length;i++){
+//         if(!obj[arr[i]]){obj[arr[i]] = 1}
+//         else{obj[arr[i]]++}
+//     }
+//     return maxObj(obj)
+// }
+// console.log(arrMode([1,2,3,2,2,4,5,5]))
