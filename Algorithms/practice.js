@@ -3404,3 +3404,15 @@ SLL.prototype.remove = function(val){
 //     return maxObj(obj)
 // }
 // console.log(arrMode([1,2,3,2,2,4,5,5]))
+
+let fib = (num)=>{
+    let a = 0, b=1, temp
+    while(num>0){
+        temp = a 
+        a += b
+        b = temp
+    }
+    return a
+}
+
+console.log(fib())
