@@ -3405,14 +3405,64 @@ SLL.prototype.remove = function(val){
 // }
 // console.log(arrMode([1,2,3,2,2,4,5,5]))
 
-let fib = (num)=>{
-    let a = 0, b=1, temp
-    while(num>0){
-        temp = a 
-        a += b
-        b = temp
+// let findSum = (arr)=>{
+//     let sum = 0;
+//     for(let i=0;i<arr.length;i++){
+//         sum+=arr[i]
+//     }
+//     return sum
+// }
+// let medianSorted=(arr,arr2)=>{
+//     let sums = findSum(arr)+findSum(arr2),len = (arr2.length+arr.length)
+//     return Math.floor(sums / len)
+// }
+
+// console.log(medianSorted([1,2,3],[4,5,6]))
+
+let timeToEng =(num)=>{
+    if(num == 0 || 1440){return "midnight"}
+    if(num == 720){return "noon"}
+    let hour = Math.round(num/60),string = "",obj = {13:1,14:2,15:3,16:4,17:5,18:6,19:7,20:8,21:9,22:10,23:11}
+    if(obj[hour]){var civilHour = obj[hour]}
+    num = num % 60
+    switch(num){
+        case 15:
+            string+="quarter past "
+            break;
+        case 30: 
+            string+="half past "
+            break;
+        case 40:
+            string+="20 till "
+            break;
+        case 45:
+            string+="quarter till "
+            break;
+        case 50: 
+            string+="10 till "
+            break;
+        default:
+            if(num > 30){string+=(60-num)+" till "}
+            else{string+=num+" past "}
+            break;
     }
-    return a
+    switch(hour){
+        case 0:
+            string+="midnight"
+            break;
+        case 12:
+            string+="noon"
+            break;
+        default:
+            if(hour<12){string+=hour+" am"}
+            else{string+=civilHour+" pm"}
+            break;
+    }
+
+    return string
 }
 
-console.log(fib())
+console.log(timeToEng(710))
+
+
+
