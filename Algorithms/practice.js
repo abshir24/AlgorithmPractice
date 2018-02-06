@@ -3541,10 +3541,38 @@ SLL.prototype.remove = function(val){
 //     return missingVal
 // }
 
-let missingValueOpt = (arr)=>{
-    let len = arr.length, missingVal = 0
-}
+// let createObj = (num)=>{
+//     let obj={}
+//     for(let i = 0;i<=num;i++){
+//         obj[i]=true
+//     }
+//     return obj
+// }
+// let findKey = (obj)=>{
+//     for(key in obj){
+//         if(obj[key] == true){return key}
+//     }
+// }
 
-[3,0,1]
-// console.log(missingValue([3,0,1]))
+// let missingValueOpt =(arr)=>{
+//     obj=createObj(arr.length)
+//     for(let i=0;i<arr.length;i++){
+//         if(obj[arr[i]]){obj[arr[i]] = false}
+//     }
+//     return findKey(obj)
+// } 
+
+// console.log(missingValueOpt([3,0,1,2]))
+// let maxSubArrSums=(arr)=>{
+//     sum = 0, max=arr[0]
+//     for(let i=0;i<arr.length-2;i++){
+//         sum=0+arr[i]
+//         for(let j=i+1;j<arr.length;j++){
+//             sum+=arr[j]
+//             if(sum>max){max=sum}
+//         }
+//     }
+//     return max
+// }
+// console.log(maxSubArrSums([-1,-2,-4,-3,-2,-3]))
 
