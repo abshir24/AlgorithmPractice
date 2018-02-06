@@ -3526,12 +3526,25 @@ SLL.prototype.remove = function(val){
 
 // console.log(isAnInPlace(["abc","bca","cba","tea","eat","bat"]))
 
-let missingValue = (arr)=>{
-    let len = arr.length,missingVal = 0
-    for(let i=0;i<arr.length;i++){
-        if(!arr.contains(i)){missingVal = arr[i]}
-    }
-    return arr[i]
+// Array.prototype.contains = function(val){
+//     for(let i = 0;i<this.length;i++){
+//         if(this[i] == val){return true}
+//     }
+//     return false
+// }
+
+// let missingValue = (arr)=>{
+//     let len = arr.length,missingVal = 0
+//     for(let i=0;i<arr.length;i++){
+//         if(!arr.contains(i)){missingVal = i}
+//     }
+//     return missingVal
+// }
+
+let missingValueOpt = (arr)=>{
+    let len = arr.length, missingVal = 0
 }
 
-console.log(missingValue([3,0,1]))
+[3,0,1]
+// console.log(missingValue([3,0,1]))
+
