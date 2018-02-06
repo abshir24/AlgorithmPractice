@@ -3562,7 +3562,6 @@ SLL.prototype.remove = function(val){
 //     return findKey(obj)
 // } 
 
-// console.log(missingValueOpt([3,0,1,2]))
 // let maxSubArrSums=(arr)=>{
 //     sum = 0, max=arr[0]
 //     for(let i=0;i<arr.length-2;i++){
@@ -3576,3 +3575,20 @@ SLL.prototype.remove = function(val){
 // }
 // console.log(maxSubArrSums([-1,-2,-4,-3,-2,-3]))
 
+let slist = new SLL()
+
+for(let i=1;i<6;i++){slist.addnode(i)}
+
+SLL.prototype.reverse = function(){
+    if(length(this.head)<2){return this.head}
+    let initialnode = this.head
+    while(initialnode.next){
+        let head = this.head
+        this.head = initialnode.next
+        this.head.next = head
+        initialnode = initialnode.next
+    }
+    return 
+}
+
+console.log(slist.reverse())
