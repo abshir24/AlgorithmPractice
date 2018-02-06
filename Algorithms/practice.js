@@ -3419,50 +3419,119 @@ SLL.prototype.remove = function(val){
 
 // console.log(medianSorted([1,2,3],[4,5,6]))
 
-let timeToEng =(num)=>{
-    if(num == 0 || 1440){return "midnight"}
-    if(num == 720){return "noon"}
-    let hour = Math.round(num/60),string = "",obj = {13:1,14:2,15:3,16:4,17:5,18:6,19:7,20:8,21:9,22:10,23:11}
-    if(obj[hour]){var civilHour = obj[hour]}
-    num = num % 60
-    switch(num){
-        case 15:
-            string+="quarter past "
-            break;
-        case 30: 
-            string+="half past "
-            break;
-        case 40:
-            string+="20 till "
-            break;
-        case 45:
-            string+="quarter till "
-            break;
-        case 50: 
-            string+="10 till "
-            break;
-        default:
-            if(num > 30){string+=(60-num)+" till "}
-            else{string+=num+" past "}
-            break;
-    }
-    switch(hour){
-        case 0:
-            string+="midnight"
-            break;
-        case 12:
-            string+="noon"
-            break;
-        default:
-            if(hour<12){string+=hour+" am"}
-            else{string+=civilHour+" pm"}
-            break;
-    }
+// let timeToEng =(num)=>{
+//     if(num == 0 || num == 1440){return "midnight"}
+//     if(num == 720){return "noon"}
+//     let hour = Math.round(num/60),string = "",obj = {13:1,14:2,15:3,16:4,17:5,18:6,19:7,20:8,21:9,22:10,23:11}
+//     if(obj[hour]){var civilHour = obj[hour]}
+//     num = num % 60
+//     switch(num){
+//         case 15:
+//             string+="quarter past "
+//             break;
+//         case 30: 
+//             string+="half past "
+//             break;
+//         case 40:
+//             string+="20 till "
+//             break;
+//         case 45:
+//             string+="quarter till "
+//             break;
+//         case 50: 
+//             string+="10 till "
+//             break;
+//         default:
+//             if(num > 30){string+=(60-num)+" minutes till "}
+//             else{string+=num+" minutes past "}
+//             break;
+//     }
+//     switch(hour){
+//         case 0:
+//             string+="midnight"
+//             break;
+//         case 12:
+//             string+="noon"
+//             break;
+//         default:
+//             if(hour<12){string+=hour+" am"}
+//             else{string+=civilHour+" pm"}
+//             break;
+//     }
+//     return string
+// }
 
-    return string
+// console.log(timeToEng(725))
+
+// let bIndex  = (arr)=>{
+//     let sum = findSum(arr), lsum=0;
+//     for(let i=0;i<arr.length;i++){
+//         sum-=arr[i]
+//         if(lsum == sum){
+//             return i
+//         }
+//         lsum += arr[i]
+//     }
+//     return -1
+// }
+
+// console.log(bIndex([-2,5,7,0,3]))
+
+// let alphaBetize = (string)=>{
+//     return string.split('').sort().join('')
+// }
+
+// let isAn = (arr)=>{
+//     let obj = {},endArr = [],str = ""
+//     for(let i=0;i<arr.length;i++){
+//         str = alphaBetize(arr[i])
+//         let result = str in obj
+//         if(!result){
+//             endArr.push([arr[i]])
+//             obj[str]=endArr.length-1
+//         }else{
+//             let idx = obj[str]
+//             endArr[idx].push(arr[i])
+//         }
+//     }
+//     return endArr
+// }
+
+// let checkStrings = (arr)=>{
+//     for(let i = 0;i<arr.length;i++){
+//         if(typeof(arr[i]) == "string"){return true}
+//     }
+//     return false
+// }
+// let isAnInPlace = (arr)=>{
+//     let obj = {},str = "",i=0
+//     while(checkStrings(arr)){
+//         if(typeof(arr[i]) == "string"){
+//             str = alphaBetize(arr[i])
+//             let result = str in obj
+//             if(!result){
+//                 arr[i] = [arr[i]]
+//                 obj[str]=i
+//             }else{
+//                 let idx = obj[str]
+//                 arr[idx].push(arr[i])
+//                 arr.splice(i,1)
+//             }
+//         }
+//         if(i==arr.length-1){i=0;continue}
+//         i++
+//     }
+//     return arr
+// }
+
+// console.log(isAnInPlace(["abc","bca","cba","tea","eat","bat"]))
+
+let missingValue = (arr)=>{
+    let len = arr.length,missingVal = 0
+    for(let i=0;i<arr.length;i++){
+        if(!arr.contains(i)){missingVal = arr[i]}
+    }
+    return arr[i]
 }
 
-console.log(timeToEng(710))
-
-
-
+console.log(missingValue([3,0,1]))
