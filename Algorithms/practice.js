@@ -3579,16 +3579,26 @@ let slist = new SLL()
 
 for(let i=1;i<6;i++){slist.addnode(i)}
 
-SLL.prototype.reverse = function(){
-    if(length(this.head)<2){return this.head}
-    let initialnode = this.head
-    while(initialnode.next){
-        let head = this.head
-        this.head = initialnode.next
-        this.head.next = head
-        initialnode = initialnode.next
-    }
-    return 
-}
+// SLL.prototype.reverse = function(){
+//     if(length(this.head)<2){return this.head}
+//     let initialnode = this.head
+//     while(initialnode.next){
+//         let temp = initialnode.next
+//         initialnode.next = temp.next
+//         let head = this.head
+//         this.head = temp
+//         this.head.next = head
+//     }
+//     return 
+// }
+// slist.reverse()
+// console.log(slist)
 
-console.log(slist.reverse())
+// SLL.prototype.isPalindrome = function(){
+//     if(length(this.head)<2){return false}
+//     let str = "",runner = this.head
+// }
+
+let lLongestSubstring = ()=>{
+
+}
