@@ -1347,18 +1347,18 @@
 // list.addnode(1)
 // list.addnode(2)
 // list.addnode(3)
-// function singlylistreverse(list){
-//     var initialnode = list.head
-//     var runner = this.head
-//     while(initialnode.next){
-//         var temp = initialnode.next
-//         initialnode.next = temp.next
-//         var head = list.head
-//         list.head = temp
-//         list.head.next = head
-//     }
-//     return list
-// }
+function singlylistreverse(list){
+    var initialnode = list.head
+    var runner = this.head
+    while(initialnode.next){
+        var temp = initialnode.next
+        initialnode.next = temp.next
+        var head = list.head
+        list.head = temp
+        list.head.next = head
+    }
+    return list
+}
 // var newlist = singlylistreverse(list)
 // console.log(newlist.head.next)
 // function singlylistrotate(list,rotate){
@@ -2431,16 +2431,16 @@ Array.prototype.concat = function(arr){
 // console.log(parensvalid(")NE0(P)3"))
 
 
-// var isPalindrome = (string)=>{
-//     let s=0,e=string.length-1
-//     while(string[s] == string[e]){
-//        s++,e--;
-//        if(s>e){
-//            return true
-//        }
-//     }
-//     return false
-// }
+var isPalindrome = (string)=>{
+    let s=0,e=string.length-1
+    while(string[s] == string[e]){
+       s++,e--;
+       if(s>e){
+           return true
+       }
+    }
+    return false
+}
 
 // console.log(palindrome("r"))
 
@@ -2642,8 +2642,9 @@ SLL.prototype.contains = function(val){
 // console.log(newlist.contains(1))
 
 SLL.prototype.removeFront = function(){
+    let temp = this.head
     this.head = this.head.next
-    return 
+    return temp
 }
 
 // newlist.removeFront()
@@ -2862,24 +2863,25 @@ let minToFront = (list)=>{
 
 // console.log(appendVal(newlist,2,6))
 
-SLL.prototype.remove = function(val){
-    if(!this.contains(val)){
-        return false
-    }
-    if(this.head){
-        if(this.head.val == val){
-            this.head = this.head.next
-            return 
-        }
-        let runner = this.head,prev
-        while(runner.val !== val){
-            prev = runner
-            runner = runner.next
-        }
-        prev.next = runner.next
-        return 
-    }
-}
+// SLL.prototype.removeVal = function(val){
+//     if(!this.contains(val)){
+//         return false
+//     }
+//     if(this.head){
+//         if(this.head.val == val){
+//             this.head = this.head.next
+//             return 
+//         }
+//         let runner = this.head,prev
+//         while(runner.val !== val){
+//             prev = runner
+//             runner = runner.next
+//         }
+
+//         prev.next = runner.next
+//         return 
+//     }
+// }
 
 // console.log(sllRemove(newlist,6))
 
@@ -2975,16 +2977,16 @@ SLL.prototype.remove = function(val){
 
 // console.log(secondToLastVal(newlist))
 
-// let slistCopy = (list)=>{
-//     if(list.head){
-//         let list2 = new SLL(), runner = list.head
-//         while(runner){
-//             list2.addnode(runner.val)
-//             runner = runner.next
-//         }
-//         return list2
-//     }
-// }
+let slistCopy = (list)=>{
+    if(list.head){
+        let list2 = new SLL(), runner = list.head
+        while(runner){
+            list2.addnode(runner.val)
+            runner = runner.next
+        }
+        return list2
+    }
+}
 
 // let checkStatus = (val,low,high)=>{
 //     if(val > high || val < low){
@@ -3577,28 +3579,78 @@ SLL.prototype.remove = function(val){
 
 let slist = new SLL()
 
-for(let i=1;i<6;i++){slist.addnode(i)}
+for(let i=0;i<"racecar".length;i++){slist.addnode("racecar"[i])}
 
-// SLL.prototype.reverse = function(){
-//     if(length(this.head)<2){return this.head}
-//     let initialnode = this.head
-//     while(initialnode.next){
-//         let temp = initialnode.next
-//         initialnode.next = temp.next
-//         let head = this.head
-//         this.head = temp
-//         this.head.next = head
-//     }
-//     return 
-// }
+SLL.prototype.reverse = function(){
+    if(length(this.head)<2){return this.head}
+    let initialnode = this.head
+    while(initialnode.next){
+        let temp = initialnode.next
+        initialnode.next = temp.next
+        let head = this.head
+        this.head = temp
+        this.head.next = head
+    }
+    return this
+}
 // slist.reverse()
 // console.log(slist)
+SLL.prototype.Pop = function(){
+    let currentNode = this.head, prev;
+    if(!currentNode){
+        return "Not enough nodes in your stacks"
+    }
+    while (currentNode.next){
+        prev = currentNode
+        currentNode = currentNode.next;
+    }
+    let temp = prev.next
+    prev.next = null
+    return temp
+}
 
-// SLL.prototype.isPalindrome = function(){
-//     if(length(this.head)<2){return false}
-//     let str = "",runner = this.head
+// SLL.prototype.slisPalindrome = function(){
+//     let len = length(this.head)
+//     if(len<2){return false}
+//     let runner = this.head
+//     while(runner.val == this.Pop().val){
+//         runner = runner.next
+//     }
+//     if(length(this.head) == Math.floor(len/2) || length(this.head)< 2){return true}
+//     return false
 // }
+// optimal solution
 
-let lLongestSubstring = ()=>{
+// SLL.prototype.slisPalindrome=function(){
+//     let reverseList = slistCopy(this).reverse(),
+//         r1=this.head,
+//             r2 =reverseList.head,
+//                 count=length(this.head)
+//     while(r1.val == r2.val){
+//         count--;
+//         r1=r1.next
+//         r2=r2.next
+//         if(count == 0){return true}
+//      }
+//     return false
+// }
+// console.log(slist.slisPalindrome())
 
+// let longestSubstring=(str)=>{
+//     let string = "",longestSub = ""
+//     for(let i=0;i<str.length-1;i++){
+//         j = i+1
+//         string= "" + str[i]
+//         while(!string.includes(str[j])){string+=str[j++]}
+//         if(string.length>longestSub.length){longestSub = string}
+//     }
+//     return longestSub
+// }
+// console.log(longestSubstring("abcbc2waa"))
+
+let kthNode = (list,k)=>{
+    let count = length(list.head) - k, r = list.head
+    while(count>0){
+
+    }
 }
