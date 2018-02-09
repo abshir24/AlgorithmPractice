@@ -3579,35 +3579,35 @@ let slistCopy = (list)=>{
 
 let slist = new SLL()
 
-for(let i=0;i<"racecar".length;i++){slist.addnode("racecar"[i])}
+for(let i=1;i<4;i++){slist.addnode(i)}
 
-SLL.prototype.reverse = function(){
-    if(length(this.head)<2){return this.head}
-    let initialnode = this.head
-    while(initialnode.next){
-        let temp = initialnode.next
-        initialnode.next = temp.next
-        let head = this.head
-        this.head = temp
-        this.head.next = head
-    }
-    return this
-}
+// SLL.prototype.reverse = function(){
+//     if(length(this.head)<2){return this.head}
+//     let initialnode = this.head
+//     while(initialnode.next){
+//         let temp = initialnode.next
+//         initialnode.next = temp.next
+//         let head = this.head
+//         this.head = temp
+//         this.head.next = head
+//     }
+//     return this
+// }
 // slist.reverse()
-// console.log(slist)
-SLL.prototype.Pop = function(){
-    let currentNode = this.head, prev;
-    if(!currentNode){
-        return "Not enough nodes in your stacks"
-    }
-    while (currentNode.next){
-        prev = currentNode
-        currentNode = currentNode.next;
-    }
-    let temp = prev.next
-    prev.next = null
-    return temp
-}
+// // console.log(slist)
+// SLL.prototype.Pop = function(){
+//     let currentNode = this.head, prev;
+//     if(!currentNode){
+//         return "Not enough nodes in your stacks"
+//     }
+//     while (currentNode.next){
+//         prev = currentNode
+//         currentNode = currentNode.next;
+//     }
+//     let temp = prev.next
+//     prev.next = null
+//     return temp
+// }
 
 // SLL.prototype.slisPalindrome = function(){
 //     let len = length(this.head)
@@ -3648,9 +3648,54 @@ SLL.prototype.Pop = function(){
 // }
 // console.log(longestSubstring("abcbc2waa"))
 
-let kthNode = (list,k)=>{
-    let count = length(list.head) - k, r = list.head
-    while(count>0){
+// let kthNode = (list,k)=>{
+//     if(k){
+//         let count = length(list.head) - k, r = list.head
+//         while(count>0){
+//             r = r.next
+//             count--;
+//         }
+//         return r.val
+//     }
+//     return "Give me a number thats > 0"
+// }
+// console.log(kthNode(slist,5))
 
-    }
+// let shiftList=(list,shift)=>{
+//     let count = length(list.head) - shift,r = list.head,prev;
+//     while(count>0){prev=r; r=r.next;count--}
+//     let temp=r,head = list.head
+//     prev.next = null
+//     list.head = temp
+//     while(temp.next){temp = temp.next}
+//     temp.next = head
+//     return list.head.next
+// }
+
+// console.log(shiftList(slist,2))
+
+// let sliceList = (list,num)=>{
+//     let r = list.head,prev;
+//     while(num>0){
+//         prev = r
+//         r = r.next
+//         num--;
+//     }
+//     prev.next = null
+//     return list
+// }
+
+// let unShift = (list,unshift)=>{
+//     let split = sliceList(slistCopy(list),unshift),r = list.head
+//     while(unshift>0){r=r.next;unshift--}
+//     list.head = r;r=list.head
+//     while(r.next){r = r.next}
+//     r.next = split.head
+//     return list.head
+// }
+
+// console.log(unShift(slist,2))
+
+let getDigits = (num){
+    
 }
