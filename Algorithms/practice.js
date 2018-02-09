@@ -3576,11 +3576,6 @@ let slistCopy = (list)=>{
 //     return max
 // }
 // console.log(maxSubArrSums([-1,-2,-4,-3,-2,-3]))
-
-let slist = new SLL()
-
-for(let i=1;i<4;i++){slist.addnode(i)}
-
 // SLL.prototype.reverse = function(){
 //     if(length(this.head)<2){return this.head}
 //     let initialnode = this.head
@@ -3696,6 +3691,15 @@ for(let i=1;i<4;i++){slist.addnode(i)}
 
 // console.log(unShift(slist,2))
 
-let getDigits = (num){
-    
+let sumNumerals = (list,list2)=>{
+    let l1 = list.head,l2 = list2.head
+    while(l1 || l2){
+        if(l1){l1=l1.next}
+        if(l2){l2=l2.next}
+    }
+    console.log(l1,l2)
+    return
 }
+
+
+
