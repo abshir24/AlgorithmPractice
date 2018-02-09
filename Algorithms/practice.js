@@ -3576,6 +3576,7 @@ let slistCopy = (list)=>{
 //     return max
 // }
 // console.log(maxSubArrSums([-1,-2,-4,-3,-2,-3]))
+
 // SLL.prototype.reverse = function(){
 //     if(length(this.head)<2){return this.head}
 //     let initialnode = this.head
@@ -3690,16 +3691,43 @@ let slistCopy = (list)=>{
 // }
 
 // console.log(unShift(slist,2))
+let l = new SLL()
+let l2 = new SLL()
+
+l.addnode(2)
+l.addnode(0)
+l.addnode(1)
+
+l2.addnode(8)
+l2.addnode(4)
 
 let sumNumerals = (list,list2)=>{
-    let l1 = list.head,l2 = list2.head
-    while(l1 || l2){
-        if(l1){l1=l1.next}
-        if(l2){l2=l2.next}
+    let l1 = list.head,l2 = list2.head, sum=0, remainder = 0, newList = new SLL()
+    while(l1 && l2){
+        sum += (l1.val + l2.val + remainder)
+        if(sum>=10){
+            newList.addnode(sum%10)
+            remainder = Math.round(sum/10)
+        }else{
+            newList.addnode(sum)
+            remainder = 0
+        }
+        l1=l1.next;l2 = l2.next
     }
-    console.log(l1,l2)
-    return
+    if(l1){
+        while(l1){
+            newList.addnode(l1.val)
+            l1 =l1.next
+        }
+    }else{
+        while(l2){
+            newList.addnode(l2.val)
+            l2 = l2.next
+        }
+    }
+    return newList.head
 }
 
 
 
+console.log(sumNumerals(l,l2))
