@@ -3705,36 +3705,25 @@ l2.addnode(4)
 
 // 2+8+0=10
 
+//r = 10/10
+
+
+
 // 8=>4
 
-console.log(10%10)
-// let sumNumerals = (list,list2)=>{
-//     let l1 = list.head,l2 = list2.head, sum=0, remainder = 0, newList = new SLL()
-//     while(l1 && l2){
-//         sum += (l1.val + l2.val + remainder)
-//         if(sum>=10){
-//             newList.addnode(sum%10)
-//             remainder = Math.round(sum/10)
-//         }else{
-//             newList.addnode(sum)
-//             remainder = 0
-//         }
-//         l1=l1.next;l2 = l2.next
-//     }
-//     if(l1){
-//         while(l1){
-//             newList.addnode(l1.val)
-//             l1 =l1.next
-//         }
-//     }else{
-//         while(l2){
-//             newList.addnode(l2.val)
-//             l2 = l2.next
-//         }
-//     }
-//     return newList
-// }
+//nl = 0=>
 
-
-
-// console.log(sumNumerals(l,l2))
+let sumNumerals = (list,list2)=>{
+    let l1=list.head,l2 = list2.head, remainder = 0, sum = 0, newList = new SLL(), obj = {},count =0
+    while(l1&&l2){
+        sum = (l1.val + l2.val + remainder)
+        if(sum>=10){obj[count++] = sum%10;remainder = sum/10}
+        else{obj[count++]=sum;remainder=0}
+        l1=l1.next;l2=l2.next
+    }
+    while(l1){obj[count++]=l1.val;l1=l1.next}
+    while(l2){obj[count++]=l2.val;l2=l2.next}
+    for(key in obj){newList.addnode(obj[key])}
+    return newList.head
+}
+console.log(sumNumerals(l,l2))
