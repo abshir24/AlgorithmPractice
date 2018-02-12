@@ -2381,16 +2381,17 @@ Array.prototype.concat = function(arr){
 
 // console.log(rmEvenLenStrings(["yo","cool","ay","n"]))
 
-// function romanize(num){
-//     let lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1}, roman = ""
-//     for(i in lookup){
-//         while(num >= lookup[i]){
-//             roman+=i
-//             num -= lookup[i]
-//         }
-//     }
-//     return roman
-// }
+function romanize(num){
+    let lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1}, roman = ""
+    for(i in lookup){
+        while(num >= lookup[i]){
+            roman+=i
+            num -= lookup[i]
+        }
+    }
+    return roman
+}
+
 
 
 // function deromanize(string){
@@ -2431,16 +2432,16 @@ Array.prototype.concat = function(arr){
 // console.log(parensvalid(")NE0(P)3"))
 
 
-var isPalindrome = (string)=>{
-    let s=0,e=string.length-1
-    while(string[s] == string[e]){
-       s++,e--;
-       if(s>e){
-           return true
-       }
-    }
-    return false
-}
+// var isPalindrome = (string)=>{
+//     let s=0,e=string.length-1
+//     while(string[s] == string[e]){
+//        s++,e--;
+//        if(s>e){
+//            return true
+//        }
+//     }
+//     return false
+// }
 
 // console.log(palindrome("r"))
 
@@ -3700,34 +3701,40 @@ l.addnode(1)
 
 l2.addnode(8)
 l2.addnode(4)
+// 2=>0=>1 
 
-let sumNumerals = (list,list2)=>{
-    let l1 = list.head,l2 = list2.head, sum=0, remainder = 0, newList = new SLL()
-    while(l1 && l2){
-        sum += (l1.val + l2.val + remainder)
-        if(sum>=10){
-            newList.addnode(sum%10)
-            remainder = Math.round(sum/10)
-        }else{
-            newList.addnode(sum)
-            remainder = 0
-        }
-        l1=l1.next;l2 = l2.next
-    }
-    if(l1){
-        while(l1){
-            newList.addnode(l1.val)
-            l1 =l1.next
-        }
-    }else{
-        while(l2){
-            newList.addnode(l2.val)
-            l2 = l2.next
-        }
-    }
-    return newList.head
-}
+// 2+8+0=10
+
+// 8=>4
+
+console.log(10%10)
+// let sumNumerals = (list,list2)=>{
+//     let l1 = list.head,l2 = list2.head, sum=0, remainder = 0, newList = new SLL()
+//     while(l1 && l2){
+//         sum += (l1.val + l2.val + remainder)
+//         if(sum>=10){
+//             newList.addnode(sum%10)
+//             remainder = Math.round(sum/10)
+//         }else{
+//             newList.addnode(sum)
+//             remainder = 0
+//         }
+//         l1=l1.next;l2 = l2.next
+//     }
+//     if(l1){
+//         while(l1){
+//             newList.addnode(l1.val)
+//             l1 =l1.next
+//         }
+//     }else{
+//         while(l2){
+//             newList.addnode(l2.val)
+//             l2 = l2.next
+//         }
+//     }
+//     return newList
+// }
 
 
 
-console.log(sumNumerals(l,l2))
+// console.log(sumNumerals(l,l2))
