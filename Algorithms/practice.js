@@ -3702,6 +3702,9 @@ l.addnode(0)
 l2.addnode(1)
 l2.addnode(2)
 
+r = l.head;
+r.next.child = l2
+
 // let sumNumerals = (list,list2)=>{
 //     let l1=list.head,l2 = list2.head, remainder = 0, sum = 0, newList = new SLL(), obj = {},count =0
 //     while(l1&&l2){
@@ -3728,19 +3731,21 @@ l2.addnode(2)
 //     return arr
 //  }
 
-// let slistFlatten = (list)=>{
-//     let l = list.head;
-//     while(l){
-//         if(l.child){
-//             list.concat(l.child)
-//         }
-//         l = l.next
-//     }
-//     return list
-// }
+let slistFlatten = (list)=>{
+    let l = list.head;
+    while(l){
+        if(l.child){
+            list.concat(l.child)
+        }
+        l = l.next
+    }
+    return list
+}
 
 // console.log(slistFlatten(l))
 
+l1 = slistFlatten(l)
+console.log(l1.head.next)
 // let setUpLoop =(list,len,point)=>{
 //     let l = list.head, l2 = list.head
 //     while(l.next){
@@ -3751,20 +3756,23 @@ l2.addnode(2)
 //     return list.head.next.next.next
 // }
 
-let comparelists = (node,node2)=>{
-    if(node.val !== node2.val){return false}
-    while(node.next){
-        node2 = node2.next
-        node = node.next
-    }
-    if(node.val !== node2.val){return false}
-    return true
-}
 
-let unflatten = (list)=>{
-    let obj = {}, l = list.head
-    while(l){
-        if()
-    }
-}
+// let unflatten = (list)=>{
+//     let obj = {}, l = list.head; len = 0;
+//     while(l){
+//         if(l.child){
+//             let len = length(l.child.head)
+//             let start = l, r = l, r2 = l.child.head
+//             while(r.val!==r2.val){
+//                 r = r.next
+//             }
+//             while(len>0){
+//                 r = r.next;len--
+//             }
+//             start.next = r.next
+//         }
+//     }
+
+//     return list
+// }
 
