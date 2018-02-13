@@ -3731,8 +3731,10 @@ r.next.child = l2
 //     return arr
 //  }
 
+
+
 let slistFlatten = (list)=>{
-    let l = list.head;
+    let l = list.head
     while(l){
         if(l.child){
             list.concat(l.child)
@@ -3745,7 +3747,6 @@ let slistFlatten = (list)=>{
 // console.log(slistFlatten(l))
 
 l1 = slistFlatten(l)
-console.log(l1.head.next)
 // let setUpLoop =(list,len,point)=>{
 //     let l = list.head, l2 = list.head
 //     while(l.next){
@@ -3757,22 +3758,25 @@ console.log(l1.head.next)
 // }
 
 
-// let unflatten = (list)=>{
-//     let obj = {}, l = list.head; len = 0;
-//     while(l){
-//         if(l.child){
-//             let len = length(l.child.head)
-//             let start = l, r = l, r2 = l.child.head
-//             while(r.val!==r2.val){
-//                 r = r.next
-//             }
-//             while(len>0){
-//                 r = r.next;len--
-//             }
-//             start.next = r.next
-//         }
-//     }
+let slistUnflatten = (list)=>{
+    let l = list.head; len = 0;
+    while(l){
+        if(l.child){
+            let len = length(l.child.head)
+            let start = l, r = l, r2 = l.child.head
+            while(r.val!==r2.val){
+                r = r.next
+            }
+            while(len>0){
+                r = r.next;len--
+            }
+            start.next = r
+        }
+        l = l.next
+    }
+    return list
+}
 
-//     return list
-// }
+l3 = slistUnflatten(l1)
+console.log(length(l3.head))
 
