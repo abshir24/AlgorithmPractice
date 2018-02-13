@@ -2594,6 +2594,7 @@ function SLL(){
 
 function Node(val){
     this.val = val;
+    this.child = null
     this.next = null;
 }
 
@@ -2690,38 +2691,38 @@ let length = (node)=>{
 
 // console.log(display(newlist.head))
 
-let max = (node)=>{
-    if(node){
-        let max = node.val
-        let runner = node
-        while(runner){
-            if(runner.val>max){
-                max = runner.val
-            }
-            runner = runner.next
-        }
-        return max
-    }
-    return null
-}
+// let max = (node)=>{
+//     if(node){
+//         let max = node.val
+//         let runner = node
+//         while(runner){
+//             if(runner.val>max){
+//                 max = runner.val
+//             }
+//             runner = runner.next
+//         }
+//         return max
+//     }
+//     return null
+// }
 
 // console.log(max(newlist.head))
 
 
-let min = (node)=>{
-    if(node){
-        let min = node.val
-        let runner = node
-        while(runner){
-            if(runner.val<min){
-                min = runner.val
-            }
-            runner = runner.next
-        }
-        return min
-    }
-    return null
-}
+// let min = (node)=>{
+//     if(node){
+//         let min = node.val
+//         let runner = node
+//         while(runner){
+//             if(runner.val<min){
+//                 min = runner.val
+//             }
+//             runner = runner.next
+//         }
+//         return min
+//     }
+//     return null
+// }
 
 // console.log(min(newlist.head))
 
@@ -2923,22 +2924,19 @@ let minToFront = (list)=>{
 // }
 // console.log(sllRmNeg(newlist))
 
-// let sllConcat = (list1,list2)=>{
-//     if(list1.head){
-//         runner = list1.head
-//         while(runner.next){
-//             runner = runner.next
-//         }
-//         if(list2.head){
-//             runner.next = list2.head
-//         }
-//         return list1
-//     }
-//     return null
-// }
-
-// console.log(sllConcat(newlist,list2))
-
+SLL.prototype.concat = function(list){
+    if(this.head){
+        runner = this.head
+        while(runner.next){
+            runner = runner.next
+        }
+        if(list.head){
+            runner.next = list.head
+        }
+        return this
+    }
+    return null
+}
 // arr = [1,2,3]
 // newlist2 = new SLL()
 // for(let i =0;i<arr.length;i++){
@@ -2978,16 +2976,16 @@ let minToFront = (list)=>{
 
 // console.log(secondToLastVal(newlist))
 
-let slistCopy = (list)=>{
-    if(list.head){
-        let list2 = new SLL(), runner = list.head
-        while(runner){
-            list2.addnode(runner.val)
-            runner = runner.next
-        }
-        return list2
-    }
-}
+// let slistCopy = (list)=>{
+//     if(list.head){
+//         let list2 = new SLL(), runner = list.head
+//         while(runner){
+//             list2.addnode(runner.val)
+//             runner = runner.next
+//         }
+//         return list2
+//     }
+// }
 
 // let checkStatus = (val,low,high)=>{
 //     if(val > high || val < low){
@@ -3692,38 +3690,81 @@ let slistCopy = (list)=>{
 // }
 
 // console.log(unShift(slist,2))
+
+
+
+
 let l = new SLL()
 let l2 = new SLL()
 
 l.addnode(2)
 l.addnode(0)
-l.addnode(1)
+l2.addnode(1)
+l2.addnode(2)
 
-l2.addnode(8)
-l2.addnode(4)
-// 2=>0=>1 
+// let sumNumerals = (list,list2)=>{
+//     let l1=list.head,l2 = list2.head, remainder = 0, sum = 0, newList = new SLL(), obj = {},count =0
+//     while(l1&&l2){
+//         sum = (l1.val + l2.val + remainder)
+//         if(sum>=10){obj[count++] = sum%10;remainder = sum/10}
+//         else{obj[count++]=sum;remainder=0}
+//         l1=l1.next;l2=l2.next
+//     }
+//     while(l1){obj[count++]=l1.val;l1=l1.next}
+//     while(l2){obj[count++]=l2.val;l2=l2.next}
+//     for(key in obj){newList.addnode(obj[key])}
+//     return newList.head
+// }
+// console.log(sumNumerals(l,l2))
 
-// 2+8+0=10
 
-//r = 10/10
+// let arrFlatten = (arr)=>{
+//     for(let i=0;i<arr.length;i++){
+//         if(Array.isArray(arr[i])){
+//             let subArray = arr.splice(i,1).pop()
+//             arr.concat(subArray)
+//         }
+//     } 
+//     return arr
+//  }
 
+// let slistFlatten = (list)=>{
+//     let l = list.head;
+//     while(l){
+//         if(l.child){
+//             list.concat(l.child)
+//         }
+//         l = l.next
+//     }
+//     return list
+// }
 
+// console.log(slistFlatten(l))
 
-// 8=>4
+// let setUpLoop =(list,len,point)=>{
+//     let l = list.head, l2 = list.head
+//     while(l.next){
+//         if(point){l2=l2.next;point--}
+//         l = l.next
+//     }
+//     l.next = l2
+//     return list.head.next.next.next
+// }
 
-//nl = 0=>
-
-let sumNumerals = (list,list2)=>{
-    let l1=list.head,l2 = list2.head, remainder = 0, sum = 0, newList = new SLL(), obj = {},count =0
-    while(l1&&l2){
-        sum = (l1.val + l2.val + remainder)
-        if(sum>=10){obj[count++] = sum%10;remainder = sum/10}
-        else{obj[count++]=sum;remainder=0}
-        l1=l1.next;l2=l2.next
+let comparelists = (node,node2)=>{
+    if(node.val !== node2.val){return false}
+    while(node.next){
+        node2 = node2.next
+        node = node.next
     }
-    while(l1){obj[count++]=l1.val;l1=l1.next}
-    while(l2){obj[count++]=l2.val;l2=l2.next}
-    for(key in obj){newList.addnode(obj[key])}
-    return newList.head
+    if(node.val !== node2.val){return false}
+    return true
 }
-console.log(sumNumerals(l,l2))
+
+let unflatten = (list)=>{
+    let obj = {}, l = list.head
+    while(l){
+        if()
+    }
+}
+
