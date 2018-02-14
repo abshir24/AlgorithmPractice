@@ -2594,9 +2594,14 @@ function SLL(){
 
 function Node(val){
     this.val = val;
-    this.child = null
     this.next = null;
 }
+
+// function Node(val){
+//     this.val = val;
+//     this.child = null
+//     this.next = null;
+// }
 
 SLL.prototype.addnode = function(value){
     var node = new Node(value),
@@ -3695,15 +3700,12 @@ SLL.prototype.concat = function(list){
 
 
 let l = new SLL()
-let l2 = new SLL()
+// let l2 = new SLL()
 
-l.addnode(2)
-l.addnode(0)
-l2.addnode(1)
-l2.addnode(2)
+for(let i=1;i<4;i++){
+    l.addnode(i)
+}
 
-r = l.head;
-r.next.child = l2
 
 // let sumNumerals = (list,list2)=>{
 //     let l1=list.head,l2 = list2.head, remainder = 0, sum = 0, newList = new SLL(), obj = {},count =0
@@ -3733,50 +3735,61 @@ r.next.child = l2
 
 
 
-let slistFlatten = (list)=>{
-    let l = list.head
-    while(l){
-        if(l.child){
-            list.concat(l.child)
-        }
-        l = l.next
-    }
-    return list
-}
+// let slistFlatten = (list)=>{
+//     let l = list.head
+//     while(l){
+//         if(l.child){
+//             list.concat(l.child)
+//         }
+//         l = l.next
+//     }
+//     return list
+// }
 
 // console.log(slistFlatten(l))
 
-l1 = slistFlatten(l)
-// let setUpLoop =(list,len,point)=>{
-//     let l = list.head, l2 = list.head
-//     while(l.next){
-//         if(point){l2=l2.next;point--}
-//         l = l.next
-//     }
-//     l.next = l2
-//     return list.head.next.next.next
-// }
-
-
-let slistUnflatten = (list)=>{
-    let l = list.head; len = 0;
-    while(l){
-        if(l.child){
-            let len = length(l.child.head)
-            let start = l, r = l, r2 = l.child.head
-            while(r.val!==r2.val){
-                r = r.next
-            }
-            while(len>0){
-                r = r.next;len--
-            }
-            start.next = r
-        }
+let setUpLoop =(list,len,point)=>{
+    let l = list.head, l2 = list.head
+    while(l.next){
+        if(point){l2=l2.next;point--}
         l = l.next
     }
+    l.next = l2
     return list
 }
 
-l3 = slistUnflatten(l1)
-console.log(length(l3.head))
+console.log(setUpLoop(l,length(l),2))
+// let slistUnflatten = (list)=>{
+//     let l = list.head; len = 0;
+//     while(l){
+//         if(l.child){
+//             let len = length(l.child.head)
+//             let start = l, r = l, r2 = l.child.head
+//             while(r.val!==r2.val){
+//                 r = r.next
+//             }
+//             while(len>0){
+//                 r = r.next;len--
+//             }
+//             start.next = r
+//         }
+//         l = l.next
+//     }
+//     return list
+// }
+let l3 = setUpLoop(l,length(l),2)
+
+// 1=>2=>3=>2=>3
+// let detectLoop=(list)=>{
+//     let l = list.head
+//     while(l){
+//         if(l.next.next){
+//             r = l.next.next
+//             if(r == l && l ==)
+//         }
+//     }
+// }
+
+
+
 
