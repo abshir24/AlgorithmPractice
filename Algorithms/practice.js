@@ -3758,7 +3758,7 @@ let setUpLoop =(list,len,point)=>{
     return list
 }
 
-l3 = setUpLoop(l,length(l.head),2)
+
 // let slistUnflatten = (list)=>{
 //     let l = list.head; len = 0;
 //     while(l){
@@ -3777,27 +3777,46 @@ l3 = setUpLoop(l,length(l.head),2)
 //     }
 //     return list
 // }
-// let l3 = setUpLoop(l,length(l),2)
-
-// 1=>2=>3=>2=>3
-// let detectLoop=(list)=>{
-//     let l = list.head,count = length(list);
-//     while(l){
-//         if(l.next){
-//             l2 = l.next
-//             for(let i=count;i<=length(list);i++){
-//                 if(l2.next == l){return {location:l2,found:true}
-//                 l2 = l.next
-//             }
-//         }
-//         l =l.next
-//     }
-//     return false
-// }
+let l3 = setUpLoop(l,length(l),2)
 
 
+let detectLoop=(list)=>{
+    let l = list.head,count = length(list), counter = 0;
+    while(l){
+        if(l.next){
+            l2 = l.next
+            for(let i=0;i<=count;i++){
+                if(l2.next == l){return {location:counter,found:true,}}
+                l2 = l.next
+            }
+        }
+        l =l.next
+        counter++
+    }   
+    return {found:false}
+}
 
 // console.log(detectLoop(l3))
 
+let breakLoop = (list)=>{
+    let loop = detectLoop(list)
+    if(!loop.found){return false}
+    let l = list.head,count = loop.location
+    while(count>0){l=l.next; count--;}
+    l.next = null
+    return list
+}
 
+console.log(breakLoop(l3))
 
+let numberNodes = (list)=>{
+    let loop = detectLoop(list)
+    if(loop.found){
+        let newList = breakLoop(list)
+        return length(newList)
+    }
+
+    return length(list)
+}
+
+console.log(numberNodes(l3))
