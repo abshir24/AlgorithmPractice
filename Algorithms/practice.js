@@ -3817,3 +3817,22 @@ for(let i=1;i<4;i++){
 // }
 
 // console.log(numberNodes(l3))
+
+SLL.prototype.swapPairs = function(){
+    let prev = this.head,l = prev.next,len = length(this.head)
+    if(len%2 == 0){let end = 0 }else{let end = 1}
+    while(len>end){
+        let temp = l
+        l = prev
+        l.next = temp.next
+        prev = temp
+        prev.next = l
+    }
+}
+
+let alph = new SLL()
+alph.addnode("a")
+alph.addnode("b")
+alph.addnode("c")
+
+alph.swapPairs()
