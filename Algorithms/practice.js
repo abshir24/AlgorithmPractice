@@ -3758,7 +3758,7 @@ let setUpLoop =(list,len,point)=>{
     return list
 }
 
-console.log(setUpLoop(l,length(l),2))
+l3 = setUpLoop(l,length(l.head),2)
 // let slistUnflatten = (list)=>{
 //     let l = list.head; len = 0;
 //     while(l){
@@ -3777,19 +3777,27 @@ console.log(setUpLoop(l,length(l),2))
 //     }
 //     return list
 // }
-let l3 = setUpLoop(l,length(l),2)
+// let l3 = setUpLoop(l,length(l),2)
 
 // 1=>2=>3=>2=>3
 // let detectLoop=(list)=>{
-//     let l = list.head
+//     let l = list.head,count = length(list);
 //     while(l){
-//         if(l.next.next){
-//             r = l.next.next
-//             if(r == l && l ==)
+//         if(l.next){
+//             l2 = l.next
+//             for(let i=count;i<=length(list);i++){
+//                 if(l2.next == l){return {location:l2,found:true}
+//                 l2 = l.next
+//             }
 //         }
+//         l =l.next
 //     }
+//     return false
 // }
 
+
+
+// console.log(detectLoop(l3))
 
 
 
