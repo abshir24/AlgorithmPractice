@@ -3700,10 +3700,12 @@ SLL.prototype.concat = function(list){
 
 
 let l = new SLL()
+l2 = new SLL()
 // let l2 = new SLL()
 
 for(let i=1;i<4;i++){
     l.addnode(i)
+    l2.addnode(i)
 }
 
 
@@ -3748,15 +3750,15 @@ for(let i=1;i<4;i++){
 
 // console.log(slistFlatten(l))
 
-let setUpLoop =(list,len,point)=>{
-    let l = list.head, l2 = list.head
-    while(l.next){
-        if(point){l2=l2.next;point--}
-        l = l.next
-    }
-    l.next = l2
-    return list
-}
+// let setUpLoop =(list,len,point)=>{
+//     let l = list.head, l2 = list.head
+//     while(l.next){
+//         if(point){l2=l2.next;point--}
+//         l = l.next
+//     }
+//     l.next = l2
+//     return list
+// }
 
 
 // let slistUnflatten = (list)=>{
@@ -3777,46 +3779,41 @@ let setUpLoop =(list,len,point)=>{
 //     }
 //     return list
 // }
-let l3 = setUpLoop(l,length(l),2)
+
+// let l3 = setUpLoop(l,length(l),2)
 
 
-let detectLoop=(list)=>{
-    let l = list.head,count = length(list), counter = 0;
-    while(l){
-        if(l.next){
-            l2 = l.next
-            for(let i=0;i<=count;i++){
-                if(l2.next == l){return {location:counter,found:true,}}
-                l2 = l.next
-            }
-        }
-        l =l.next
-        counter++
-    }   
-    return {found:false}
-}
+// let detectLoop=(list)=>{
+//     let l = list.head,count = length(list), counter = 0;
+//     while(l){
+//         if(l.next){
+//             l2 = l.next
+//             for(let i=0;i<=count;i++){
+//                 if(l2.next == l){return {location:counter,found:true,}}
+//                 l2 = l.next
+//             }
+//         }
+//         l =l.next
+//         counter++
+//     }   
+//     return {found:false}
+// }
 
-// console.log(detectLoop(l3))
+// let breakLoop = (list)=>{
+//     let loop = detectLoop(list)
+//     if(!loop.found){return false}
+//     let l = list.head,count = loop.location
+//     while(count>0){l=l.next; count--;}
+//     l.next = null
+//     return list
+// }
 
-let breakLoop = (list)=>{
-    let loop = detectLoop(list)
-    if(!loop.found){return false}
-    let l = list.head,count = loop.location
-    while(count>0){l=l.next; count--;}
-    l.next = null
-    return list
-}
+// let numberNodes = (list)=>{
+//     let loop = detectLoop(list)
+//     if(loop.found){
+//         return length(breakLoop(list).head)
+//     }
+//     return length(list.head)
+// }
 
-console.log(breakLoop(l3))
-
-let numberNodes = (list)=>{
-    let loop = detectLoop(list)
-    if(loop.found){
-        let newList = breakLoop(list)
-        return length(newList)
-    }
-
-    return length(list)
-}
-
-console.log(numberNodes(l3))
+// console.log(numberNodes(l3))
