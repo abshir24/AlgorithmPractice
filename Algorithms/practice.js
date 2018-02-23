@@ -3817,28 +3817,52 @@ for(let i=1;i<4;i++){
 // }
 
 // console.log(numberNodes(l3))
-let swapStarter = (list)=>{
-    
+
+// SLL.prototype.swapPairs = function(){
+//     let l = this.head
+//     while(l&&l.next!==null){
+//         let temp = l.next.val
+//         l.next.val = l.val
+//         l.val = temp
+//         l = l.next.next
+//     }
+//     return this.head
+// }
+
+// let alph = new SLL()
+// alph.addnode("a")
+// alph.addnode("b")
+// alph.addnode("c")
+
+// console.log(alph.swapPairs())
+
+function DLNode(value)
+{
+    this.val = value;
+    this.prev = null;
+    this.next = null
 }
 
-SLL.prototype.swapPairs = function(){
+function DList()
+{
+    this.head = null;
+    this.tail = null;
+}
 
-    let prev = this.head,l = prev.next,len = length(this.head)
-    if(len%2 == 0){var end = 0 }else{var end = 1}
-    while(len>end){
-        let temp = l
-        l = prev
-        l.next = temp.next
-        prev = temp
-        prev.next = l
-        len--
+DList.prototype.adddl = function(val){
+    let l = this.head, node = new DLNode(val)
+    while(l.next){
+        l = l.next
     }
-    return this
+    node.prev = l
+    return
 }
+let dl = new DList()
 
-let alph = new SLL()
-alph.addnode("a")
-alph.addnode("b")
-alph.addnode("c")
+for(let i=1;i<4;i++){dl.adddl(i)}
 
-console.log(alph.swapPairs())
+console.log(dl)
+
+// DList.prototype.prependVal = function(val,before){
+
+// }
