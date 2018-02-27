@@ -3879,11 +3879,39 @@ for(let i=1;i<4;i++){
 // }   
 // console.log(rSigma(5))
 
-let rFactorial=(num)=>{
-    if(num==0)
-        return 0
-    return rFactorial(num-1) * num
+// let rFactorial=(num)=>{
+//     if(num==0)
+//         return 1
+//     return rFactorial(num-1) * num
+// }
+
+// console.log(rFactorial(3))
+
+let rFloodFill = (arr,start,color)=>{
+    let y = start[0]
+    let x = start[1]
+    let startNum = arr[y][x]
+    arr[y][x] = color
+    if(arr[y-1] && arr[y-1][x] == startNum){
+        rFloodFill(arr,[y-1,x],color)
+    }  
+    if(arr[y+1] && arr[y+1][x] == startNum){
+        rFloodFill(arr,[y+1,x],color)
+    }  
+    if(arr[y][x+1] && arr[y][x+1] == startNum){
+        rFloodFill(arr,[y,x+1],color)
+    }
+    if(arr[y][x-1] && arr[y][x-1] == startNum){
+        rFloodFill(arr,[y,x-1],color)
+    }
+    return arr
 }
 
-console.log(rFactorial(3))
-
+let arr = 
+[[3,2,3,4,3],
+[2,3,3,4,0],
+[7,3,3,5,3],
+[6,5,3,4,1],
+[1,2,3,3,3]
+]
+console.log(rFloodFill(arr,[2,2],1))
