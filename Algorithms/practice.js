@@ -3836,33 +3836,41 @@ for(let i=1;i<4;i++){
 
 // console.log(alph.swapPairs())
 
-function DLNode(value)
-{
-    this.val = value;
-    this.prev = null;
-    this.next = null
-}
+// function DLNode(value)
+// {
+//     this.val = value;
+//     this.prev = null;
+//     this.next = null
+// }
 
-function DList()
-{
-    this.head = null;
-    this.tail = null;
-}
+// function DList()
+// {
+//     this._length = 0;
+//     this.head = null;
+//     this.tail = null;
+// }
 
-DList.prototype.adddl = function(val){
-    let l = this.head, node = new DLNode(val)
-    while(l.next){
-        l = l.next
-    }
-    node.prev = l
-    return
-}
-let dl = new DList()
+// DList.prototype.adddl = function(val){
+//     var node = new DLNode(val);
+//     if(this._length){
+//         this.tail.next = node;
+//         node.prev = this.tail;
+//         this.tail = node;
+//     }else{
+//         this.head = node;
+//         this.tail = node;
+//     }
+//     this._length++; 
+//     return node.prev;
+// }
 
-for(let i=1;i<4;i++){dl.adddl(i)}
-
-console.log(dl)
-
+// let dl = new DList()
+// for(let i=1;i<4;i++){dl.adddl(i)}
+// console.log(dl)
 // DList.prototype.prependVal = function(val,before){
 
 // }
+
+let rSigma = (num)=>{
+    
+}
