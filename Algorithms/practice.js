@@ -3922,12 +3922,14 @@ for(let i=1;i<4;i++){
 // }
 // console.log(rFib(6))
 
-let rBinarySearch = (arr,val)=>{
-    let len = arr.length,mid = Math.round(arr.length/2)
-    if(len == 1 && arr[0]!==val){return false}
-    if(arr[0] == val){return true}
-    rBinarSearch(arr.slice(0,mid+1),val)
-    rBinarSearch(arr.slice(mid,len),val)
-}
+// let rBinarySearch = (arr,val)=>{
+//     let len = arr.length,mid = Math.round(arr.length/2)
+//     if(len == 1 && arr[0]!==val){return false}
+//     if(arr[0] == val){return true}
+//     let left = rBinarySearch(arr.slice(0,mid),val) 
+//     let right= rBinarySearch(arr.slice(mid,len),val)
+//     if(left || right){return true}
+//     return false
+// }
 
-console.log(rBinarySearch([1,2,3],1))
+// console.log(rBinarySearch([4,5,6,8,12],5))
