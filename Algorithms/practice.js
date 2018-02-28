@@ -3935,10 +3935,25 @@ for(let i=1;i<4;i++){
 // console.log(rBinarySearch([4,5,6,8,12],5))
 
 let strSubsets = (str,arr,idx)=>{
-    // if(idx == arr[0].length){return arr}
-    arr.push(str,str[0])
-    let len = str.length-1; midRemoved = str.slice(1)
-    console.log(midRemoved)
+    let len = str.length
+    if(!arr.includes(str)){arr.push(str)}
+    if(idx == arr[0].length){return arr}
+    if(!arr.includes(str[0])){arr.push(str[0])}
+    if(len>1){
+        let endStart = str[0]+str[len-1];copy = str,count = str.length-1
+        if(!arr.includes(endStart)){arr.push(endStart)}
+        while(copy.length>1){
+            copy = copy.slice(0,count)
+            if(!arr.includes(copy)){arr.push(copy)}
+            count--
+        }
+        strSubsets(str.substring(idx,len),arr,idx+=1)
+    }
+    if(!arr.includes(str[len-1])){arr.push(str[len-1])}
+    return arr
 }
 
 console.log(strSubsets("abc",[],0))
+
+let string = "abc"
+
