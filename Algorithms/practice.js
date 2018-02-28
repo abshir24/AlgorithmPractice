@@ -3705,7 +3705,6 @@ l2 = new SLL()
 
 for(let i=1;i<4;i++){
     l.addnode(i)
-    l2.addnode(i)
 }
 
 
@@ -3934,26 +3933,35 @@ for(let i=1;i<4;i++){
 
 // console.log(rBinarySearch([4,5,6,8,12],5))
 
-let strSubsets = (str,arr,idx)=>{
-    let len = str.length
-    if(!arr.includes(str)){arr.push(str)}
-    if(idx == arr[0].length){return arr}
-    if(!arr.includes(str[0])){arr.push(str[0])}
-    if(len>1){
-        let endStart = str[0]+str[len-1];copy = str,count = str.length-1
-        if(!arr.includes(endStart)){arr.push(endStart)}
-        while(copy.length>1){
-            copy = copy.slice(0,count)
-            if(!arr.includes(copy)){arr.push(copy)}
-            count--
-        }
-        strSubsets(str.substring(idx,len),arr,idx+=1)
-    }
-    if(!arr.includes(str[len-1])){arr.push(str[len-1])}
-    return arr
-}
+// let strSubsets = (str,arr,idx)=>{
+//     let len = str.length
+//     if(!arr.includes(str)){arr.push(str)}
+//     if(idx == arr[0].length){return arr}
+//     if(!arr.includes(str[0])){arr.push(str[0])}
+//     if(len>1){
+//         let endStart = str[0]+str[len-1];copy = str,count = str.length-1
+//         if(!arr.includes(endStart)){arr.push(endStart)}
+//         while(copy.length>1){
+//             copy = copy.slice(0,count)
+//             if(!arr.includes(copy)){arr.push(copy)}
+//             count--
+//         }
+//         strSubsets(str.substring(idx,len),arr,idx+=1)
+//     }
+//     if(!arr.includes(str[len-1])){arr.push(str[len-1])}
+//     return arr
+// }
 
-console.log(strSubsets("abc",[],0))
+// console.log(strSubsets("abca",[],0))
 
-let string = "abg"
+// let rListLength = (node,count)=>{
+//     if(node == null){
+//         return count
+//     }
+//     return rListLength(node.next,count+1)
+// }
+
+// console.log(rListLength(l.head,0))
+
+
 
