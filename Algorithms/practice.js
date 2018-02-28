@@ -3955,5 +3955,5 @@ let strSubsets = (str,arr,idx)=>{
 
 console.log(strSubsets("abc",[],0))
 
-let string = "abc"
+let string = "abg"
 
