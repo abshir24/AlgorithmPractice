@@ -3963,16 +3963,23 @@ for(let i=1;i<4;i++){
 
 // console.log(rListLength(l.head,0))
 
-let grapes = (arr,obj)=>{
-    if(obj.idx<arr.length){
-        obj.grapes+=arr[obj.idx]
-        obj.idx+=2
-        return grapes(arr,obj)
-    }
-    return arr
+// let grapes = (arr,obj)=>{
+//     if(obj.idx<arr.length){
+//         obj.grapes+=arr[obj.idx]
+//         obj.idx+=2
+//         return grapes(arr,obj)
+//     }
+//     return obj.grapes
+// }
+
+// let arr = [1,2,3,4]
+// let obj = {grapes:0,idx:1}
+
+// console.log(grapes(arr,obj))
+
+let collatz = (num,count)=>{
+    if(num == 1){return count}
+    return collatz(num%2==0 ? num/2:(3*num)+1, count+=1)
 }
 
-let arr = [1,2,3,4]
-let obj = {grapes:0,idx:0}
-
-console.log(grapes(arr,obj))
+console.log(collatz(5,0))
