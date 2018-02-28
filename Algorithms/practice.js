@@ -3887,31 +3887,47 @@ for(let i=1;i<4;i++){
 
 // console.log(rFactorial(3))
 
-let rFloodFill = (arr,start,color)=>{
-    let y = start[0]
-    let x = start[1]
-    let startNum = arr[y][x]
-    arr[y][x] = color
-    if(arr[y-1] && arr[y-1][x] == startNum){
-        rFloodFill(arr,[y-1,x],color)
-    }  
-    if(arr[y+1] && arr[y+1][x] == startNum){
-        rFloodFill(arr,[y+1,x],color)
-    }  
-    if(arr[y][x+1] && arr[y][x+1] == startNum){
-        rFloodFill(arr,[y,x+1],color)
-    }
-    if(arr[y][x-1] && arr[y][x-1] == startNum){
-        rFloodFill(arr,[y,x-1],color)
-    }
-    return arr
+// let rFloodFill = (arr,start,color)=>{
+//     let y = start[0]
+//     let x = start[1]
+//     let startNum = arr[y][x]
+//     arr[y][x] = color
+//     if(arr[y-1] && arr[y-1][x] == startNum){
+//         rFloodFill(arr,[y-1,x],color)
+//     }  
+//     if(arr[y+1] && arr[y+1][x] == startNum){
+//         rFloodFill(arr,[y+1,x],color)
+//     }  
+//     if(arr[y][x+1] && arr[y][x+1] == startNum){
+//         rFloodFill(arr,[y,x+1],color)
+//     }
+//     if(arr[y][x-1] && arr[y][x-1] == startNum){
+//         rFloodFill(arr,[y,x-1],color)
+//     }
+//     return arr
+// }
+
+// let arr = 
+// [[3,2,3,4,3],
+// [2,3,3,4,0],
+// [7,3,3,5,3],
+// [6,5,3,4,1],
+// [1,2,3,3,3]]
+// console.log(rFloodFill(arr,[2,2],1))
+
+// function rFib(num){
+//     if (num < 1) return 0;
+//     if (num == 1) return 1;
+//     return rFib(num - 1) + rFib(num - 2);
+// }
+// console.log(rFib(6))
+
+let rBinarySearch = (arr,val)=>{
+    let len = arr.length,mid = Math.round(arr.length/2)
+    if(len == 1 && arr[0]!==val){return false}
+    if(arr[0] == val){return true}
+    rBinarSearch(arr.slice(0,mid+1),val)
+    rBinarSearch(arr.slice(mid,len),val)
 }
 
-let arr = 
-[[3,2,3,4,3],
-[2,3,3,4,0],
-[7,3,3,5,3],
-[6,5,3,4,1],
-[1,2,3,3,3]
-]
-console.log(rFloodFill(arr,[2,2],1))
+console.log(rBinarySearch([1,2,3],1))
