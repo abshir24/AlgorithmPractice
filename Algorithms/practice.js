@@ -3933,3 +3933,12 @@ for(let i=1;i<4;i++){
 // }
 
 // console.log(rBinarySearch([4,5,6,8,12],5))
+
+let strSubsets = (str,arr,idx)=>{
+    // if(idx == arr[0].length){return arr}
+    arr.push(str,str[0])
+    let len = str.length-1; midRemoved = str.slice(1)
+    console.log(midRemoved)
+}
+
+console.log(strSubsets("abc",[],0))
