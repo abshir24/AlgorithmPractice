@@ -2005,16 +2005,16 @@ function swap(arr,idx1,idx2){
 
 // console.log(zip(list1,list2).head)
 
-// function remove(index,string){
-//     var string2 = ""
-//     for(let i = 0;i<string.length;i++){
-//         if(i == index){
-//             continue;
-//         }
-//         string2+=string[i]
-//     }
-//     return string2
-// }
+function remove(index,string){
+    var string2 = ""
+    for(let i = 0;i<string.length;i++){
+        if(i == index){
+            continue;
+        }
+        string2+=string[i]
+    }
+    return string2
+}
 
 // function stringswap(a,b,string){
 //     var newstring = ""
@@ -3983,21 +3983,40 @@ for(let i=1;i<4;i++){
 // }
 
 // console.log(collatz(2,0))
-
-let telephone = (string)=>{
-    
-    // let map = {
-    //     0:"O",
-    //     1:"I",
-    //     2:"ABC",
-    //     3:"DEF",
-    //     4:"GHI",
-    //     5:"JKL",
-    //     6:"MNO",
-    //     7:"PQRS",
-    //     8:"TUV",
-    //     9:"WXYZ"
-    // }
-
+let mixString = (str)=>{
+    temp = str[0]
+    str = remove(0,str)
+    str+= temp
+    return str
 }
-console.log(telephone("818-2612"))
+
+let map = {
+    0:"O",
+    1:"I",
+    2:"ABC",
+    3:"DEF",
+    4:"GHI",
+    5:"JKL",
+    6:"MNO",
+    7:"PQRS",
+    8:"TUV",
+    9:"WXYZ"
+}
+
+let telephone = (string,arr,map)=>{
+    let newStr = ""
+    for(let i=0;i<string.length;i++){
+        let num = parseInt(string[i])
+        if(map[num]){
+            newStr += map[num][0]
+        }
+    }
+    arr.push(newStr)
+    for(key in map){
+        if(map[key].length>2){
+            map[key] = mixString(map[key])
+        }
+    }
+    return telephone(string,arr,map)
+}
+console.log(telephone("818-2612",[], map))
