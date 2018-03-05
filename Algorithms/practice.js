@@ -3977,9 +3977,27 @@ for(let i=1;i<4;i++){
 
 // console.log(grapes(arr,obj))
 
-let collatz = (num,count)=>{
-    if(num == 1){return count}
-    return collatz(num%2==0 ? num/2:(3*num)+1, count+=1)
-}
+// let collatz = (num,count)=>{
+//     if(num == 1){return count}
+//     return collatz((num%2==0 ? num/2:(3*num)+1), count+=1)
+// }
 
-console.log(collatz(5,0))
+// console.log(collatz(2,0))
+
+let telephone = (string)=>{
+    
+    // let map = {
+    //     0:"O",
+    //     1:"I",
+    //     2:"ABC",
+    //     3:"DEF",
+    //     4:"GHI",
+    //     5:"JKL",
+    //     6:"MNO",
+    //     7:"PQRS",
+    //     8:"TUV",
+    //     9:"WXYZ"
+    // }
+
+}
+console.log(telephone("818-2612"))
