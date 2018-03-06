@@ -4003,7 +4003,8 @@ let map = {
     9:"WXYZ"
 }
 
-let telephone = (string,arr,map)=>{
+let telephone = (string,arr,map,idx,count)=>{
+    if(idx == 0){return arr.length}
     let newStr = ""
     for(let i=0;i<string.length;i++){
         let num = parseInt(string[i])
@@ -4011,12 +4012,22 @@ let telephone = (string,arr,map)=>{
             newStr += map[num][0]
         }
     }
-    arr.push(newStr)
+    arr.push(newStr);
     for(key in map){
         if(map[key].length>2){
+            if(count <= 1 && key != 7 || key != 9){
+                continue;
+            }else{
+                map[key] = mixString(map[key])
+                continue;
+            }
             map[key] = mixString(map[key])
         }
     }
-    return telephone(string,arr,map)
+    count-=1
+    if(count == 0){
+        idx -=1;count = 4
+    }
+    return telephone(string,arr,map,idx,count)
 }
-console.log(telephone("818-2612",[], map))
+console.log(telephone("818-2612",[], map,49))
