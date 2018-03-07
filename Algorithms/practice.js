@@ -4045,19 +4045,29 @@ let map = {
 // console.log(telephone("818-2612",[], map,49,4,2))
 
 let telephone = (string,arr,map,idx,count,rotation)=>{
-    let str1 = "",str2=""
     if(string[0]=="-"){string = mixString(string)}
     if(idx == 0){rotation-=1;idx=49, string=reverseString(string)}
     if(rotation == 0){return arr.length}
-    let newStr = ""
+    let str1 = "",str2="",str3="",str4 = ""
     for(let i=0;i<string.length;i++){
         let num = parseInt(string[i])
-        if(map[num]){newStr += map[num][0]}
+        if(map[num]){
+            if(map[num].length<2){
+                str1+=map[num]
+                str2+=map[num]
+                str3+=map[num]
+                str4+=map[num]
+            }
+            if(map[num].length<2){
+                
+            }
+        }
     }
     for(key in map){
         if(map[key].length>2){
             map[key]=mixString(map[key])
         }
+
     }
     return telephone(string,arr,map,idx,count,rotation)
 }
