@@ -4011,34 +4011,53 @@ let map = {
     9:"WXYZ"
 }
 
+// let telephone = (string,arr,map,idx,count,rotation)=>{
+//     if(string[0]=="-"){string = mixString(string)}
+//     if(idx == 0){rotation-=1;idx=49, string=reverseString(string)}
+//     if(rotation == 0){return arr.length}
+//     let newStr = ""
+//     for(let i=0;i<string.length;i++){
+//         let num = parseInt(string[i])
+//         if(map[num]){
+//             newStr += map[num][0]
+//         }
+//     }
+//     if(!arr.includes(newStr)){
+//         arr.push(newStr)
+//     }
+//     for(key in map){
+//         if(map[key].length>2){
+//             if(count <= 1 && key != 7 && key != 9){
+//                 continue;
+//             }
+//             map[key]=mixString(map[key])
+//             console.log(map[key])
+//         }
+//     }
+//     count-=1
+//     if(count == 0){
+//         string = mixString(string)
+//         idx-=1;count=4
+//     }
+//     return telephone(string,arr,map,idx,count,rotation)
+// }
+
+// console.log(telephone("818-2612",[], map,49,4,2))
+
 let telephone = (string,arr,map,idx,count,rotation)=>{
+    let str1 = "",str2=""
     if(string[0]=="-"){string = mixString(string)}
-    if(idx == 0){rotation--;idx=49, string}
+    if(idx == 0){rotation-=1;idx=49, string=reverseString(string)}
     if(rotation == 0){return arr.length}
     let newStr = ""
     for(let i=0;i<string.length;i++){
         let num = parseInt(string[i])
-        if(map[num]){
-            newStr += map[num][0]
-        }
-    }
-    if(!arr.includes(newStr)){
-        arr.push(newStr)
+        if(map[num]){newStr += map[num][0]}
     }
     for(key in map){
         if(map[key].length>2){
-            if(count <= 1 && key != 7 && key != 9){
-                continue;
-            }
             map[key]=mixString(map[key])
         }
     }
-    count-=1
-    if(count == 0){
-        string = mixString(string)
-        idx-=1;count=4
-    }
     return telephone(string,arr,map,idx,count,rotation)
 }
-
-console.log(telephone("818-2612",[], map,49,4,2))
