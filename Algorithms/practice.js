@@ -3990,6 +3990,14 @@ let mixString = (str)=>{
     return str
 }
 
+function reverseString(str) {
+    var newString = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
+}
+
 let map = {
     0:"O",
     1:"I",
@@ -4003,9 +4011,10 @@ let map = {
     9:"WXYZ"
 }
 
-let telephone = (string,arr,map,idx,count)=>{
+let telephone = (string,arr,map,idx,count,rotation)=>{
     if(string[0]=="-"){string = mixString(string)}
-    if(idx == 0){return arr.length}
+    if(idx == 0){rotation--;idx=49, string}
+    if(rotation == 0){return arr.length}
     let newStr = ""
     for(let i=0;i<string.length;i++){
         let num = parseInt(string[i])
@@ -4013,16 +4022,15 @@ let telephone = (string,arr,map,idx,count)=>{
             newStr += map[num][0]
         }
     }
-    arr.push(newStr);
+    if(!arr.includes(newStr)){
+        arr.push(newStr)
+    }
     for(key in map){
         if(map[key].length>2){
             if(count <= 1 && key != 7 && key != 9){
                 continue;
-            }else{
-                map[key] = mixString(map[key])
-                continue;
             }
-            // map[key] = mixString(map[key])
+            map[key]=mixString(map[key])
         }
     }
     count-=1
@@ -4030,6 +4038,7 @@ let telephone = (string,arr,map,idx,count)=>{
         string = mixString(string)
         idx-=1;count=4
     }
-    return telephone(string,arr,map,idx,count)
+    return telephone(string,arr,map,idx,count,rotation)
 }
-console.log(telephone("818-2612",[], map,49,4))
+
+console.log(telephone("818-2612",[], map,49,4,2))
