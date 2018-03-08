@@ -56,45 +56,6 @@
 
 // console.log(binarystringex("?????",[]))
 
-
-// function binStrExpand(string,arr){
-//     var string2 = ""
-//     var count = 0
-//     for(var i=0; i<string.length;i++){
-//         if(string[i] === "?"){
-//             count++
-//             string2 += getRandomInt(0,1)
-//         }else{
-//             string2+=string[i]
-//         }
-//     }
-//     count = Math.pow(2,count)
-//     if(arr.length == count){
-//         console.log("inside return")
-//         return arr,arr.length
-//     }
-//     var condition = true
-//     if(arr.length > 0){
-//         for(var i=0; i<arr.length;i++){
-//             if(arr[i] === string2){
-//                 condition = false
-//                 break
-//             }else{
-//                 condition = true
-//             }
-//         }
-//     }
-//     console.log(condition, string2)
-//     if(condition){
-//         arr.push(string2)
-//         console.log(arr)
-//         return binStrExpand(string,arr)
-//     }else{
-//         return binStrExpand(string,arr)
-//     }
-// }
-// console.log(binStrExpand("???",[]))
-
 // function generatecoinchange(cents){
 //     var Q = Math.floor(cents/25)
 //     cents = cents%25
@@ -3982,26 +3943,76 @@ for(let i=1;i<4;i++){
 //     return collatz((num%2==0 ? num/2:(3*num)+1), count+=1)
 // }
 
-let odds = (num)=>{
-    if(num == 1){console.log(num);return}
-    if(num%2==0){
-        num-=1
+//first solution
+
+// let odds = (num)=>{
+//     if(num == 1){console.log(num);return}
+//     if(num%2==0){
+//         num-=1
+//     }
+//     if(num%2==1){
+//         let recurse = odds(num-2)
+//         console.log(Math.pow(num,2))
+//     }
+//     return num
+// }
+
+// let risingSquares = (num)=>{
+//     if(num == 0){return}
+//     if(num%2==1){
+//         num-=1
+//     }
+//     if(num%2 == 0){
+//         console.log(Math.pow(num,2))
+//         return risingSquares(num-2)
+//     }
+// }
+// console.log(console.log(risingSquares(odds(5))))
+
+//better solution
+
+// function evens(int){
+//     if(int % 2 == 1){
+//         int -=1
+//     }
+//     if(int > 0){
+//         console.log(Math.pow(int,2));
+//         var recurse = evens(int-2)
+//     }
+//     return 
+// }
+// function risingsquares(int){
+//     if(int > 0 && int % 2 == 1){
+//         var recurse = risingsquares(int-2)
+//         console.log(Math.pow(int,2));
+//     }
+//     return int 
+// }
+
+// evens(risingsquares(5))
+
+let findQuestion = (string)=>{
+    let count = 0
+    for(let i=0;i<string.length;i++){
+        if(string[i] == "?"){count++}
     }
-    if(num%2==1){
-        let recurse = odds(num-2)
-        console.log(Math.pow(num,2))
-    }
-    return num
+    return Math.pow(count,2)
 }
 
-let risingSquares = (num)=>{
-    if(num == 0){return}
-    if(num%2==1){
-        num-=1
-    }
-    if(num%2 == 0){
-        console.log(Math.pow(num,2))
-        return risingSquares(num-2)
-    }
+
+
+function getRandom(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
 }
-console.log(console.log(risingSquares(odds(5))))
+
+console.log(getRandom(1,2))
+
+// let binaryExpansion = (string,arr,stop)=>{
+//     if(arr.length == stop){
+//         return arr
+//     }
+//     for(let i=0;i<string.length;i++){
+//         let random = getRandomInt()
+//     }
+
+// }
