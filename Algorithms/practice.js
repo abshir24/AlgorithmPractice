@@ -3982,92 +3982,14 @@ for(let i=1;i<4;i++){
 //     return collatz((num%2==0 ? num/2:(3*num)+1), count+=1)
 // }
 
-// console.log(collatz(2,0))
-let mixString = (str)=>{
-    temp = str[0]
-    str = remove(0,str)
-    str+= temp
-    return str
-}
-
-function reverseString(str) {
-    var newString = "";
-    for (var i = str.length - 1; i >= 0; i--) {
-        newString += str[i];
+let risingSquares=(num)=>{
+    if(num==0){return 1}
+    if(num%2==0){
+        return risingSquares(num-2) * risingSquares(num-2)
+    }else{
+        return risingSquares(num-1) * risingSquares(num-1)
     }
-    return newString;
 }
 
-let map = {
-    0:"O",
-    1:"I",
-    2:"ABC",
-    3:"DEF",
-    4:"GHI",
-    5:"JKL",
-    6:"MNO",
-    7:"PQRS",
-    8:"TUV",
-    9:"WXYZ"
-}
+console.log(risingSquares(5))
 
-// let telephone = (string,arr,map,idx,count,rotation)=>{
-//     if(string[0]=="-"){string = mixString(string)}
-//     if(idx == 0){rotation-=1;idx=49, string=reverseString(string)}
-//     if(rotation == 0){return arr.length}
-//     let newStr = ""
-//     for(let i=0;i<string.length;i++){
-//         let num = parseInt(string[i])
-//         if(map[num]){
-//             newStr += map[num][0]
-//         }
-//     }
-//     if(!arr.includes(newStr)){
-//         arr.push(newStr)
-//     }
-//     for(key in map){
-//         if(map[key].length>2){
-//             if(count <= 1 && key != 7 && key != 9){
-//                 continue;
-//             }
-//             map[key]=mixString(map[key])
-//             console.log(map[key])
-//         }
-//     }
-//     count-=1
-//     if(count == 0){
-//         string = mixString(string)
-//         idx-=1;count=4
-//     }
-//     return telephone(string,arr,map,idx,count,rotation)
-// }
-
-// console.log(telephone("818-2612",[], map,49,4,2))
-
-let telephone = (string,arr,map,idx,count,rotation)=>{
-    if(string[0]=="-"){string = mixString(string)}
-    if(idx == 0){rotation-=1;idx=49, string=reverseString(string)}
-    if(rotation == 0){return arr.length}
-    let str1 = "",str2="",str3="",str4 = ""
-    for(let i=0;i<string.length;i++){
-        let num = parseInt(string[i])
-        if(map[num]){
-            if(map[num].length<2){
-                str1+=map[num]
-                str2+=map[num]
-                str3+=map[num]
-                str4+=map[num]
-            }
-            if(map[num].length<2){
-                
-            }
-        }
-    }
-    for(key in map){
-        if(map[key].length>2){
-            map[key]=mixString(map[key])
-        }
-
-    }
-    return telephone(string,arr,map,idx,count,rotation)
-}
