@@ -3982,14 +3982,26 @@ for(let i=1;i<4;i++){
 //     return collatz((num%2==0 ? num/2:(3*num)+1), count+=1)
 // }
 
-let risingSquares=(num)=>{
-    if(num==0){return 1}
+let odds = (num)=>{
+    if(num == 1){console.log(num);return}
     if(num%2==0){
-        return risingSquares(num-2) * risingSquares(num-2)
-    }else{
-        return risingSquares(num-1) * risingSquares(num-1)
+        num-=1
     }
+    if(num%2==1){
+        let recurse = odds(num-2)
+        console.log(Math.pow(num,2))
+    }
+    return num
 }
 
-console.log(risingSquares(5))
-
+let risingSquares = (num)=>{
+    if(num == 0){return}
+    if(num%2==1){
+        num-=1
+    }
+    if(num%2 == 0){
+        console.log(Math.pow(num,2))
+        return risingSquares(num-2)
+    }
+}
+console.log(console.log(risingSquares(odds(5))))
