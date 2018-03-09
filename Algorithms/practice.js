@@ -376,7 +376,7 @@
 
 // console.log(isbalanced(btree.root))
 
-// function arraytobst(arr){
+// function thistobst(arr){
 //   var btree = new BinarySearchTree()
 //   for(var i =0 ; i <arr.length;i++){
 //     btree.add(arr[i])
@@ -3991,46 +3991,76 @@ for(let i=1;i<4;i++){
 
 // evens(risingsquares(5))
 
-let findQuestion = (string)=>{
-    let count = 0
-    for(let i=0;i<string.length;i++){
-        if(string[i] == "?"){count++}
-    }
-    return Math.pow(count,2)
+// let findQuestion = (string)=>{
+//     let count = 0
+//     for(let i=0;i<string.length;i++){
+//         if(string[i] == "?"){count++}
+//     }
+//     return Math.pow(count,2)
+// }
+
+// function getRandomInt(min, max) {
+//     return Math.round(Math.random() * (max - min) + min);
+// }
+
+// String.prototype.replaceAt = function(idx,replacement){
+//     let str = ""
+//     for(let i=0;i<this.length;i++){
+//         if(i == idx){str+=replacement}
+//         else{str+=this[i]}
+//     }
+//     return str
+// }
+
+// let binaryExpansion = (string,arr,stop)=>{
+//     if(arr.length == stop){
+//         return arr
+//     }
+//     let copy = string
+//     for(let i=0;i<copy.length;i++){
+//         let random = getRandomInt(0,1)
+//         let str = ""
+//         if(copy[i] == "?"){
+//             copy = copy.replaceAt(i,random)
+//         }
+//     }  
+//     if(!arr.includes(copy)){
+//         arr.push(copy)
+//     }
+//     return binaryExpansion(string,arr,stop)
+// }
+
+// let string = "1?0?"
+// let stop = findQuestion(string)
+
+// console.log(binaryExpansion(string,[],stop))
+
+// shuffle(array) {
+//     var result = [], source = array.concat([]);
+  
+//     while (source.length) {
+//       let index = Math.floor(Math.random() * source.length);
+//       result.push(source.splice(index, 1)[0]);
+//     }
+  
+//     return result;
+//   }
+
+Array.prototype.shuffle = function(){
+    return this.map(function(n){ return [Math.random(), n] })
+             .sort().map(function(n){ return n[1] });
 }
 
-function getRandomInt(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
+let stringAnagrams = (string,arr,num)=>{
+    if(num==0){
+        return arr 
+    }
+    let strs = string.split("");strs = strs.shuffle().join('')
+    if(!arr.includes(strs)){
+        arr.push(strs)
+    }
+    num-=1
+    return stringAnagrams(string,arr,num)
 }
 
-String.prototype.replaceAt = function(idx,replacement){
-    let str = ""
-    for(let i=0;i<this.length;i++){
-        if(i == idx){str+=replacement}
-        else{str+=this[i]}
-    }
-    return str
-}
-
-let binaryExpansion = (string,arr,stop)=>{
-    if(arr.length == stop){
-        return arr
-    }
-    let copy = string
-    for(let i=0;i<copy.length;i++){
-        let random = getRandomInt(0,1)
-        let str = ""
-        if(copy[i] == "?"){
-            copy = copy.replaceAt(i,random)
-        }
-    }  
-    if(!arr.includes(copy)){
-        arr.push(copy)
-    }
-    return binaryExpansion(string,arr,stop)
-}
-
-let string = "1?0?"
-let stop = findQuestion(string)
-
-console.log(binaryExpansion(string,[],stop))
+console.log(stringAnagrams("lim",[],5))
