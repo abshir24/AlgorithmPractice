@@ -3999,9 +3999,9 @@ for(let i=1;i<4;i++){
 //     return Math.pow(count,2)
 // }
 
-// function getRandomInt(min, max) {
-//     return Math.round(Math.random() * (max - min) + min);
-// }
+function getRandomInt(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
 
 // String.prototype.replaceAt = function(idx,replacement){
 //     let str = ""
@@ -4046,21 +4046,53 @@ for(let i=1;i<4;i++){
 //     return result;
 //   }
 
-Array.prototype.shuffle = function(){
-    return this.map(function(n){ return [Math.random(), n] })
-             .sort().map(function(n){ return n[1] });
+// Array.prototype.shuffle = function(){
+//     return this.map(function(n){ return [Math.random(), n] })
+//              .sort().map(function(n){ return n[1] });
+// }
+
+// let stringAnagrams = (string,arr,num=Math.pow(string.length,string.length))=>{
+//     if(num==0){
+//         return arr
+//     }
+//     let strs = string.split("");strs = strs.shuffle().join('')
+//     if(!arr.includes(strs)){
+//         arr.push(strs)
+//     }
+//     num-=1
+//     return stringAnagrams(string,arr,num)
+// }
+
+// console.log(stringAnagrams("team",[]))
+
+function isArrayInArray(arr, item){
+    let item_as_string = JSON.stringify(item);
+  
+    let contains = arr.some(function(ele){
+      return JSON.stringify(ele) === item_as_string;
+    });
+    return contains;
 }
 
-let stringAnagrams = (string,arr,num=Math.pow(string.length,string.length))=>{
-    if(num==0){
+let climbingStairs = (num,arr,max = Math.pow(num,num))=>{
+    if(arr.length == max){
         return arr
     }
-    let strs = string.split("");strs = strs.shuffle().join('')
-    if(!arr.includes(strs)){
-        arr.push(strs)
+    let count = num;nums = []
+    while(count > 0){
+        let random = getRandomInt(1,2)
+        if(random<=count){
+            nums.push(random)
+            count = count - random
+        }else{
+            continue;
+        }
+    } 
+    if(!isArrayInArray(arr,nums)){
+        arr.push(nums)
     }
-    num-=1
-    return stringAnagrams(string,arr,num)
+    max-=1
+    return climbingStairs(num,arr,max)
 }
 
-console.log(stringAnagrams("team",[]))
+console.log(climbingStairs(4,[]))
