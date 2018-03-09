@@ -4051,9 +4051,9 @@ Array.prototype.shuffle = function(){
              .sort().map(function(n){ return n[1] });
 }
 
-let stringAnagrams = (string,arr,num)=>{
+let stringAnagrams = (string,arr,num=Math.pow(string.length,string.length))=>{
     if(num==0){
-        return arr 
+        return arr
     }
     let strs = string.split("");strs = strs.shuffle().join('')
     if(!arr.includes(strs)){
@@ -4063,4 +4063,4 @@ let stringAnagrams = (string,arr,num)=>{
     return stringAnagrams(string,arr,num)
 }
 
-console.log(stringAnagrams("lim",[],5))
+console.log(stringAnagrams("team",[]))
