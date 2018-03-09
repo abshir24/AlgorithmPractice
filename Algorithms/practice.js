@@ -3999,20 +3999,38 @@ let findQuestion = (string)=>{
     return Math.pow(count,2)
 }
 
-
-
-function getRandom(min, max) {
+function getRandomInt(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
-console.log(getRandom(1,2))
+String.prototype.replaceAt = function(idx,replacement){
+    let str = ""
+    for(let i=0;i<this.length;i++){
+        if(i == idx){str+=replacement}
+        else{str+=this[i]}
+    }
+    return str
+}
 
-// let binaryExpansion = (string,arr,stop)=>{
-//     if(arr.length == stop){
-//         return arr
-//     }
-//     for(let i=0;i<string.length;i++){
-//         let random = getRandomInt()
-//     }
+let binaryExpansion = (string,arr,stop)=>{
+    if(arr.length == stop){
+        return arr
+    }
+    let copy = string
+    for(let i=0;i<copy.length;i++){
+        let random = getRandomInt(0,1)
+        let str = ""
+        if(copy[i] == "?"){
+            copy = copy.replaceAt(i,random)
+        }
+    }  
+    if(!arr.includes(copy)){
+        arr.push(copy)
+    }
+    return binaryExpansion(string,arr,stop)
+}
 
-// }
+let string = "1?0?"
+let stop = findQuestion(string)
+
+console.log(binaryExpansion(string,[],stop))
