@@ -2466,13 +2466,13 @@ function romanize(num){
 
 // console.log(getJiggy("Abshir"))
 
-// String.prototype.reverse = function(){
-//     string2 = ""
-//     for(let i = this.length-1;i>=0;i--){
-//         string2+= this[i]
-//     }
-//     return string2
-// }
+String.prototype.reverse = function(){
+    string2 = ""
+    for(let i = this.length-1;i>=0;i--){
+        string2+= this[i]
+    }
+    return string2
+}
 
 // let findSuffix = (string1,string2)=>{
 //     let suffix = "",e1 = string1.length-1,e2=string2.length-1
@@ -4101,58 +4101,62 @@ function isArrayInArray(arr, item){
 
 // console.log(climbingStairs(4,[]))
 
-let arrSum = (arr)=>{
-    let sum = 0
-    for(let i=0;i<arr.length;i++){
-        sum+= Math.pow(arr[i],2)
-    }
-    return sum
-}
+// let arrSum = (arr)=>{
+//     let sum = 0
+//     for(let i=0;i<arr.length;i++){
+//         sum+= Math.pow(arr[i],2)
+//     }
+//     return sum
+// }
 
-let expArr = (arr)=>{
-    for(let i=0;i<arr.length;i++){
-        for(let j = 0;j<arr[i].length;j++){
-            arr[i][j] = Math.pow(arr[i][j],2)
-        }
+// let expArr = (arr)=>{
+//     for(let i=0;i<arr.length;i++){
+//         for(let j = 0;j<arr[i].length;j++){
+//             arr[i][j] = Math.pow(arr[i][j],2)
+//         }
         
-    }
-    return arr
-}
+//     }
+//     return arr
+// }
 
-// Bad Solution fix it
+// // Bad Solution fix it
 
-let sumSquares = (num,arr,subArr,i,end)=>{
-    if(end == 0){
-        return expArr(arr)
-    }
-    let sum = arrSum(subArr)
-    i+=1;end-=1
-    if(sum > num){
-        let mid = Math.round(arr.length/2)
-        if(subArr[mid]==1){
-            mid = mid+1
-            subArr.splice(mid,1)
-        }else{
-            subArr.splice(mid,1) 
-        }
-        return sumSquares(num,arr,subArr,i,end)
-    }else if(sum < num){
-        subArr.push(i)
-        return sumSquares(num,arr,subArr,i,end)
-    }else{
-        if(!isArrayInArray(arr,subArr)){
-            arr.push(subArr)
-            subArr = [1]
-            i = 1
-        }else{
-            subArr.splice(2)
-            subArr.push(i)
-        }
-        return sumSquares(num,arr,subArr,i,end)
-    }
-}
+// let sumSquares = (num,arr,subArr,i,end)=>{
+//     if(end == 0){
+//         return expArr(arr)
+//     }
+//     let sum = arrSum(subArr)
+//     i+=1;end-=1
+//     if(sum > num){
+//         let mid = Math.round(arr.length/2)
+//         if(subArr[mid]==1){
+//             mid = mid+1
+//             subArr.splice(mid,1)
+//         }else{
+//             subArr.splice(mid,1) 
+//         }
+//         return sumSquares(num,arr,subArr,i,end)
+//     }else if(sum < num){
+//         subArr.push(i)
+//         return sumSquares(num,arr,subArr,i,end)
+//     }else{
+//         if(!isArrayInArray(arr,subArr)){
+//             arr.push(subArr)
+//             subArr = [1]
+//             i = 1
+//         }else{
+//             subArr.splice(2)
+//             subArr.push(i)
+//         }
+//         return sumSquares(num,arr,subArr,i,end)
+//     }
+// }
 
-let number = 30
-let stop = Math.pow(number,2)
+// let number = 30
+// let stop = Math.pow(number,2)
 
-console.log(sumSquares(number,[],[1],1,stop))
+// console.log(sumSquares(number,[],[1],1,stop))
+
+// let allValidParens = (num, arr) 
+
+console.log("()(())".reverse())
