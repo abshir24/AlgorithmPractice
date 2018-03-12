@@ -4051,6 +4051,8 @@ function getRandomInt(min, max) {
 //              .sort().map(function(n){ return n[1] });
 // }
 
+// Bad solution on the the number of times the function will will recurse based on the length of the string powered by 2
+
 // let stringAnagrams = (string,arr,num=Math.pow(string.length,string.length))=>{
 //     if(num==0){
 //         return arr
@@ -4065,34 +4067,40 @@ function getRandomInt(min, max) {
 
 // console.log(stringAnagrams("team",[]))
 
-function isArrayInArray(arr, item){
-    let item_as_string = JSON.stringify(item);
+// function isArrayInArray(arr, item){
+//     let item_as_string = JSON.stringify(item);
   
-    let contains = arr.some(function(ele){
-      return JSON.stringify(ele) === item_as_string;
-    });
-    return contains;
-}
+//     let contains = arr.some(function(ele){
+//       return JSON.stringify(ele) === item_as_string;
+//     });
+//     return contains;
+// }
 
-let climbingStairs = (num,arr,max = Math.pow(num,num))=>{
-    if(arr.length == max){
-        return arr
-    }
-    let count = num;nums = []
-    while(count > 0){
-        let random = getRandomInt(1,2)
-        if(random<=count){
-            nums.push(random)
-            count = count - random
-        }else{
-            continue;
-        }
-    } 
-    if(!isArrayInArray(arr,nums)){
-        arr.push(nums)
-    }
-    max-=1
-    return climbingStairs(num,arr,max)
-}
+// Bad solution on the the number of times the function will will recurse based on the number input powered by 2
 
-console.log(climbingStairs(4,[]))
+// let climbingStairs = (num,arr,max = Math.pow(num,num))=>{
+//     if(arr.length == max){
+//         return arr
+//     }
+//     let count = num;nums = []
+//     while(count > 0){
+//         let random = getRandomInt(1,2)
+//         if(random<=count){
+//             nums.push(random)
+//             count = count - random
+//         }else{
+//             continue;
+//         }
+//     } 
+//     if(!isArrayInArray(arr,nums)){
+//         arr.push(nums)
+//     }
+//     max-=1
+//     return climbingStairs(num,arr,max)
+// }
+
+// console.log(climbingStairs(4,[]))
+
+10 
+
+console.log("1+4+9".split("+"))
