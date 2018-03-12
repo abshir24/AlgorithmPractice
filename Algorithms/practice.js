@@ -4067,14 +4067,14 @@ function getRandomInt(min, max) {
 
 // console.log(stringAnagrams("team",[]))
 
-// function isArrayInArray(arr, item){
-//     let item_as_string = JSON.stringify(item);
+function isArrayInArray(arr, item){
+    let item_as_string = JSON.stringify(item);
   
-//     let contains = arr.some(function(ele){
-//       return JSON.stringify(ele) === item_as_string;
-//     });
-//     return contains;
-// }
+    let contains = arr.some(function(ele){
+      return JSON.stringify(ele) === item_as_string;
+    });
+    return contains;
+}
 
 // Bad solution on the the number of times the function will will recurse based on the number input powered by 2
 
@@ -4101,6 +4101,32 @@ function getRandomInt(min, max) {
 
 // console.log(climbingStairs(4,[]))
 
-10 
+// let arrSum = (arr)=>{
+//     let sum = 0
+//     for(let i=0;i<arr.length;i++){
+//         sum+= Math.pow(arr[i],2)
+//     }
+//     return sum
+// }
 
-console.log("1+4+9".split("+"))
+let sumSquares = (num,arr,subArr,i)=>{
+    let sum = arrSum(subArr)
+    i+=1
+    if(sum > num){
+        let mid = arr.length/2
+        subArr.splice(mid,1)
+        return sumSquares(num,arr,subArr)
+    }else if(sum < num){
+        subArr.push(i)
+        return sumSquares(num,arr,subArr,i)
+    }else{
+
+        arr.push(subArr)
+        subArr=[1];
+        i = 1
+        return sumSquares(num,arr,subArr,i)
+    }
+}
+
+
+
