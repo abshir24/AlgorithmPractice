@@ -4109,35 +4109,50 @@ let arrSum = (arr)=>{
     return sum
 }
 
+let expArr = (arr)=>{
+    for(let i=0;i<arr.length;i++){
+        for(let j = 0;j<arr[i].length;j++){
+            arr[i][j] = Math.pow(arr[i][j],2)
+        }
+        
+    }
+    return arr
+}
+
+// Bad Solution fix it
+
 let sumSquares = (num,arr,subArr,i,end)=>{
-    console.log(end,subArr)
     if(end == 0){
-        return arr
+        return expArr(arr)
     }
     let sum = arrSum(subArr)
     i+=1;end-=1
     if(sum > num){
-        let mid = arr.length/2
-        if(subArr[mid]!==1){
-            
+        let mid = Math.round(arr.length/2)
+        if(subArr[mid]==1){
+            mid = mid+1
+            subArr.splice(mid,1)
+        }else{
+            subArr.splice(mid,1) 
         }
-        subArr.splice(mid,1)
         return sumSquares(num,arr,subArr,i,end)
     }else if(sum < num){
         subArr.push(i)
         return sumSquares(num,arr,subArr,i,end)
     }else{
-        console.log("sub",subArr)
         if(!isArrayInArray(arr,subArr)){
             arr.push(subArr)
+            subArr = [1]
+            i = 1
+        }else{
+            subArr.splice(2)
+            subArr.push(i)
         }
-        subArr=[1];
-        i = 1
         return sumSquares(num,arr,subArr,i,end)
     }
 }
 
-let number = 10
+let number = 30
 let stop = Math.pow(number,2)
 
 console.log(sumSquares(number,[],[1],1,stop))
