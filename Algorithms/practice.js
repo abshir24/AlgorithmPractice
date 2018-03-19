@@ -4157,6 +4157,4 @@ function isArrayInArray(arr, item){
 
 // console.log(sumSquares(number,[],[1],1,stop))
 
-// let allValidParens = (num, arr) 
-
-console.log("()(())".reverse())
+let allValidParens = (num, arr) 
