@@ -4157,4 +4157,28 @@ function isArrayInArray(arr, item){
 
 // console.log(sumSquares(number,[],[1],1,stop))
 
-let allValidParens = (num, arr) 
+// let allValidParens = (num, arr)=>{
+    
+// }
+
+let stringToWord = (string)=>{
+    let newstr = "",arr = []; j=0;
+    while(string[j] == " ")
+    {
+        j++;
+    }
+    for(let i = j;i<string.length;i++)
+    {
+        if(string[i] == " "){
+            console.log(newstr)
+            arr.push(newstr)
+            newstr = "";
+            continue
+        }
+        newstr += string[i]
+    }
+    arr.push(newstr);
+    return arr
+}
+
+console.log(stringToWord("Life is not a drill!"))
