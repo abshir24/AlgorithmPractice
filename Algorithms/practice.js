@@ -4163,14 +4163,10 @@ function isArrayInArray(arr, item){
 
 let stringToWord = (string)=>{
     let newstr = "",arr = []; j=0;
-    while(string[j] == " ")
-    {
-        j++;
-    }
+    while(string[j] == " "){j++;}
     for(let i = j;i<string.length;i++)
     {
         if(string[i] == " "){
-            console.log(newstr)
             arr.push(newstr)
             newstr = "";
             continue
@@ -4181,4 +4177,16 @@ let stringToWord = (string)=>{
     return arr
 }
 
-console.log(stringToWord("Life is not a drill!"))
+// console.log(stringToWord("Life is not a drill!"))
+
+let longestWord = (string)=>{
+    let arr = stringToWord(string), max = arr[0].length
+    for(let i = 0;i<arr.length;i++){
+        if(arr[i].length>max){
+            max = arr[i]
+        }
+    }
+    return max
+}
+
+console.log(longestWord("Snap crackle pop makes the world go round!"))
