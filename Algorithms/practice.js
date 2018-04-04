@@ -4191,13 +4191,35 @@ let longestWord = (string)=>{
 
 // console.log(longestWord("Snap crackle pop makes the world go round!"))
 
-let reverseOrderWord = (string)=>{
-    let reversed = stringToWord(string), str2 = ""
-    for(let i = reversed.length-1;i>=0;i--)
+// let reverseOrderWord = (string)=>{
+//     let reversed = stringToWord(string), str2 = ""
+//     for(let i = reversed.length-1;i>=0;i--)
+//     {
+//         str2+= " " + reversed[i];
+//     }
+//     return str2
+// }
+
+// console.log(reverseOrderWord("cool beans"))
+
+let uniqueWords = (string)=>{
+    string.toLowerCase()
+    let words = stringToWord(string),obj = {},word = ""
+    for(let i = 0;i<words.length;i++)
     {
-        str2+= " " + reversed[i];
+        if(obj[words[i]]!= null)
+        {
+            obj[words[i]] = 1
+        }else{
+            obj[words[i]] += 1
+        }
     }
-    return str2
+    for(key in obj)
+    {
+        console.log(obj[key])
+        if(obj[key] == 1){word+=key}
+    }
+    return word
 }
 
-console.log(reverseOrderWord("cool beans"))
+console.log(uniqueWords("Sing! Sing a song; sing out loud; sing out strong"))
