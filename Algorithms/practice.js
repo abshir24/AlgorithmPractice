@@ -4189,4 +4189,15 @@ let longestWord = (string)=>{
     return max
 }
 
-console.log(longestWord("Snap crackle pop makes the world go round!"))
+// console.log(longestWord("Snap crackle pop makes the world go round!"))
+
+let reverseOrderWord = (string)=>{
+    let reversed = stringToWord(string), str2 = ""
+    for(let i = reversed.length-1;i>=0;i--)
+    {
+        str2+= " " + reversed[i];
+    }
+    return str2
+}
+
+console.log(reverseOrderWord("cool beans"))
