@@ -4205,25 +4205,38 @@ let longestWord = (string)=>{
 
 // console.log(reverseOrderWord("cool beans"))
 
-let uniqueWords = (string)=>{
-    string = string.toLowerCase()
-    let words = stringToWord(string),obj = {},word = ""
-    console.log(words);
-    for(let i = 0;i<words.length;i++)
+// let uniqueWords = (string)=>{
+//     string = string.toLowerCase()
+//     let words = stringToWord(string),obj = {},word = ""
+//     for(let i = 0;i<words.length;i++)
+//     {
+//         if(obj[words[i]] == null)
+//         {
+//             obj[words[i]] = 0
+//         }else{
+//             obj[words[i]] += 1
+//         }
+//     }
+//     for(key in obj)
+//     {
+//         if(obj[key] == 0){word+=" " + key}
+//     }
+//     return word
+// }
+
+// console.log(uniqueWords("Sing a song! Sing a song; sing out loud and strong"))
+
+let rotateString = (string,rotate)=>{
+    let newstr = ""
+    for(let i = rotation; i<string.length ; i++ )
     {
-        if(obj[words[i]] == null)
-        {
-            obj[words[i]] = 0
-        }else{
-            obj[words[i]] += 1
-        }
+        newstr += string[i];
     }
-    console.log(obj)
-    for(key in obj)
+    for(let i = 0;i<rotation;i++)
     {
-        if(obj[key] == 0){word+=" " + key}
+        newstr+=string[i]
     }
-    return word
+    return newstr
 }
 
-console.log(uniqueWords("Sing a song! Sing a song; sing out loud and strong"))
+console.log(rotateString("Boris Godunov",5))
