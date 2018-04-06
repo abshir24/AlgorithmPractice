@@ -4161,8 +4161,9 @@ function isArrayInArray(arr, item){
     
 // }
 
+
 let stringToWord = (string)=>{
-    let newstr = "",arr = []; j=0;
+    let newstr = "",arr = []; j=0, punctuations = ".,:;!"
     while(string[j] == " "){j++;}
     for(let i = j;i<string.length;i++)
     {
@@ -4171,7 +4172,9 @@ let stringToWord = (string)=>{
             newstr = "";
             continue
         }
-        newstr += string[i]
+        if(!punctuations.includes(string[i])){
+            newstr += string[i]
+        }
     }
     arr.push(newstr);
     return arr
@@ -4203,23 +4206,24 @@ let longestWord = (string)=>{
 // console.log(reverseOrderWord("cool beans"))
 
 let uniqueWords = (string)=>{
-    string.toLowerCase()
+    string = string.toLowerCase()
     let words = stringToWord(string),obj = {},word = ""
+    console.log(words);
     for(let i = 0;i<words.length;i++)
     {
-        if(obj[words[i]]!= null)
+        if(obj[words[i]] == null)
         {
-            obj[words[i]] = 1
+            obj[words[i]] = 0
         }else{
             obj[words[i]] += 1
         }
     }
+    console.log(obj)
     for(key in obj)
     {
-        console.log(obj[key])
-        if(obj[key] == 1){word+=key}
+        if(obj[key] == 0){word+=" " + key}
     }
     return word
 }
 
-console.log(uniqueWords("Sing! Sing a song; sing out loud; sing out stro"))
+console.log(uniqueWords("Sing a song! Sing a song; sing out loud and strong"))
