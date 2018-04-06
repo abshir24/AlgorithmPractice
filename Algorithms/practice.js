@@ -4226,18 +4226,42 @@ let longestWord = (string)=>{
 
 // console.log(uniqueWords("Sing a song! Sing a song; sing out loud and strong"))
 
-let rotateString = (string,rotate)=>{
-    let newstr = "", rotateby = string.length-rotate
-    for(let i =rotateby; i<string.length ; i++ )
-    {
-        newstr += string[i];
+// let rotateString = (string,rotate)=>{
+//     let newstr = "", rotateby = string.length-rotate
+//     for(let i =rotateby; i<string.length ; i++ )
+//     {
+//         newstr += string[i];
+//     }
+//     for(let i = 0;i<rotateby;i++)
+//     {
+//         newstr+=string[i]
+//     }
+//     return newstr
+// }
+
+// console.log(rotateString("Boris Godunov",5))
+
+function isRotation(string1,string2){
+    var count2 = 0
+    var count = 0
+    while(string1[0] !== string2[count2] ){
+        count2++
     }
-    for(let i = 0;i<rotateby;i++)
-    {
-        newstr+=string[i]
+
+    while(count < string1.length){
+        if(count2 == string2.length){
+            count2 = 0
+        }
+        if(string1[count] === string2[count2]){
+            count++;
+            count2++
+        }else{
+            console.log("false")
+            return false
+        }
     }
-    return newstr
+    console.log("true")
+    return true
 }
 
-console.log(rotateString("Boris Godunov",5))
-
+isRotation("Is Rotation", "onIs Rotat")
