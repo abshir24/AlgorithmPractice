@@ -4222,4 +4222,4 @@ let uniqueWords = (string)=>{
     return word
 }
 
-console.log(uniqueWords("Sing! Sing a song; sing out loud; sing out strong"))
+console.log(uniqueWords("Sing! Sing a song; sing out loud; sing out stro"))
