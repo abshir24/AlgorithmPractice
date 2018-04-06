@@ -4227,12 +4227,12 @@ let longestWord = (string)=>{
 // console.log(uniqueWords("Sing a song! Sing a song; sing out loud and strong"))
 
 let rotateString = (string,rotate)=>{
-    let newstr = ""
-    for(let i = rotation; i<string.length ; i++ )
+    let newstr = "", rotateby = string.length-rotate
+    for(let i =rotateby; i<string.length ; i++ )
     {
         newstr += string[i];
     }
-    for(let i = 0;i<rotation;i++)
+    for(let i = 0;i<rotateby;i++)
     {
         newstr+=string[i]
     }
@@ -4240,3 +4240,4 @@ let rotateString = (string,rotate)=>{
 }
 
 console.log(rotateString("Boris Godunov",5))
+
