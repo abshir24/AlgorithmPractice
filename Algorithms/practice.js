@@ -4240,28 +4240,50 @@ let longestWord = (string)=>{
 // }
 
 // console.log(rotateString("Boris Godunov",5))
-
-function isRotation(string1,string2){
-    var count2 = 0
-    var count = 0
-    while(string1[0] !== string2[count2] ){
-        count2++
-    }
-
-    while(count < string1.length){
-        if(count2 == string2.length){
-            count2 = 0
-        }
-        if(string1[count] === string2[count2]){
-            count++;
-            count2++
+let strtoobj = (string)=>{
+    let obj = {};
+    for(let i = 0;i<string.length;i++)
+    {
+        if(obj[string[i]] == null)
+        {
+            obj[string[i]] = 0
         }else{
-            console.log("false")
-            return false
+            obj[string[i]] += 1
         }
     }
-    console.log("true")
-    return true
+
+    return obj
 }
 
-isRotation("Is Rotation", "onIs Rotat")
+let isRotation = (string,string2)=>{
+    let obj = strtoobj(string),
+    
+}
+
+
+
+// function isRotation(string1,string2){
+//     var count2 = 0
+//     var count = 0
+//     while(string1[0] !== string2[count2] ){
+//         count2++
+//     }
+
+//     while(count < string1.length){
+//         if(count2 == string2.length){
+//             count2 = 0
+//         }
+//         if(string1[count] === string2[count2]){
+//             count++;
+//             count2++
+//         }else{
+//             console.log("false")
+//             return false
+//         }
+//     }
+//     console.log("true")
+//     return true
+// }
+
+// isRotation("Is Rotation", "ionIs Rotat")
+
