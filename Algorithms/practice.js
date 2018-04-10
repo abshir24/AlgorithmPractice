@@ -4255,18 +4255,42 @@ let strtoobj = (string)=>{
     return obj
 }
 
-let isRotation = (string,string2)=>{
-    let obj = strtoobj(string),obj2 = strtoobj(string2);
-    for(let i=0;i<string.length;i++)
-    {
-        if(obj[string[i]] != obj2[string[i]]){return false}
-    }
-    return true
-}
 
-console.log(isRotation("ionIs Rotat", "Is Rotation"))
+//This wouldn't work to check to see if a string is a rotation, it just checks to see if they have the same amount of characters
+
+// let isRotation = (string,string2)=>{
+//     let obj = strtoobj(string),obj2 = strtoobj(string2);
+//     for(let i=0;i<string.length;i++)
+//     {
+//         if(obj[string[i]] != obj2[string[i]]){return false}
+//     }
+//     return true
+// }
+
+// console.log(isRotation("ionIs Rotat", "Is oRtation"))
+//                         j                      j
 
 
+//optimal solution
+
+// let isRotationOpt = (string,string2)=>{
+//     let count=0, count2=0;
+//     while(string[count]!==string2[count2])
+//     {
+//         if(count2 == string.length){return false}
+//         count2++
+//     }
+
+//     while(string[count] == string2[count2])
+//     {
+//         if(count2 == string2.length-1){count2 = 0; count++; continue}
+//         count++;
+//         count2++;
+//     }
+
+//     if(count == string.length){return true}
+//     return false
+// }
 
 // function isRotation(string1,string2){
 //     var count2 = 0
@@ -4291,5 +4315,5 @@ console.log(isRotation("ionIs Rotat", "Is Rotation"))
 //     return true
 // }
 
-// isRotation("Is Rotation", "ionIs Rotat")
+console.log(isRotationOpt("ionIs Rotat", "Is Rotation"))
 
