@@ -4256,9 +4256,15 @@ let strtoobj = (string)=>{
 }
 
 let isRotation = (string,string2)=>{
-    let obj = strtoobj(string),
-    
+    let obj = strtoobj(string),obj2 = strtoobj(string2);
+    for(let i=0;i<string.length;i++)
+    {
+        if(obj[string[i]] != obj2[string[i]]){return false}
+    }
+    return true
 }
+
+console.log(isRotation("ionIs Rotat", "Is Rotation"))
 
 
 
