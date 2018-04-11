@@ -4351,8 +4351,8 @@ let censor = (string,array)=>{
         }
         if(range == 0){
             arr.pop();arr.pop();
+            len = arr.length-1
             range = arr[len-1]-arr[len]
-            console.log(arr)
         }
     }
     return str
