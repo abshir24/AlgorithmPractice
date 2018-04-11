@@ -4315,5 +4315,47 @@ let strtoobj = (string)=>{
 //     return true
 // }
 
-console.log(isRotationOpt("ionIs Rotat", "Is Rotation"))
+// console.log(isRotationOpt("ionIs Rotat", "Is Rotation"))
 
+Array.prototype.reverse = function(){
+    let s = 0, e = this.length-1;
+    while(s<e){
+        swap(this,s,e);
+        s++;e--
+    }
+    return this
+}
+
+let censor = (string,array)=>{
+    arr = [], str = "";
+    for(let i = 0;i<string.length;i++)
+    {
+        for(let j=i+1;j<string.length;j++)
+        {
+            if(array.includes(string.substring(i,j)))
+            {
+                arr.push(i,j);
+            }
+        }
+    }
+    len = arr.length-1;arr.reverse();range = arr[len-1]-arr[len]
+    for(let i =0;i<string.length;i++)
+    {
+        if(i>=arr[len] && i<=arr[len-1])
+        {
+            str+="x";
+            range--;
+            
+        }else{
+            str+=string[i]
+        }
+        if(range == 0){
+            arr.pop();arr.pop();
+            range = arr[len-1]-arr[len]
+            console.log(arr)
+        }
+    }
+    return str
+}
+
+console.log(censor("Snap crackle pop nincompoop!",["crack","poop"]))
