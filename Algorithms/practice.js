@@ -4364,14 +4364,15 @@ Array.prototype.reverse = function(){
 //     let stringArr = stringToArr(string),
 // }
 
-function cool(arr){
-    let temp = arr[0];
-    for(var i = 0;i<arr.length-1;i++)
+let badChars = (string,string2)=>{
+    let newStr = "";
+    for(let i=0;i<string.length;i++)
     {
-        arr[i] = arr[i+1]
+        if(!string2.includes(string[i])){
+            newStr += string[i]
+        }
     }
-    arr[arr.length-1] = temp
-    return arr
+    return newStr
 }
 
-console.log(cool([1,2,3,4,5]))
+console.log(badChars("wassup","up"))
