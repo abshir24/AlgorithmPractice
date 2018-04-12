@@ -4162,7 +4162,7 @@ function isArrayInArray(arr, item){
 // }
 
 
-let stringToWord = (string)=>{
+let stringToArr = (string)=>{
     let newstr = "",arr = []; j=0, punctuations = ".,:;!"
     while(string[j] == " "){j++;}
     for(let i = j;i<string.length;i++)
@@ -4180,10 +4180,10 @@ let stringToWord = (string)=>{
     return arr
 }
 
-// console.log(stringToWord("Life is not a drill!"))
+// console.log(stringToArr("Life is not a drill!"))
 
 let longestWord = (string)=>{
-    let arr = stringToWord(string), max = arr[0].length
+    let arr = stringToArr(string), max = arr[0].length
     for(let i = 0;i<arr.length;i++){
         if(arr[i].length>max){
             max = arr[i]
@@ -4195,7 +4195,7 @@ let longestWord = (string)=>{
 // console.log(longestWord("Snap crackle pop makes the world go round!"))
 
 // let reverseOrderWord = (string)=>{
-//     let reversed = stringToWord(string), str2 = ""
+//     let reversed = stringToArr(string), str2 = ""
 //     for(let i = reversed.length-1;i>=0;i--)
 //     {
 //         str2+= " " + reversed[i];
@@ -4207,7 +4207,7 @@ let longestWord = (string)=>{
 
 // let uniqueWords = (string)=>{
 //     string = string.toLowerCase()
-//     let words = stringToWord(string),obj = {},word = ""
+//     let words = stringToArr(string),obj = {},word = ""
 //     for(let i = 0;i<words.length;i++)
 //     {
 //         if(obj[words[i]] == null)
@@ -4325,37 +4325,53 @@ Array.prototype.reverse = function(){
     }
     return this
 }
-
-let censor = (string,array)=>{
-    arr = [], str = "";
-    for(let i = 0;i<string.length;i++)
-    {
-        for(let j=i+1;j<string.length;j++)
-        {
-            if(array.includes(string.substring(i,j)))
-            {
-                arr.push(i,j);
-            }
-        }
-    }
-    len = arr.length-1;arr.reverse();range = arr[len-1]-arr[len]
-    for(let i =0;i<string.length;i++)
-    {
-        if(i>=arr[len] && i<=arr[len-1])
-        {
-            str+="x";
-            range--;
+// let censor = (string,array)=>{
+//     arr = [], str = "";
+//     for(let i = 0;i<string.length;i++)
+//     {
+//         for(let j=i+1;j<string.length;j++)
+//         {
+//             if(array.includes(string.substring(i,j)))
+//             {
+//                 arr.push(i,j);
+//                 break;
+//             }
+//         }
+//     }
+//     len = arr.length-1;arr.reverse();range = arr[len-1]-arr[len]
+//     for(let i =0;i<string.length;i++)
+//     {
+//         if(i>=arr[len] && i<=arr[len-1])
+//         {
+//             str+="x";
+//             range--;
             
-        }else{
-            str+=string[i]
-        }
-        if(range == 0){
-            arr.pop();arr.pop();
-            len = arr.length-1
-            range = arr[len-1]-arr[len]
-        }
+//         }else{
+//             str+=string[i]
+//         }
+//         if(range == 0){
+//             arr.pop();arr.pop();
+//             len = arr.length-1
+//             range = arr[len-1]-arr[len]
+//         }
+//     }
+//     return str
+// }
+
+// console.log(censor("Snap crackle pop nincompoop!",["crack","poop"]))
+
+// let censorOpt = (string,arr)=>{
+//     let stringArr = stringToArr(string),
+// }
+
+function cool(arr){
+    let temp = arr[0];
+    for(var i = 0;i<arr.length-1;i++)
+    {
+        arr[i] = arr[i+1]
     }
-    return str
+    arr[arr.length-1] = temp
+    return arr
 }
 
-console.log(censor("Snap crackle pop nincompoop!",["crack","poop"]))
+console.log(cool([1,2,3,4,5]))
