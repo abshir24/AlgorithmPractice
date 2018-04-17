@@ -4409,4 +4409,4 @@ let uniqueChar = (string)=>{
     }
 }
 
-console.log(uniqueChar("empathetic monarch meets primo stinker"))
+console.log(uniqueChar("empathetic r"))
