@@ -4382,3 +4382,18 @@ Array.prototype.reverse = function(){
 
 // console.log(GeneticMarker(["cool","bea?ns","dude"],"beans"))
 
+let dedupe = (string)=>{
+    let newstr = "", obj = strtoobj(string);
+    for(let i = 0;i<string.length;i++)
+    {
+        if(obj[string[i]]>0)
+        {
+            obj[string[i]]--;
+        }else{
+            newstr+=string[i]
+        }
+    }
+    return newstr
+}
+
+console.log(dedupe("Snaps! crackles! pops!"))
