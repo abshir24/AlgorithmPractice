@@ -4360,19 +4360,25 @@ Array.prototype.reverse = function(){
 
 // console.log(censor("Snap crackle pop nincompoop!",["crack","poop"]))
 
-// let censorOpt = (string,arr)=>{
-//     let stringArr = stringToArr(string),
+// let badChars = (string,string2)=>{
+//     let newStr = "";
+//     for(let i=0;i<string.length;i++)
+//     {
+//         if(!string2.includes(string[i])){
+//             newStr += string[i]
+//         }
+//     }
+//     return newStr
 // }
 
-let badChars = (string,string2)=>{
-    let newStr = "";
-    for(let i=0;i<string.length;i++)
-    {
-        if(!string2.includes(string[i])){
-            newStr += string[i]
-        }
-    }
-    return newStr
-}
+// console.log(badChars("wassup","up"))
 
-console.log(badChars("wassup","up"))
+// let GeneticMarker = (arr,str)=>{
+//     for(let i = 0;i<arr.length;i++){
+//         if(arr[i] === str){return true}
+//     }
+//     return false
+// }
+
+// console.log(GeneticMarker(["cool","bea?ns","dude"],"beans"))
+
