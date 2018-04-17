@@ -4373,12 +4373,12 @@ Array.prototype.reverse = function(){
 
 // console.log(badChars("wassup","up"))
 
-let GeneticMarker = (arr,str)=>{
-    for(let i = 0;i<arr.length;i++){
-        if(arr[i] === str){return true}
-    }
-    return false
-}
+// let GeneticMarker = (arr,str)=>{
+//     for(let i = 0;i<arr.length;i++){
+//         if(arr[i] === str){return true}
+//     }
+//     return false
+// }
 
-console.log(GeneticMarker(["cool","bea?ns","dude"],"beans"))
+// console.log(GeneticMarker(["cool","bea?ns","dude"],"beans"))
 
