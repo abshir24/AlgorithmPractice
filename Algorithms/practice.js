@@ -4410,3 +4410,18 @@ Array.prototype.reverse = function(){
 // }
 
 
+let uniqueLetters = (string)=>{
+    let obj = strtoobj(string), newstr = "";
+    console.log(obj)
+    for(let i = 0;i<string.length;i++)
+    {
+        if(!obj[string[i]]>0)
+        {
+            newstr+=string[i]
+        }
+    }
+    return newstr
+}
+
+console.log(uniqueLetters("Snap! Crackle! Poop!"))
+
