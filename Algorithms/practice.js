@@ -4425,6 +4425,10 @@ Array.prototype.reverse = function(){
 
 // console.log(uniqueLetters("Snap! Crackle! Poop!"))
 
+// let num = 1234
+// console.log(num % 10000)
 // let numToString = (num)=>{
-
+//     return num + "";
 // }
+
+// console.log(numToString(1234))
