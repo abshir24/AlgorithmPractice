@@ -4398,15 +4398,15 @@ Array.prototype.reverse = function(){
 
 // console.log(dedupe("Snaps! crackles! pops!"))
 
-let uniqueChar = (string)=>{
-    let idx, obj = strtoobj(string);
-    for(let i = 0;i<string.length;i++)
-    {
-        if(obj[string[i]] == 0)
-        {
-            return i
-        }
-    }
-}
+// let uniqueChar = (string)=>{
+//     let idx, obj = strtoobj(string);
+//     for(let i = 0;i<string.length;i++)
+//     {
+//         if(obj[string[i]] == 0)
+//         {
+//             return i
+//         }
+//     }
+// }
 
 
