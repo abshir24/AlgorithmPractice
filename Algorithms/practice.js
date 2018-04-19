@@ -4432,3 +4432,7 @@ Array.prototype.reverse = function(){
 // }
 
 // console.log(numToString(1234))
+
+let numToText = (num)=>{
+    
+}
