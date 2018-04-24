@@ -4443,6 +4443,10 @@ let findPlace = (string)=>{
             return "hundred"
         case 4:
             return "thousand"
+        case 5:
+            return "ten-thousand"
+        case 6:
+            return "ten-thousand"
         case 7:
             return "million"
         default:
@@ -4469,37 +4473,7 @@ let hundreds = (num,place,obj)=>{
 
 let numToText = (num)=>{
     let numStr = numToString(num), place = findPlace(numStr);
-    let obj = {
-        "":"",
-        0:"zero",
-        1:"one",
-        2:"two",
-        3:"three",
-        4:"four",
-        5:"five",
-        6:"six",
-        7:"seven",
-        8:"eight",
-        9:"nine",
-        10:"ten",
-        11:"eleven",
-        12:"twelve",
-        13:"thirteen",
-        14:"fourteen",
-        15:"fifteen",
-        16:"sixteen",
-        17:"seventeen",
-        18:"eighteen",
-        19:"nineteen",
-        20:"twenty",
-        30:"thirty",
-        40:"forty",
-        50:"fifty",
-        60:"sixty",
-        70:"seventy",
-        80:"eighty",
-        90:"ninety"
-    }
+    let obj = {"":"",0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve",13:"thirteen",14:"fourteen",15:"fifteen",16:"sixteen",17:"seventeen",18:"eighteen",19:"nineteen",20:"twenty",30:"thirty",40:"forty",50:"fifty",60:"sixty",70:"seventy",80:"eighty",90:"ninety"}
     if(typeof(place) == "number")
     {
        return onesAndTens(num,place,obj) 
@@ -4509,9 +4483,9 @@ let numToText = (num)=>{
                 let hundreds = Math.round((num - (num%100) - (num%10))/100)
                 return obj[hundreds] + " " + place + " " + onesAndTens(num%100,place,obj) 
             case "thousand":
-
+                let thousands = Math.round((num - (num%1000) - (num%100) - (num%10))/100)
             default:
-                return "Man this"
+                return "Man this doesn't work"
         }
     }
 }
