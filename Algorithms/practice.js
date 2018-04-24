@@ -4444,7 +4444,7 @@ let findPlace = (string)=>{
         case 4:
             return "thousand"
         case 5:
-            return "ten-thousand"
+            return "thousand"
         case 6:
             return "ten-thousand"
         case 7:
@@ -4474,6 +4474,10 @@ let thousand = (num) =>{
     return Math.round((num - (num%1000) - (num%100) - (num%10))/1000)
 }
 
+let tenthousand = (num) =>{
+    return Math.round((num-(num%1000) - (num%100) - (num%10))/1000)
+}
+
 
 let numToText = (num)=>{
     let numStr = numToString(num), place = findPlace(numStr),hundreds,thousands;
@@ -4490,6 +4494,8 @@ let numToText = (num)=>{
                 thousands = thousand(num)
                 num -= (thousands * 1000)
                 hundreds = hundred(num);
+                let round = hundreds == 0 && onesAndTens(num%100,place,obj) == 0  ? true : false
+                if(round){ return obj[thousands] + " " + place }
                 return obj[thousands] + " " + place+ " " +obj[hundreds] + " hundred " + onesAndTens(num%100,place,obj) 
             default:
                 return "Man this doesn't work"
@@ -4497,4 +4503,4 @@ let numToText = (num)=>{
     }
 }
 
-console.log(numToText(2399))
+console.log(numToText(1111))
