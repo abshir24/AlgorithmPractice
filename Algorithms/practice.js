@@ -4425,14 +4425,95 @@ Array.prototype.reverse = function(){
 
 // console.log(uniqueLetters("Snap! Crackle! Poop!"))
 
-// let num = 1234
-// console.log(num % 10000)
-// let numToString = (num)=>{
-//     return num + "";
-// }
+let num = 100
+console.log(num % 100)
+let numToString = (num)=>{
+    return num + "";
+}
 
 // console.log(numToString(1234))
 
-let numToText = (num)=>{
+let findPlace = (string)=>{
+    switch(string.length) {
+        case 1:
+            return 1
+        case 2:
+            return 2
+        case 3:
+            return "hundred"
+        case 4:
+            return "thousand"
+        case 7:
+            return "million"
+        default:
+            return "The number is too big fam"
+    }
+}
+
+let onesAndTens = (num,place,obj)=>{
+    if(place == 1)
+    {
+        return obj[num]
+    }else{
+        let ones = num % 10;
+        if(ones == 0){ones = ""}
+        let tens = num - ones
+        return obj[tens] + " " +obj[ones]
+    }
+}
+
+let hundreds = (num,place,obj)=>{
     
 }
+
+
+let numToText = (num)=>{
+    let numStr = numToString(num), place = findPlace(numStr);
+    let obj = {
+        "":"",
+        0:"zero",
+        1:"one",
+        2:"two",
+        3:"three",
+        4:"four",
+        5:"five",
+        6:"six",
+        7:"seven",
+        8:"eight",
+        9:"nine",
+        10:"ten",
+        11:"eleven",
+        12:"twelve",
+        13:"thirteen",
+        14:"fourteen",
+        15:"fifteen",
+        16:"sixteen",
+        17:"seventeen",
+        18:"eighteen",
+        19:"nineteen",
+        20:"twenty",
+        30:"thirty",
+        40:"forty",
+        50:"fifty",
+        60:"sixty",
+        70:"seventy",
+        80:"eighty",
+        90:"ninety"
+    }
+    if(typeof(place) == "number")
+    {
+       return onesAndTens(num,place,obj) 
+    }else{
+        switch(place){
+            case "hundred":
+                let hundreds = Math.round((num - (num%100) - (num%10))/100)
+                return obj[hundreds] + " " + place + " " + onesAndTens(num%100,place,obj) 
+            case "thousand":
+
+            default:
+                return "Man this"
+        }
+    }
+}
+
+console.log(numToText(222))
