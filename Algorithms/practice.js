@@ -4466,13 +4466,17 @@ let onesAndTens = (num,place,obj)=>{
     }
 }
 
-let hundreds = (num,place,obj)=>{
-    
+let hundred = (num)=>{
+    return Math.round((num - (num%100) - (num%10))/100)
+}
+
+let thousand = (num) =>{
+    return Math.round((num - (num%1000) - (num%100) - (num%10))/1000)
 }
 
 
 let numToText = (num)=>{
-    let numStr = numToString(num), place = findPlace(numStr);
+    let numStr = numToString(num), place = findPlace(numStr),hundreds,thousands;
     let obj = {"":"",0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve",13:"thirteen",14:"fourteen",15:"fifteen",16:"sixteen",17:"seventeen",18:"eighteen",19:"nineteen",20:"twenty",30:"thirty",40:"forty",50:"fifty",60:"sixty",70:"seventy",80:"eighty",90:"ninety"}
     if(typeof(place) == "number")
     {
@@ -4480,14 +4484,17 @@ let numToText = (num)=>{
     }else{
         switch(place){
             case "hundred":
-                let hundreds = Math.round((num - (num%100) - (num%10))/100)
+                hundreds = hundred(num);
                 return obj[hundreds] + " " + place + " " + onesAndTens(num%100,place,obj) 
             case "thousand":
-                let thousands = Math.round((num - (num%1000) - (num%100) - (num%10))/100)
+                thousands = thousand(num)
+                num -= (thousands * 1000)
+                hundreds = hundred(num);
+                return obj[thousands] + " " + place+ " " +obj[hundreds] + " hundred " + onesAndTens(num%100,place,obj) 
             default:
                 return "Man this doesn't work"
         }
     }
 }
 
-console.log(numToText(222))
+console.log(numToText(2399))
