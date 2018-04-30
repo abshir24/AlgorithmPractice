@@ -4505,4 +4505,8 @@ Array.prototype.reverse = function(){
 
 // console.log(numToText(1111))
 
-let isPermutation = ()
+let isPermutation = (string,string2)=>{
+    let obj = strtoobj(string), obj2 = strtoobj(string2);
+    while()
+
+}
