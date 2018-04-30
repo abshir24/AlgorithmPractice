@@ -4510,7 +4510,17 @@ var sortString = (text)=>{
 };
 
 let isPermutation = (string,string2)=>{
-    let string=sortAlphabets(string),string2=sortAlphabets(string2),obj = strtoobj(string), obj2 = strtoobj(string2);
-    while()
-
+    let obj = strtoobj(sortString(string)), obj2 = strtoobj(sortString(string2));
+    for(key in obj)
+    {
+        if(obj[key] == obj2[key])
+        {
+            continue;
+        }else{
+            return false;
+        }
+    }
+    return true
 }
+
+console.log(isPermutation("mistermm","stimmmer"))
