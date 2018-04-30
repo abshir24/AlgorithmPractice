@@ -4425,82 +4425,84 @@ Array.prototype.reverse = function(){
 
 // console.log(uniqueLetters("Snap! Crackle! Poop!"))
 
-let num = 100
-console.log(num % 100)
-let numToString = (num)=>{
-    return num + "";
-}
+// let num = 100
+// console.log(num % 100)
+// let numToString = (num)=>{
+//     return num + "";
+// }
 
-// console.log(numToString(1234))
+// // console.log(numToString(1234))
 
-let findPlace = (string)=>{
-    switch(string.length) {
-        case 1:
-            return 1
-        case 2:
-            return 2
-        case 3:
-            return "hundred"
-        case 4:
-            return "thousand"
-        case 5:
-            return "thousand"
-        case 6:
-            return "ten-thousand"
-        case 7:
-            return "million"
-        default:
-            return "The number is too big fam"
-    }
-}
+// let findPlace = (string)=>{
+//     switch(string.length) {
+//         case 1:
+//             return 1
+//         case 2:
+//             return 2
+//         case 3:
+//             return "hundred"
+//         case 4:
+//             return "thousand"
+//         case 5:
+//             return "thousand"
+//         case 6:
+//             return "ten-thousand"
+//         case 7:
+//             return "million"
+//         default:
+//             return "The number is too big fam"
+//     }
+// }
 
-let onesAndTens = (num,place,obj)=>{
-    if(place == 1)
-    {
-        return obj[num]
-    }else{
-        let ones = num % 10;
-        if(ones == 0){ones = ""}
-        let tens = num - ones
-        return obj[tens] + " " +obj[ones]
-    }
-}
+// let onesAndTens = (num,place,obj)=>{
+//     if(place == 1)
+//     {
+//         return obj[num]
+//     }else{
+//         let ones = num % 10;
+//         if(ones == 0){ones = ""}
+//         let tens = num - ones
+//         return obj[tens] + " " +obj[ones]
+//     }
+// }
 
-let hundred = (num)=>{
-    return Math.round((num - (num%100) - (num%10))/100)
-}
+// let hundred = (num)=>{
+//     return Math.round((num - (num%100) - (num%10))/100)
+// }
 
-let thousand = (num) =>{
-    return Math.round((num - (num%1000) - (num%100) - (num%10))/1000)
-}
+// let thousand = (num) =>{
+//     return Math.round((num - (num%1000) - (num%100) - (num%10))/1000)
+// }
 
-let tenthousand = (num) =>{
-    return Math.round((num-(num%1000) - (num%100) - (num%10))/1000)
-}
+// let tenthousand = (num) =>{
+//     return Math.round((num-(num%1000) - (num%100) - (num%10))/1000)
+// }
 
 
-let numToText = (num)=>{
-    let numStr = numToString(num), place = findPlace(numStr),hundreds,thousands;
-    let obj = {"":"",0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve",13:"thirteen",14:"fourteen",15:"fifteen",16:"sixteen",17:"seventeen",18:"eighteen",19:"nineteen",20:"twenty",30:"thirty",40:"forty",50:"fifty",60:"sixty",70:"seventy",80:"eighty",90:"ninety"}
-    if(typeof(place) == "number")
-    {
-       return onesAndTens(num,place,obj) 
-    }else{
-        switch(place){
-            case "hundred":
-                hundreds = hundred(num);
-                return obj[hundreds] + " " + place + " " + onesAndTens(num%100,place,obj) 
-            case "thousand":
-                thousands = thousand(num)
-                num -= (thousands * 1000)
-                hundreds = hundred(num);
-                let round = hundreds == 0 && onesAndTens(num%100,place,obj) == 0  ? true : false
-                if(round){ return obj[thousands] + " " + place }
-                return obj[thousands] + " " + place+ " " +obj[hundreds] + " hundred " + onesAndTens(num%100,place,obj) 
-            default:
-                return "Man this doesn't work"
-        }
-    }
-}
+// let numToText = (num)=>{
+//     let numStr = numToString(num), place = findPlace(numStr),hundreds,thousands;
+//     let obj = {"":"",0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve",13:"thirteen",14:"fourteen",15:"fifteen",16:"sixteen",17:"seventeen",18:"eighteen",19:"nineteen",20:"twenty",30:"thirty",40:"forty",50:"fifty",60:"sixty",70:"seventy",80:"eighty",90:"ninety"}
+//     if(typeof(place) == "number")
+//     {
+//        return onesAndTens(num,place,obj) 
+//     }else{
+//         switch(place){
+//             case "hundred":
+//                 hundreds = hundred(num);
+//                 return obj[hundreds] + " " + place + " " + onesAndTens(num%100,place,obj) 
+//             case "thousand":
+//                 thousands = thousand(num)
+//                 num -= (thousands * 1000)
+//                 hundreds = hundred(num);
+//                 let round = hundreds == 0 && onesAndTens(num%100,place,obj) == 0  ? true : false
+//                 if(round){ return obj[thousands] + " " + place }
+//                 return obj[thousands] + " " + place+ " " +obj[hundreds] + " hundred " + onesAndTens(num%100,place,obj) 
+//             default:
+//                 return "Man this doesn't work"
+//         }
+//     }
+// }
 
-console.log(numToText(1111))
+// console.log(numToText(1111))
+
+let isPermutation = ()
