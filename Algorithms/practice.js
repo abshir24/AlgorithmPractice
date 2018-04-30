@@ -4505,8 +4505,12 @@ Array.prototype.reverse = function(){
 
 // console.log(numToText(1111))
 
+var sortString = (text)=>{
+    return text.split('').sort().join('');
+};
+
 let isPermutation = (string,string2)=>{
-    let obj = strtoobj(string), obj2 = strtoobj(string2);
+    let string=sortAlphabets(string),string2=sortAlphabets(string2),obj = strtoobj(string), obj2 = strtoobj(string2);
     while()
 
 }
