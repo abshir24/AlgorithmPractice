@@ -2424,9 +2424,9 @@ function romanize(num){
 // console.log(longestPalindrome("my favorite racecar erupted!"))
 
 
-// var createAlphabet = ()=>{
-//     return 'abcdefghijklmnopqrstuvwxyz'.split('')
-// }
+var createAlphabet = ()=>{
+    return 'abcdefghijklmnopqrstuvwxyz'.split('')
+}
 
 // function findIdx(arr,str){
 //     for(var i=0; i<arr.length;i++){
@@ -4509,22 +4509,27 @@ var sortString = (text)=>{
     return text.split('').sort().join('').toLowerCase();
 };
 
-let isPermutation = (string,string2)=>{
-    let obj = strtoobj(sortString(string)), obj2 = strtoobj(sortString(string2));
-    for(key in obj)
-    {
-        if(obj[key] == obj2[key])
-        {
-            continue;
-        }else{
-            return false;
-        }
-    }
-    return true
-};
+// let isPermutation = (string,string2)=>{
+//     let obj = strtoobj(sortString(string)), obj2 = strtoobj(sortString(string2));
+//     for(key in obj)
+//     {
+//         if(obj[key] == obj2[key])
+//         {
+//             continue;
+//         }else{
+//             return false;
+//         }
+//     }
+//     return true
+// };
 
-console.log(isPermutation("mistermm","stimmmer"))
+// console.log(isPermutation("mistermm","stimmmer"))
 
 let isPanagram = (string)=>{
-    
+   string = string.sortString();let arr = createAlphabet();count = 26
+   while(count>0)
+   {
+
+   }
 }
+isPanagram("ABC");
