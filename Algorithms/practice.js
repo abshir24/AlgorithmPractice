@@ -4506,7 +4506,7 @@ Array.prototype.reverse = function(){
 // console.log(numToText(1111))
 
 var sortString = (text)=>{
-    return text.split('').sort().join('');
+    return text.split('').sort().join('').toLowerCase();
 };
 
 let isPermutation = (string,string2)=>{
