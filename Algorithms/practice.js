@@ -4521,6 +4521,10 @@ let isPermutation = (string,string2)=>{
         }
     }
     return true
-}
+};
 
 console.log(isPermutation("mistermm","stimmmer"))
+
+let isPanagram = (string)=>{
+    
+}
