@@ -4245,12 +4245,12 @@ let longestWord = (string)=>{
 
 // console.log(rotateString("Boris Godunov",5))
 let strtoobj = (string,int)=>{
-
+    let obj = {},punctuations = ".,:;!"
     for(let i = 0;i<string.length;i++)
     {
         if(int == null)
         {
-            if(obj[string[i]] == null)
+            if(obj[string[i]] == null && string[i]!==" " && punctuations.includes(string[i]) == false)
             {
                 obj[string[i]] = 0
             }else{
@@ -4538,13 +4538,22 @@ var sortString = (text)=>{
 // console.log(isPermutation("mistermm","stimmmer"))
 
 let isPanagram = (string)=>{
-   string = sortString(string);let obj = createAlphabet(1); 
+string = sortString(string);
+let obj = createAlphabet(1); 
    for(let i = 0;i<string.length;i++)
    {
-       if(obj[string[i]])
+       if(obj[string[i]]!= null)
        {
-          obj[string[i]]++;
+          obj[string[i]]+=1;
        }
    }
+   for(key in obj)
+   {
+       if(obj[key]==0)
+       {
+           return false
+       }
+   }
+   return true
 }
-isPanagram("abc");
+console.log(isPanagram("How quickly daft jumping ebras vex!" ));
