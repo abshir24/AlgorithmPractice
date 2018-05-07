@@ -4537,23 +4537,27 @@ var sortString = (text)=>{
 
 // console.log(isPermutation("mistermm","stimmmer"))
 
-let isPanagram = (string)=>{
-string = sortString(string);
-let obj = createAlphabet(1); 
-   for(let i = 0;i<string.length;i++)
-   {
-       if(obj[string[i]]!= null)
-       {
-          obj[string[i]]+=1;
-       }
-   }
-   for(key in obj)
-   {
-       if(obj[key]==0)
-       {
-           return false
-       }
-   }
-   return true
+// let isPanagram = (string)=>{
+// string = sortString(string);
+// let obj = createAlphabet(1); 
+//    for(let i = 0;i<string.length;i++)
+//    {
+//        if(obj[string[i]]!= null)
+//        {
+//           obj[string[i]]+=1;
+//        }
+//    }
+//    for(key in obj)
+//    {
+//        if(obj[key]==0)
+//        {
+//            return false
+//        }
+//    }
+//    return true
+// }
+// console.log(isPanagram("How quickly daft jumping ebras vex!" ));
+
+let interPerms = (str,str2,str3)=>{
+    
 }
-console.log(isPanagram("How quickly daft jumping ebras vex!" ));
