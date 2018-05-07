@@ -2424,7 +2424,11 @@ function romanize(num){
 // console.log(longestPalindrome("my favorite racecar erupted!"))
 
 
-var createAlphabet = ()=>{
+var createAlphabet = (obj)=>{
+    if(obj!= undefined)
+    {
+        return strtoobj('abcdefghijklmnopqrstuvwxyz')
+    }
     return 'abcdefghijklmnopqrstuvwxyz'.split('')
 }
 
@@ -4526,10 +4530,15 @@ var sortString = (text)=>{
 // console.log(isPermutation("mistermm","stimmmer"))
 
 let isPanagram = (string)=>{
-   string = string.sortString();let arr = createAlphabet();count = 26
-   while(count>0)
+   string = sortString(string);let obj = createAlphabet(1); 
+   console.log(arr[string[0]])
+   for(let i = 0;i<string.length;i++)
    {
+       if(obj[string[i]])
+       {
+           
+       }
 
    }
 }
-isPanagram("ABC");
+isPanagram("abc");
