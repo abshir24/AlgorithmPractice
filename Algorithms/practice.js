@@ -4244,18 +4244,26 @@ let longestWord = (string)=>{
 // }
 
 // console.log(rotateString("Boris Godunov",5))
-let strtoobj = (string)=>{
-    let obj = {};
+let strtoobj = (string,int)=>{
+
     for(let i = 0;i<string.length;i++)
     {
-        if(obj[string[i]] == null)
+        if(int == null)
         {
-            obj[string[i]] = 0
+            if(obj[string[i]] == null)
+            {
+                obj[string[i]] = 0
+            }else{
+                obj[string[i]] += 1
+            }
         }else{
-            obj[string[i]] += 1
+            if(obj[string[i]] == null)
+            {
+                obj[string[i]] = 0
+            }
         }
     }
-
+    
     return obj
 }
 
@@ -4531,14 +4539,12 @@ var sortString = (text)=>{
 
 let isPanagram = (string)=>{
    string = sortString(string);let obj = createAlphabet(1); 
-   console.log(arr[string[0]])
    for(let i = 0;i<string.length;i++)
    {
        if(obj[string[i]])
        {
-           
+          obj[string[i]]++;
        }
-
    }
 }
 isPanagram("abc");
