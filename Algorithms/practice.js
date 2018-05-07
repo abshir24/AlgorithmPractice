@@ -4560,19 +4560,18 @@ var sortString = (text)=>{
 
 let interPerms = (str,str2,str3)=>{
     let one = 0, two = 0, three = 0
-
     while(three < str3.length)
     {
         if(one<str.length){
-            if(str[one++] !== str3[three])
+            if(str[one++] != str3[three])
             {
                 return false
             }
             three++;
         }
         if(two<str2.length) 
-        {
-            if(str[two++] !== str3[three])
+        { 
+            if(str2[two++] != str3[three])
             {
                 return false
             }
@@ -4580,6 +4579,7 @@ let interPerms = (str,str2,str3)=>{
         }
 
     }
-
     return true
 }
+
+console.log(interPerms("dne","ail","danlein"))
