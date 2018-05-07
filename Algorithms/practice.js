@@ -4562,23 +4562,20 @@ let interPerms = (str,str2,str3)=>{
     let one = 0, two = 0, three = 0
     while(three < str3.length)
     {
-        if(one<str.length){
-            if(str[one++] != str3[three])
-            {
-                return false
-            }
-            three++;
+        if(str[one++] != str3[three])
+        {
+            return false
         }
-        if(two<str2.length) 
-        { 
-            if(str2[two++] != str3[three])
-            {
-                return false
-            }
-            three++;
+        three++;
+      
+        if(str2[two++] != str3[three])
+        {
+            return false
         }
+        three++;
 
     }
+    if(one<str.length || two<str2.length){return false}
     return true
 }
 
