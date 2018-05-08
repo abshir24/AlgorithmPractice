@@ -1966,16 +1966,16 @@ function swap(arr,idx1,idx2){
 
 // console.log(zip(list1,list2).head)
 
-function remove(index,string){
-    var string2 = ""
-    for(let i = 0;i<string.length;i++){
-        if(i == index){
-            continue;
-        }
-        string2+=string[i]
-    }
-    return string2
-}
+// function remove(index,string){
+//     var string2 = ""
+//     for(let i = 0;i<string.length;i++){
+//         if(i == index){
+//             continue;
+//         }
+//         string2+=string[i]
+//     }
+//     return string2
+// }
 
 // function stringswap(a,b,string){
 //     var newstring = ""
@@ -2020,7 +2020,7 @@ function remove(index,string){
 //     str+= temp
 //     allperm(str,arr,i+=1)
 // }
-// console.log(allperm("2580369",[]))
+// console.log(allperm("team",[]))
 
 
 // codeBreak = (str,obj,arr)=>{
@@ -4581,6 +4581,20 @@ var sortString = (text)=>{
 
 // console.log(interPerms("dne","ail","danlein"))
 
-let allPermutations = (string,arr)=>{
-
+//Rays solution
+let allPermutations = (str)=>{
+    if(str.length<=1){return [str]};
+    let first  = str[0]
+    let rest = str.slice(1)
+    let perms = allPermutations(rest)
+    let madePerms = []
+    for(let i = 0;i<perms.length;i++){
+        for(let k = 0;k<perms[i].length;k++)
+        {
+            madePerms.push(perms[i].slice(0,k)+first+perms[i].slice(1))
+        }
+    }
+    return madePerms
 }
+
+console.log(allPermutations("team"))
