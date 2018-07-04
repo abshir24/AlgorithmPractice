@@ -4615,7 +4615,7 @@ let permute = (str,l,r)=>{
 }
 
 let stringSwap= (str,i,j)=>{
-    let charArr = str.split(','), temp = charArr[i];
+    let charArr = str.split(''), temp = charArr[i];
 
     charArr[i] = charArr[j];
 
@@ -4625,4 +4625,4 @@ let stringSwap= (str,i,j)=>{
 
 }
 
-permute("abc",0,2)
+permute("team",0,2)
