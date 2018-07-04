@@ -4582,19 +4582,47 @@ var sortString = (text)=>{
 // console.log(interPerms("dne","ail","danlein"))
 
 //Rays solution
-let allPermutations = (str)=>{
-    if(str.length<=1){return [str]};
-    let first  = str[0]
-    let rest = str.slice(1)
-    let perms = allPermutations(rest)
-    let madePerms = []
-    for(let i = 0;i<perms.length;i++){
-        for(let k = 0;k<perms[i].length;k++)
+// let allPermutations = (str,count)=>{
+//     if(str.length<=1){console.log(count);return [str];}
+//     let first  = str[0]
+//     let rest = str.slice(1)
+//     let perms = allPermutations(rest,count++)
+//     let madePerms = []
+//     for(let i = 0;i<perms.length;i++){
+//         for(let k = 0;k<perms[i].length;k++)
+//         {
+//             madePerms.push(perms[i].slice(0,k)+first+perms[i].slice(1))
+//         }
+//     }
+//     return madePerms
+// }
+
+// console.log(allPermutations("abc",0))
+
+//Online java solution
+
+let permute = (str,l,r)=>{
+    if(l==r) console.log(str);
+    else{
+        for(let i = l ;i<=r;i++)
         {
-            madePerms.push(perms[i].slice(0,k)+first+perms[i].slice(1))
+            str = stringSwap(str,l,i);
+            permute(str,l+1,r);
+            str = stringSwap(str,l,i)
+
         }
     }
-    return madePerms
 }
 
-console.log(allPermutations("team"))
+let stringSwap= (str,i,j)=>{
+    let charArr = str.split(','), temp = charArr[i];
+
+    charArr[i] = charArr[j];
+
+    charArr[j] = temp;
+
+    return charArr.join('')
+
+}
+
+permute("abc",0,2)
