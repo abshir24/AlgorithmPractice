@@ -4537,25 +4537,25 @@ var sortString = (text)=>{
 
 // console.log(isPermutation("mistermm","stimmmer"))
 
-// let isPanagram = (string)=>{
-// string = sortString(string);
-// let obj = createAlphabet(1); 
-//    for(let i = 0;i<string.length;i++)
-//    {
-//        if(obj[string[i]]!= null)
-//        {
-//           obj[string[i]]+=1;
-//        }
-//    }
-//    for(key in obj)
-//    {
-//        if(obj[key]==0)
-//        {
-//            return false
-//        }
-//    }
-//    return true
-// }
+let isPanagram = (string)=>{
+    string = sortString(string);
+    let obj = createAlphabet(1); 
+    for(let i = 0;i<string.length;i++)
+    {
+        if(obj[string[i]]!= null)
+        {
+            obj[string[i]]+=1;
+        }
+    }
+    for(key in obj)
+    {
+        if(obj[key]==0)
+        {
+            return false
+        }
+    }
+    return true
+}
 // console.log(isPanagram("How quickly daft jumping ebras vex!" ));
 
 // let interPerms = (str,str2,str3)=>{
@@ -4601,36 +4601,49 @@ var sortString = (text)=>{
 
 //Online java solution
 
-let permute = (str,l,r,arr,count)=>{
-    count++;
-    if(l==r) arr.push(str);
-    else{
-        for(let i = l ;i<=r;i++)
-        {
-            str = stringSwap(str,l,i);
+// let permute = (str,l,r,arr,count)=>{
+//     count++;
+//     if(l==r) arr.push(str);
+//     else{
+//         for(let i = l ;i<=r;i++)
+//         {
+//             str = stringSwap(str,l,i);
 
-            permute(str,l+1,r,arr,count);
+//             permute(str,l+1,r,arr,count);
         
-            str = stringSwap(str,l,i)
-            console.log(l,i)
-            return;
+//             str = stringSwap(str,l,i)
+//             console.log(l,i)
+//             return;
 
-        }
+//         }
+//     }
+//     return arr
+// }
+
+// let stringSwap= (str,i,j)=>{
+
+//     let charArr = str.split(''), temp = charArr[i];
+
+//     charArr[i] = charArr[j];
+
+//     charArr[j] = temp;
+
+//     return charArr.join('')
+
+// }
+
+// console.log(permute("team",0,3,[],0))
+
+let isPerfectPanagram = (str)=>{
+    if(isPanagram(str)){
+        let obj = strtoobj(str);
+        for(key in obj)
+            if(obj[key]>0)
+                return false;
+        return true
     }
-    return arr
+    else 
+        return false;
 }
 
-let stringSwap= (str,i,j)=>{
-
-    let charArr = str.split(''), temp = charArr[i];
-
-    charArr[i] = charArr[j];
-
-    charArr[j] = temp;
-
-    return charArr.join('')
-
-}
-
-console.log(permute("team",0,3,[],0))
-
+console.log(isPerfectPanagram("Mr.Jock,TV quiz PhD, bags few lynx."))
