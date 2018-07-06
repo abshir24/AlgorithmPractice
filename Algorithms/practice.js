@@ -4601,20 +4601,27 @@ var sortString = (text)=>{
 
 //Online java solution
 
-let permute = (str,l,r)=>{
-    if(l==r) console.log(str);
+let permute = (str,l,r,arr,count)=>{
+    count++;
+    if(l==r) arr.push(str);
     else{
         for(let i = l ;i<=r;i++)
         {
             str = stringSwap(str,l,i);
-            permute(str,l+1,r);
+
+            permute(str,l+1,r,arr,count);
+        
             str = stringSwap(str,l,i)
+            console.log(l,i)
+            return;
 
         }
     }
+    return arr
 }
 
 let stringSwap= (str,i,j)=>{
+
     let charArr = str.split(''), temp = charArr[i];
 
     charArr[i] = charArr[j];
@@ -4625,4 +4632,5 @@ let stringSwap= (str,i,j)=>{
 
 }
 
-permute("team",0,2)
+console.log(permute("team",0,3,[],0))
+
