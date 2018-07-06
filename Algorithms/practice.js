@@ -4646,4 +4646,4 @@ let isPerfectPanagram = (str)=>{
         return false;
 }
 
-console.log(isPerfectPanagram("Mr.Jock,TV quiz PhD, bags few lynx."))
+console.log(isPerfectPanagram("Mr.Jock,TV quiz PhD, bags few lynx.g5"))
