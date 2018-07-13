@@ -4071,14 +4071,14 @@ function getRandomInt(min, max) {
 
 // console.log(stringAnagrams("team",[]))
 
-function isArrayInArray(arr, item){
-    let item_as_string = JSON.stringify(item);
+// function isArrayInArray(arr, item){
+//     let item_as_string = JSON.stringify(item);
   
-    let contains = arr.some(function(ele){
-      return JSON.stringify(ele) === item_as_string;
-    });
-    return contains;
-}
+//     let contains = arr.some(function(ele){
+//       return JSON.stringify(ele) === item_as_string;
+//     });
+//     return contains;
+// }
 
 // Bad solution on the the number of times the function will will recurse based on the number input powered by 2
 
@@ -4634,16 +4634,34 @@ let isPanagram = (string)=>{
 
 // console.log(permute("team",0,3,[],0))
 
-let isPerfectPanagram = (str)=>{
-    if(isPanagram(str)){
-        let obj = strtoobj(str);
-        for(key in obj)
-            if(obj[key]>0)
-                return false;
-        return true
+// let isPerfectPanagram = (str)=>{
+//     if(isPanagram(str)){
+//         let obj = strtoobj(str);
+//         for(key in obj)
+//             if(obj[key]>0)
+//                 return false;
+//         return true
+//     }
+//     else 
+//         return false;
+// }
+
+// console.log(isPerfectPanagram("Mr.Jock,TV quiz PhD, bags few lynx.g5"))
+
+let looseInterleaveString = (s1,s2,s3)=>{
+    let idx1=idx2=idx3=0;
+    
+    while(idx3<s3.length){
+        if(s1[idx1++] != s3[idx3++])
+            return false
+        
+        if(s2[idx2++] != s3[idx3++])
+            return false
+          
     }
-    else 
-        return false;
+    return true;
+
 }
 
-console.log(isPerfectPanagram("Mr.Jock,TV quiz PhD, bags few lynx.g5"))
+
+console.log(looseInterleaveString("dne","ail","daniel"))
