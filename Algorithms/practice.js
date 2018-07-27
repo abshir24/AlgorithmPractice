@@ -4601,38 +4601,34 @@ let isPanagram = (string)=>{
 
 //Online java solution
 
-// let permute = (str,l,r,arr,count)=>{
-//     count++;
-//     if(l==r) arr.push(str);
-//     else{
-//         for(let i = l ;i<=r;i++)
-//         {
-//             str = stringSwap(str,l,i);
+let permute = (str,l,r,arr)=>{
+    if(l==r) arr.push(str);
+    else{
+        for(let i = l ;i<=r;i++)
+        {
+            str = stringSwap(str,l,i);
 
-//             permute(str,l+1,r,arr,count);
+            permute(str,l+1,r,arr);
         
-//             str = stringSwap(str,l,i)
-//             console.log(l,i)
-//             return;
+            str = stringSwap(str,l,i);
+        }
+    }
+    return arr
+}
 
-//         }
-//     }
-//     return arr
-// }
+let stringSwap= (str,i,j)=>{
 
-// let stringSwap= (str,i,j)=>{
+    let charArr = str.split(''), temp = charArr[i];
 
-//     let charArr = str.split(''), temp = charArr[i];
+    charArr[i] = charArr[j];
 
-//     charArr[i] = charArr[j];
+    charArr[j] = temp;
 
-//     charArr[j] = temp;
+    return charArr.join('')
 
-//     return charArr.join('')
+}
 
-// }
-
-// console.log(permute("team",0,3,[],0))
+// console.log(permute("team",0,3,[]))
 
 // let isPerfectPanagram = (str)=>{
 //     if(isPanagram(str)){
@@ -4648,20 +4644,28 @@ let isPanagram = (string)=>{
 
 // console.log(isPerfectPanagram("Mr.Jock,TV quiz PhD, bags few lynx.g5"))
 
-let looseInterleaveString = (s1,s2,s3)=>{
-    let idx1=idx2=idx3=0;
+// let looseInterleaveString = (s1,s2,s3)=>{
+//     let idx1=idx2=idx3=0;
     
-    while(idx3<s3.length){
-        if(s1[idx1++] != s3[idx3++])
-            return false
+//     while(idx3<s3.length){
+//         if(s1[idx1++] != s3[idx3++])
+//             return false
         
-        if(s2[idx2++] != s3[idx3++])
-            return false
+//         if(s2[idx2++] != s3[idx3++])
+//             return false
           
-    }
-    return true;
+//     }
+//     return true;
 
+// }
+
+
+// console.log(looseInterleaveString("dne","ail","daniel"))
+
+let allLooselyInterleavedStrings = (s1,s2)=>{
+    let fullString = s1+s2,len = fullString.length-1;
+
+    return permute(fullString,0,len,[]);
 }
 
-
-console.log(looseInterleaveString("dne","ail","daniel"))
+console.log(allLooselyInterleavedStrings("ab","yz"))
