@@ -1037,11 +1037,11 @@
 // console.log(slistpartition(newlist))
 
 
-// function swap(arr, i, j){
-//    var temp = arr[i];
-//    arr[i] = arr[j];
-//    arr[j] = temp;
-// }
+function swap(arr, i, j){
+   var temp = arr[i];
+   arr[i] = arr[j];
+   arr[j] = temp;
+}
    
 // function partition(arr, pivot, left, right){
 //    var pivotValue = arr[pivot],
@@ -1478,6 +1478,7 @@ function swap(arr,idx1,idx2){
 //     }
 //     return arr
 // }
+
 
 // console.log(selectionsort([4,3,1,2,5]))
 
@@ -4329,14 +4330,14 @@ let strtoobj = (string,int)=>{
 
 // console.log(isRotationOpt("ionIs Rotat", "Is Rotation"))
 
-Array.prototype.reverse = function(){
-    let s = 0, e = this.length-1;
-    while(s<e){
-        swap(this,s,e);
-        s++;e--
-    }
-    return this
-}
+// Array.prototype.reverse = function(){
+//     let s = 0, e = this.length-1;
+//     while(s<e){
+//         swap(this,s,e);
+//         s++;e--
+//     }
+//     return this
+// }
 // let censor = (string,array)=>{
 //     arr = [], str = "";
 //     for(let i = 0;i<string.length;i++)
@@ -4517,9 +4518,9 @@ Array.prototype.reverse = function(){
 
 // console.log(numToText(1111))
 
-var sortString = (text)=>{
-    return text.split('').sort().join('').toLowerCase();
-};
+// var sortString = (text)=>{
+//     return text.split('').sort().join('').toLowerCase();
+// };
 
 // let isPermutation = (string,string2)=>{
 //     let obj = strtoobj(sortString(string)), obj2 = strtoobj(sortString(string2));
@@ -4537,25 +4538,25 @@ var sortString = (text)=>{
 
 // console.log(isPermutation("mistermm","stimmmer"))
 
-let isPanagram = (string)=>{
-    string = sortString(string);
-    let obj = createAlphabet(1); 
-    for(let i = 0;i<string.length;i++)
-    {
-        if(obj[string[i]]!= null)
-        {
-            obj[string[i]]+=1;
-        }
-    }
-    for(key in obj)
-    {
-        if(obj[key]==0)
-        {
-            return false
-        }
-    }
-    return true
-}
+// let isPanagram = (string)=>{
+//     string = sortString(string);
+//     let obj = createAlphabet(1); 
+//     for(let i = 0;i<string.length;i++)
+//     {
+//         if(obj[string[i]]!= null)
+//         {
+//             obj[string[i]]+=1;
+//         }
+//     }
+//     for(key in obj)
+//     {
+//         if(obj[key]==0)
+//         {
+//             return false
+//         }
+//     }
+//     return true
+// }
 // console.log(isPanagram("How quickly daft jumping ebras vex!" ));
 
 // let interPerms = (str,str2,str3)=>{
@@ -4601,32 +4602,32 @@ let isPanagram = (string)=>{
 
 //Online java solution
 
-let permute = (str,l,r,arr)=>{
-    if(l==r) arr.push(str);
-    else{
-        for(let i = l ;i<=r;i++)
-        {
-            str = stringSwap(str,l,i);
+// let permute = (str,l,r,arr)=>{
+//     if(l==r) arr.push(str);
+//     else{
+//         for(let i = l ;i<=r;i++)
+//         {
+//             str = stringSwap(str,l,i);
 
-            permute(str,l+1,r,arr);
+//             permute(str,l+1,r,arr);
         
-            str = stringSwap(str,l,i);
-        }
-    }
-    return arr
-}
+//             str = stringSwap(str,l,i);
+//         }
+//     }
+//     return arr
+// }
 
-let stringSwap= (str,i,j)=>{
+// let stringSwap= (str,i,j)=>{
 
-    let charArr = str.split(''), temp = charArr[i];
+//     let charArr = str.split(''), temp = charArr[i];
 
-    charArr[i] = charArr[j];
+//     charArr[i] = charArr[j];
 
-    charArr[j] = temp;
+//     charArr[j] = temp;
 
-    return charArr.join('')
+//     return charArr.join('')
 
-}
+// }
 
 // console.log(permute("team",0,3,[]))
 
@@ -4662,10 +4663,87 @@ let stringSwap= (str,i,j)=>{
 
 // console.log(looseInterleaveString("dne","ail","daniel"))
 
-let allLooselyInterleavedStrings = (s1,s2)=>{
-    let fullString = s1+s2,len = fullString.length-1;
+// let allLooselyInterleavedStrings = (s1,s2)=>{
+//     let fullString = s1+s2,len = fullString.length-1;
 
-    return permute(fullString,0,len,[]);
+//     return permute(fullString,0,len,[]);
+// }
+
+// console.log(allLooselyInterleavedStrings("ab","yz"))
+
+// let selectionSort = (arr)=>
+// {
+//     let minIdx;
+//     for(let i = 0;i<arr.length;i++)
+//     {
+//         minIdx = i;
+//         for(let j= i ;j<arr.length;j++)
+//         {
+//             if(arr[j] < arr[minIdx])
+//                 minIdx = j
+//         }
+//         swap(arr,i,minIdx)
+//     } 
+    
+//     return arr
+// }
+
+// let insertionSort = (arr) =>
+// {
+//     let key;
+
+//     for(let i = 0;i<arr.length;i++)
+//     {
+//         key = arr[i]
+        
+//         j = i - 1
+
+//         while(j>=0 && key < arr[j])
+//             arr[j+1] = arr[j--]
+
+//         arr[j+1] = key
+//     }
+
+//     return arr
+// }
+
+
+
+let quickSort = (arr,left,right) =>
+{
+    let len = arr.length,
+            pivot,
+                partitionIndex
+    if(left < right)
+    {
+        pivot =  right
+
+        partitionIndex = partition(arr,pivot,left,right)
+
+        quickSort(arr,left,partitionIndex - 1)
+        quickSort(arr,partitionIndex + 1,right)
+    }
+
+    return arr
 }
 
-console.log(allLooselyInterleavedStrings("ab","yz"))
+let partition = (arr,pivot,left,right)=>
+{
+   let pivotVal = arr[pivot],
+        partitionIdx = left;
+    for(let i = left ;i<right;i++)
+    {
+        if(arr[i] < pivotValue)
+        {
+            swap(arr,i,partitionIndex++)
+        }
+
+    } 
+    
+    swap(arr,right,partitionIdx)
+
+    return partionIdx
+}
+
+let list  = [5,9,12,29,1,7,53,4,3,0,2]
+console.log(quickSort(list,0,list.length))
