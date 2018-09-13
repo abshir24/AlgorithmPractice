@@ -4671,79 +4671,67 @@ let strtoobj = (string,int)=>{
 
 // console.log(allLooselyInterleavedStrings("ab","yz"))
 
-// let selectionSort = (arr)=>
-// {
-//     let minIdx;
-//     for(let i = 0;i<arr.length;i++)
-//     {
-//         minIdx = i;
-//         for(let j= i ;j<arr.length;j++)
-//         {
-//             if(arr[j] < arr[minIdx])
-//                 minIdx = j
-//         }
-//         swap(arr,i,minIdx)
-//     } 
-    
-//     return arr
-// }
-
-// let insertionSort = (arr) =>
-// {
-//     let key;
-
-//     for(let i = 0;i<arr.length;i++)
-//     {
-//         key = arr[i]
-        
-//         j = i - 1
-
-//         while(j>=0 && key < arr[j])
-//             arr[j+1] = arr[j--]
-
-//         arr[j+1] = key
-//     }
-
-//     return arr
-// }
+let list  = [5,9,12,29,1,7,53,4,3,0,2]
 
 
 
-let quickSort = (arr,left,right) =>
+let selectionSort = (arr) =>
 {
-    let len = arr.length,
-            pivot,
-                partitionIndex
-    if(left < right)
+    let minIdx;
+
+    for(let i = 0;i<arr.length;i++)
     {
-        pivot =  right
+        minIdx = i;
 
-        partitionIndex = partition(arr,pivot,left,right)
-
-        quickSort(arr,left,partitionIndex - 1)
-        quickSort(arr,partitionIndex + 1,right)
+        for(let j = i;j<arr.length;j++)
+        {
+            if(arr[j] < arr[minIdx])
+                minIdx = j;
+        }
+      
+        swap(arr,i,minIdx)
     }
 
     return arr
 }
 
-let partition = (arr,pivot,left,right)=>
-{
-   let pivotVal = arr[pivot],
-        partitionIdx = left;
-    for(let i = left ;i<right;i++)
-    {
-        if(arr[i] < pivotValue)
-        {
-            swap(arr,i,partitionIndex++)
-        }
+console.log(selectionSort(list))
 
-    } 
+// let quickSort = (arr,left,right) =>
+// {
+//     let len = arr.length,
+//             pivot,
+//                 partitionIndex
+//     if(left < right)
+//     {
+//         pivot =  right
+
+//         partitionIndex = partition(arr,pivot,left,right)
+
+//         quickSort(arr,left,partitionIndex - 1)
+//         quickSort(arr,partitionIndex + 1,right)
+//     }
+
+//     return arr
+// }
+
+// let partition = (arr,pivot,left,right)=>
+// {
+//    let pivotValue = arr[pivot],
+//         partitionIdx = left;
+//     for(let i = left ;i<right;i++)
+//     {
+//         if(arr[i] < pivotValue)
+//         {
+//             swap(arr,i,partitionIndex++)
+//         }
+
+//     } 
     
-    swap(arr,right,partitionIdx)
+//     swap(arr,right,partitionIndex)
 
-    return partionIdx
-}
+//     return partitionIndex
+// }
 
-let list  = [5,9,12,29,1,7,53,4,3,0,2]
-console.log(quickSort(list,0,list.length))
+// let list  = [5,9,12,29,1,7,53,4,3,0,2]
+// console.log(quickSort(list,0,list.length))
