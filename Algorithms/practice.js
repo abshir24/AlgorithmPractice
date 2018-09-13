@@ -4675,27 +4675,48 @@ let list  = [5,9,12,29,1,7,53,4,3,0,2]
 
 
 
-let selectionSort = (arr) =>
-{
-    let minIdx;
+// let selectionSort = (arr) =>
+// {
+//     let minIdx;
 
-    for(let i = 0;i<arr.length;i++)
-    {
-        minIdx = i;
+//     for(let i = 0;i<arr.length;i++)
+//     {
+//         minIdx = i;
 
-        for(let j = i;j<arr.length;j++)
-        {
-            if(arr[j] < arr[minIdx])
-                minIdx = j;
-        }
+//         for(let j = i;j<arr.length;j++)
+//         {
+//             if(arr[j] < arr[minIdx])
+//                 minIdx = j;
+//         }
       
-        swap(arr,i,minIdx)
-    }
+//         swap(arr,i,minIdx)
+//     }
 
-    return arr
-}
+//     return arr
+// }
 
-console.log(selectionSort(list))
+// console.log(selectionSort(list))
+
+// let insertionSort = (arr) =>
+// {
+//     let start;
+    
+//     for(let i = 0;i<arr.length;i++)
+//     {
+//         start = arr[i]
+
+//         j = i - 1
+
+//         while(j>=0 && start<arr[j])
+//             arr[j+1] = arr[j--]
+
+//         arr[j+1] = start
+//     }
+
+//     return arr;
+// }
+
+// console.log(insertionSort(list))
 
 // let quickSort = (arr,left,right) =>
 // {
