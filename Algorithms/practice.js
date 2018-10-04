@@ -2180,12 +2180,13 @@ function swap(arr,idx1,idx2){
 //     return arr
 // }
 
-Array.prototype.concat = function(arr){
-    for(let i=0;i<arr.length;i++){
-        this.push(arr[i])
-    }
-    return
-}
+// Array.prototype.concat = function(arr){
+//     if(arr != unde)
+//         for(let i=0;i<arr.length;i++)
+//             this.push(arr[i])
+        
+//     return
+// }
 
 // console.log(concat([1,2],[3,4]))
 
@@ -4718,41 +4719,77 @@ let list  = [5,9,12,29,1,7,53,4,3,0,2]
 
 // console.log(insertionSort(list))
 
-// let quickSort = (arr,left,right) =>
-// {
-//     let len = arr.length,
-//             pivot,
-//                 partitionIndex
-//     if(left < right)
-//     {
-//         pivot =  right
 
-//         partitionIndex = partition(arr,pivot,left,right)
-
-//         quickSort(arr,left,partitionIndex - 1)
-//         quickSort(arr,partitionIndex + 1,right)
-//     }
-
-//     return arr
-// }
-
-// let partition = (arr,pivot,left,right)=>
-// {
-//    let pivotValue = arr[pivot],
-//         partitionIdx = left;
-//     for(let i = left ;i<right;i++)
-//     {
-//         if(arr[i] < pivotValue)
-//         {
-//             swap(arr,i,partitionIndex++)
-//         }
-
-//     } 
+let mergeSort = (arr) =>
+{
+    if(arr.length == 1)
+        return arr
     
-//     swap(arr,right,partitionIndex)
+    let mid = Math.floor(arr.length/2),
+            left = arr.slice(0,mid),
+                right = arr.slice(mid)
 
-//     return partitionIndex
-// }
+    return merge(mergeSort(left),mergeSort(right))
+}
+
+let merge = (left,right) =>
+{
+    let returnArr = [],
+            leftIdx = 0,
+                rightIdx = 0
+
+    while(leftIdx < left.length && rightIdx < right.length)
+    {
+        if(left[leftIdx] < right[rightIdx])
+            returnArr.push(left[leftIdx++])
+        else
+            returnArr.push(right[rightIdx++])
+    }
+
+    return returnArr.concat(left.slice(leftIdx).concat(right.slice(rightIdx)))
+}
+
+console.log(mergeSort(list))
+
+let quickSort = (arr,left,right) =>
+{
+    let len = arr.length,
+            pivot,
+                partitionIndex
+    if(left < right)
+    {
+        pivot =  right
+
+        partitionIndex = partition(arr,pivot,left,right)
+
+        quickSort(arr,left,partitionIndex - 1)
+        quickSort(arr,partitionIndex + 1,right)
+    }
+
+    return arr
+}
+
+let partition = (arr,pivot,left,right)=>
+{
+   let pivotValue = arr[pivot],
+        partitionIdx = left;
+    for(let i = left ;i<right;i++)
+    {
+        if(arr[i] < pivotValue)
+        {
+            swap(arr,i,partitionIndex++)
+        }
+
+    } 
+    
+    swap(arr,right,partitionIndex)
+
+    return partitionIndex
+}
 
 // let list  = [5,9,12,29,1,7,53,4,3,0,2]
 // console.log(quickSort(list,0,list.length))
+
+let quadFunc = (x) =>{
+    return (7*(Math.pow(x,2))-(5*x)+8)
+}
