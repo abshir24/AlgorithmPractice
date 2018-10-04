@@ -4793,3 +4793,9 @@ let partition = (arr,pivot,left,right)=>
 let quadFunc = (x) =>{
     return (7*(Math.pow(x,2))-(5*x)+8)
 }
+
+console.log(quadFunc(-2))
+console.log(quadFunc(-1))
+console.log(quadFunc(0))
+console.log(quadFunc(1))
+console.log(quadFunc(2))
