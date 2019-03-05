@@ -1037,11 +1037,11 @@
 // console.log(slistpartition(newlist))
 
 
-function swap(arr, i, j){
-   var temp = arr[i];
-   arr[i] = arr[j];
-   arr[j] = temp;
-}
+// function swap(arr, i, j){
+//    var temp = arr[i];
+//    arr[i] = arr[j];
+//    arr[j] = temp;
+// }
    
 // function partition(arr, pivot, left, right){
 //    var pivotValue = arr[pivot],
@@ -1459,12 +1459,12 @@ function singlylistreverse(list){
 // }
 // list.reverse()
 
-function swap(arr,idx1,idx2){
-    var temp = arr[idx1];
-    arr[idx1] = arr[idx2]
-    arr[idx2] = temp;
-    return
-}
+// function swap(arr,idx1,idx2){
+//     var temp = arr[idx1];
+//     arr[idx1] = arr[idx2]
+//     arr[idx2] = temp;
+//     return
+// }
 
 // function selectionsort(arr){
 //     for(var i=0;i<arr.length;i++){
@@ -4720,82 +4720,134 @@ let list  = [5,9,12,29,1,7,53,4,3,0,2]
 // console.log(insertionSort(list))
 
 
-let mergeSort = (arr) =>
-{
-    if(arr.length == 1)
-        return arr
+// let mergeSort = (arr) =>
+// {
+//     if(arr.length == 1)
+//         return arr
     
-    let mid = Math.floor(arr.length/2),
-            left = arr.slice(0,mid),
-                right = arr.slice(mid)
+//     let mid = Math.floor(arr.length/2),
+//             left = arr.slice(0,mid),
+//                 right = arr.slice(mid)
 
-    return merge(mergeSort(left),mergeSort(right))
+//     return merge(mergeSort(left),mergeSort(right))
+// }
+
+// let merge = (left,right) =>
+// {
+//     let returnArr = [],
+//             leftIdx = 0,
+//                 rightIdx = 0
+
+//     while(leftIdx < left.length && rightIdx < right.length)
+//     {
+//         if(left[leftIdx] < right[rightIdx])
+//             returnArr.push(left[leftIdx++])
+//         else
+//             returnArr.push(right[rightIdx++])
+//     }
+
+//     return returnArr.concat(left.slice(leftIdx).concat(right.slice(rightIdx)))
+// }
+
+
+
+// console.log(mergeSort([8927564,87833366,91058312,69807422,33395580]))
+
+//This is a helper function that is implemented in the partition function..
+//Its purpose is to swap 2 elements in an array
+/* @param arr is the list of integers that is being passed in */
+/* @param i is starting swap index */
+/* @param j is the second swap index */
+
+let swap = (arr, i, j) =>{
+    var temp = arr[i]; // store the element at the index i in into a temporary variable
+    arr[i] = arr[j]; // store the element at index j in into index i
+    arr[j] = temp; // store the item in the temporary variable in the index j slot
 }
-
-let merge = (left,right) =>
-{
-    let returnArr = [],
-            leftIdx = 0,
-                rightIdx = 0
-
-    while(leftIdx < left.length && rightIdx < right.length)
-    {
-        if(left[leftIdx] < right[rightIdx])
-            returnArr.push(left[leftIdx++])
-        else
-            returnArr.push(right[rightIdx++])
-    }
-
-    return returnArr.concat(left.slice(leftIdx).concat(right.slice(rightIdx)))
-}
-
-console.log(mergeSort(list))
-
+ 
+/*Quicksort function handles the main functionality for this sorting algorithm.
+The Quicksort algorithms works by selecting a pivot index, and then taking all items larger
+than the value at the pivot index and moving them to the left of that index, and items smaller than the pivot
+value will get moved to the right. These steps will get repeated until the list is sorted completely
+*/
+/* @param arr is the list of integers that is being passed in */
+/* @param left is the index of the starting element */
+/* @param right is the index of the last element */
+/* @returns sorted array of elements */
 let quickSort = (arr,left,right) =>
 {
-    let len = arr.length,
-            pivot,
-                partitionIndex
-    if(left < right)
+    let len = arr.length; //set len == to length of the array
+    let pivot; //declare a pivot variable for future use in function
+    let partitionIdx; //delcare a partiion index for futrue use in the function
+
+    if(left < right) 
     {
-        pivot =  right
+        pivot =  right // this is the pivot index assigned to the last index of the array/subarray
 
-        partitionIndex = partition(arr,pivot,left,right)
+        // the index where the array will get partitioned is returned after this partition function is ran
+        // see partition function for instructions on how it works
+        partitionIndex = partition(arr,pivot,left,right) 
 
+        //calling on the quicksort function recursively will continue this process until the array is completley sorted.
+
+        //sorts the left side of the array
         quickSort(arr,left,partitionIndex - 1)
+
+        //sorts the right side of the array
         quickSort(arr,partitionIndex + 1,right)
     }
 
+    //returns sorted array 
     return arr
 }
 
+/* Partition function moves all the elements that are smaller than the element at the pivot index
+to the right and the larger items the the left, while keeping track of the partition.
+The position of the partition is needed so that we can split the array into two parts for future
+steps.*/
+/* @param arr is the list of integers that is being passed in */
+/* @param pivot is the index used as divider to sort the array */
+/* @param left is the index of the first element */
+/* @param right is the index of the last element */
+/* @returns the partionIndex for the quicksort function to use */
+
 let partition = (arr,pivot,left,right)=>
 {
-   let pivotValue = arr[pivot],
-        partitionIdx = left;
+    //this variable stores the value at the pivot index
+   let pivotValue = arr[pivot];
+
+    //this variable stores the partition index at the begining of the array/subarray
+    let partitionIndex = left;
+
+    //For loop goes from begining to end of array
     for(let i = left ;i<right;i++)
     {
-        if(arr[i] < pivotValue)
+        //if the value of the element at this index is greater than
+        //the pivot value then we will move this element to the left side of the pivot
+        if(arr[i] > pivotValue)
         {
             swap(arr,i,partitionIndex++)
         }
-
     } 
     
+    //this last swap is made to reset the pivot to the end of the array
+    //after the largest elements have been moved to the left.
     swap(arr,right,partitionIndex)
 
+    //return the partition index so that it may be used in the quicksort function
     return partitionIndex
 }
 
-// let list  = [5,9,12,29,1,7,53,4,3,0,2]
-// console.log(quickSort(list,0,list.length))
 
-let quadFunc = (x) =>{
-    return (7*(Math.pow(x,2))-(5*x)+8)
-}
+console.log(quickSort([3,1,2,5,4],0,4))
 
-console.log(quadFunc(-2))
-console.log(quadFunc(-1))
-console.log(quadFunc(0))
-console.log(quadFunc(1))
-console.log(quadFunc(2))
+
+// let quadFunc = (x) =>{
+//     return (7*(Math.pow(x,2))-(5*x)+8)
+// }
+
+// console.log(quadFunc(-2))
+// console.log(quadFunc(-1))
+// console.log(quadFunc(0))
+// console.log(quadFunc(1))
+// console.log(quadFunc(2))
