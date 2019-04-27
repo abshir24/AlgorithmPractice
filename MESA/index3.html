@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,shrink-to-fit=no">
+      <link rel="stylesheet" href="stuff.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.css"/>
+
+      <title>Hello, world</title>
+      <style>
+          input[type="radio"]{
+              margin-right:10px;
+          }
+      </style>
+  </head>
+
+  <body>
+    <div class="main-nav">
+        <ul class="nav">
+          <li><a href="stuff.html">Basic Information</a></li>
+          <li><a href="stuff1.html">Academic Information</a></li>
+          <li><a href="stuff2.html">Demographic</a></li>
+        </ul>
+    </div>
+    <header>
+    <div class="row">
+      <h2 class="col-md-12"style="width:100%; background:slategray; color:#ffffff; text-align:center;">Demographic</h2>
+    </div>
+</header>
+
+<div class="form-row">
+    <div class="col-md-12">
+        <label for="validationServer023">Gender Identity</label>
+        <div class="form-row">
+            <input type="radio" name="GI" value="Male"> Male<br>
+            <input type="radio" name="GI" value="Female"> Female<br>
+            <input type="radio" name="GI" value="Non-Conforming"> Non-Conforming<br>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <label for="validationServer023">Resident Status</label>
+        <div class="form-row">
+            <input type="radio" name="Residency" value="US citizen"> Us Citizen<br>
+            <input type="radio" name="Residency" value="Permanent Resident">Permanent Resident<br>
+            <input type="radio" name="Residency" value="F1 Visa">F1 Visa<br>
+            <input type="radio" name="Residency" value="Resident Alien">Resident Alien<br>
+            <input type="radio" name="Residency" value="DACA">DACA<br>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <label for="validationServer023">Ethnicity:</label>
+        <p for="validationServer023">(Check all that apply)</p>
+        <input type="checkbox" value="Native American or Alaskan Native">Native American or Alaskan Native <br>
+        <input type="checkbox" value="Asian">Asian<br>
+        <input type="checkbox" value="Black/African American" checked>Black/African American<br>
+        <input type="checkbox" value="Hispanic/Latinx" checked>Hispanic/Latinx<br>
+        <input type="checkbox" value="Native Hawaiian/Pacific Islander" checked>Native Hawaiian/Pacific Islander<br>
+        <input type="checkbox" value="White" checked>White <br>
+        <input type="checkbox" value="Multi-Racial" checked>Multi-Racial <br>
+
+        <label for="validationServer023">If you are Native American or Alaskan Native, what is your Tribal Affiliation:</label>
+        <input type="textfield" name="Tribal Affiliation" class="form-control is-invalid" id="validationServer023" placeholder="Explain"
+        required>
+    </div>
+
+    <div class="col-md-12">
+        <label for="validationServer023">Is a language other than English spoken regularly in your home?</label>
+        <div class="form-row">
+            <input type="radio" name="Language" value="Yes">Yes<br>
+            <input type="radio" name="Language" value="No">No<br>
+            <label for="validationServer023">If yes, specify:</label>
+            <input type="textfield" name="yeslang" class="form-control is-invalid" id="validationServer023" placeholder="Explain"
+            required>
+        </div>
+    <div>
+</div>
+
+<div>
+
+
+<button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"/>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
